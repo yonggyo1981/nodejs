@@ -25,7 +25,45 @@ asyncFunc("작업1", 2000, function() {
 
 
 2. Promise 생성자
+function asyncFunc(workNm, time) {
+    return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+            if (workNm) 
+                resolve(workNm);
+            else 
+                reject();
+        }, time);
+    });
+}
 
+asyncFunc("작업1", 2000)
+    .then(function(workNm) {
+        console.log(workNm + " 완료!");
+
+        return asyncFunc("작업2", 1500);
+    })
+    .then(function(workNm) {
+        console.log(workNm + " 완료!");
+        return asyncFunc("작업3", 700);
+    })
+    .then(function(workNm) {
+        console.log(workNm + " 완료!");
+    })
+    .catch(function() {
+        console.log("작업 없음!");
+    });
 
 
 3. async ~ await
+(async function() {
+    try {
+        let workNm = await asyncFunc("작업1", 2000);
+        console.log(workNm + " 완료!");
+        workNm = await asyncFunc("작업2", 1500);
+        console.log(workNm + " 완료!");
+        workNm = await asyncFunc("작업3", 700);
+        console.log(workNm + " 완료!");
+    } catch (err) {
+        console.log("작업 없음!");
+    }
+})();
