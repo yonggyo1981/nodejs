@@ -114,3 +114,39 @@ A -> B -> C -> 결과는 처리되는대로(순서의 보장 X)
 			
 		async ~ await 구문
 			- Promise의 구조를 좀더 단순하게 개선
+			
+			async function (....) {
+				let result = await 비동기 함수;
+					// result -> then으로 유입된 데이터(resolve에서 인수로 넘겨준 데이터)
+					result  = await 비동기 함수;
+								...
+								...
+					result = await 비동기 함수;
+			};
+			
+			예) 
+			(async function() {
+				let workNm = await asyncFunc("작업1", 2000);
+				console.log(workNm + " 완료!");
+				workNm = await asyncFunc("작업2", 1500);
+				console.log(workNm + " 완료!");
+				workNm = await asyncFunc("작업3", 1000);
+				console.log(workNm + " 완료!");
+			})();
+			
+			async ~ await - reject 발생하면 error 발생
+			
+			async function (....) {
+				try {
+					let result = await 비동기 함수;
+						// result -> then으로 유입된 데이터(resolve에서 인수로 넘겨준 데이터)
+						result  = await 비동기 함수;
+									...
+									...
+						result = await 비동기 함수;
+				} catch (err) {
+					// reject로 호출되면 
+				}
+			};
+			
+			
