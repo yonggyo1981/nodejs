@@ -1,0 +1,31 @@
+function asyncFunc(workNm, time) {
+	setTimeout(function() {
+		console.log(workNm + " 완료!");
+	}, time);
+}
+
+비동기 순차 실행 
+작업1 - 2초 뒤 실행, 작업2 - 1.5초 뒤 실행, 작업3 - 0.7초 실행
+
+1. 함수 콜백 방식
+function asyncFunc(workNm, time, callback) {
+	setTimeout(function() {
+		console.log(workNm + " 완료!");
+        if (typeof callback == 'function') {
+            callback();
+        }
+	}, time);
+}
+
+asyncFunc("작업1", 2000, function() {
+    asyncFunc("작업2", 1500, function() {
+        asyncFunc("작업3", 700);
+    });
+});
+
+
+2. Promise 생성자
+
+
+
+3. async ~ await
