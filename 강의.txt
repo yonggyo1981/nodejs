@@ -15,3 +15,88 @@ Node.js
 	작업 A, B, C
 	A -> B -> C ->B는 A가 반드시 끝나야 시작, 처리, C는 B가 반드시 끝나고 시작
 	
+	비동기  - 작업은 요청한 순서대로 시작 
+	           - 결과는 끝나는대로 전달
+			   - 결과의 순서는 요청한 순서와 다를 수 있다
+			   
+			   
+			   - 문제1) 작업의 순서가 보장되지 않는다.
+			   
+			   예) 회원 가입 -> 로그인
+			        -> 회원가입 처리가 시간 더 걸리는 경우 
+					-> 회원가입 -> 로그인 
+					-> 로그인 -> 회원가입 -> 동작 X 
+					
+					-> 비동기 처리를 하더라도 순서 유지 필요한 경우가 많다
+					
+				1) 함수안에 인수를 함수로 실행하는 방식(콜백 방식)으로 해결
+					
+					예) 
+					function asyncFunc(workNm, worktime, callback) {
+						setTimeout(function() {
+
+							console.log(workNm);
+							if (typeof callback == 'function') {
+								callback();
+							}
+
+						}, worktime);
+					}
+					
+					asyncFunc("작업1", 2000);
+					asyncFunc("작업2", 1000);
+					asyncFunc("작업3", 1500);
+				
+					작업2 -> 작업3 -> 작업1 
+					
+					asyncFunc("작업1", 2000, function() {
+						asyncFunc("작업2", 1000, function() {
+							asyncFunc("작업3", 1500);
+						});
+					});
+					
+					작업1(2000) -> 작업2(1000) -> 작업3(1500)
+					
+					
+					asyncFunc("작업1", 2000, function() {
+						asyncFunc("작업2", 1500, function() {
+							asyncFunc("작업3", 1000, function() {
+								asyncFunc("작업4", 2000, function() {
+									asyncFunc("작업5", 1000);
+								});
+							});
+						})
+					});
+					
+					비동기 실행 -> 콜백 함수를 내부에서 실행 
+									-> 콜백 안에 콜백 -> 콜백 
+									-> 콜백 지옥
+									-> 가독성 X, 유지 보수의 어려움
+									
+									
+				es6+(2015) 
+					- 콜백 지옥 -> 구조 개선 -> Promise 생성자
+					
+					
+					Promise 생성자의 인수 resolve, reject  -> 함수 인수
+					
+					const promise = new Promise(function(resolve, reject) {
+						// 성공시 resolve 함수를 호출
+						// 실패시 reject 함수를 호출
+					});
+					
+					/*
+						Promise 생성자에서 resolve를 호출하게 되면 
+						promise 객체의 then으로 유입
+					*/
+					promise.then(function(data) {
+							// data -> resolve를 호출할떄 인수로 넘겨준 값 
+					});
+					
+					/*	
+						Promise 생성자에서 reject를 호출 하면 
+						promise객체의 catch로 유입이 된다
+					*/
+					promise.catch(function(data) {
+						// data -> reject를 호출 할때 넘겨준 인수
+					});
