@@ -1,0 +1,116 @@
+Promise 
+
+싱글쓰레드 - 일꾼 1명
+함수가 실행 부분 - 호출 스택
+
+동기식 
+ - 실행순서와 결과가 동일하게 나오는 
+ A -> B -> C  결과 A -> B -> C
+ 
+비동기식
+- 실행은 순서대로 실행 -> 결과는 처리되는대로 나오는 방식
+A -> B -> C -> 결과는 처리되는대로(순서의 보장 X)
+
+회원 가입 후 -> 로그인 
+-> 로그인 -> 회원이 가입
+
+비동기 순차실행 
+1. 함수안에 인수로 실행 -> 콜백 방식
+	예)
+		function asyncFunc(workNm, time, callback) {
+			setTimeout(function() {
+				console.log(workNm);
+
+				if (typeof callback == 'function') {
+					callback();
+				}
+			}, time);
+		}
+		
+		asyncFunc("작업1", 2000, function() {
+			asyncFunc("작업2", 1500, function() {
+				asyncFunc("작업3", 1000);
+			});
+		});
+		
+		콜백이 많아지면 중첩이 많아진다 
+			- 가독성 X
+			- 유지보수가 어렵다
+			- 콜백지옥 
+		
+	es6+(2015)
+		- Promise 생성자
+		   - 비동기 순차실행의 콜백 중첩을 어느정도 해결
+		   
+		   const promise = new Promise(function(resolve, reject) {
+				// resolve - 개발자가 로직이 성공했다고 생각하는 부분에 호출(resolve())
+				
+				// reject - 개발자가 로직이 실패했다고 생각하는 부분에 호출(reject())
+		   });
+		   
+		   promise
+			.then(function(data) { // resolve가 호출 되면 유입이 되는 부분 
+				// data는 resolve 함수가 호출될때 인수로 넘겨준 값
+		   
+		   })
+		   .catch(function(data) { // reject가 호출되면 유입이 되는 부분 
+		      // data는 reject 함수가 호출될 때 인수로 넘겨준 값
+		   
+		   });
+		   
+		  예)
+			const promise = new Promise(function(resolve, reject) {
+				const num = 2;
+				if (num % 2 == 0) { // 짝수 일때 resolve
+					resolve(num);
+				} else { // 홀수 reject
+					reject(num);
+				}
+			});
+		
+			promise
+			  .then(function(num) {
+				   console.log(num + "는 짝수");
+			  })
+			  .catch(function(num) {
+				   console.log(num + "는 홀수");
+			  });
+		   
+		   
+			
+			function asyncFunc(workNm, time) {
+				return new Promise(function(resolve, reject) {
+					setTimeout(function() {
+						if (workNm) {
+							resolve(workNm);
+						} else {
+							reject("작업 없음");
+						}
+					}, time);
+				});
+			}
+			
+			
+			비동기 순차실행 -> then 구간에서 새로운 Promise 인스턴스를 생성해서 반환
+			                      -> 다음 then으로 이동
+		  
+		  
+		    asyncFunc("작업1", 2000)
+				.then(function(workNm) {
+					console.log(workNm + " 완료!");
+					return asyncFunc("작업2", 1500);
+				})
+				.then(function(workNm) {
+					console.log(workNm + " 완료!");
+					return asyncFunc("작업3", 1000);
+				})
+				.then(function(workNm) {
+					console.log(workNm + " 완료!");
+				})
+				.catch(function(err) {
+					console.error(err);
+				});
+				
+			
+		async ~ await 구문
+			- Promise의 구조를 좀더 단순하게 개선
