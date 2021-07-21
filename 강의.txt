@@ -81,8 +81,8 @@ Node.js
 					Promise 생성자의 인수 resolve, reject  -> 함수 인수
 					
 					const promise = new Promise(function(resolve, reject) {
-						// 성공시 resolve 함수를 호출
-						// 실패시 reject 함수를 호출
+						// 로직 성공시 resolve 함수를 호출
+						// 로직 실패시 reject 함수를 호출
 					});
 					
 					/*
@@ -99,4 +99,54 @@ Node.js
 					*/
 					promise.catch(function(data) {
 						// data -> reject를 호출 할때 넘겨준 인수
+					});
+					
+					예)
+					function asyncFunc(workNm, worktime, callback) {
+						return new Promise(function(resolve, reject) {
+							setTimeout(function() {
+
+								if (workNm) { // 작업이 있으면 resolve 호출
+									resolve(workNm);
+								} else { // 작업 내용이 없으면 reject 호출
+									reject(workNm);
+								}
+
+								if (typeof callback == 'function') {
+									callback();
+								}
+
+							}, worktime);
+						});
+					}
+					
+					
+				asyncFunc("작업1", 2000)
+					  .then(function(workNm) {
+							console.log(workNm + " 완료!");
+						
+					   })
+					   .catch(function(workNm) {
+							console.log(workNm + " 실패!");
+					   });
+					   
+			비동기 순차 실행 
+				.then -> return promise 객체 
+				
+				
+				asyncFunc("작업1", 2000)
+					.then(function(workNm) {
+						console.log(workNm + " 완료!");
+						return asyncFunc("작업2", 1500);
+					})
+					.then(function(workNm) {
+						console.log(workNm + " 완료!");
+
+						return asyncFunc("작업3", 700);
+					})
+					.then(function(workNm) {
+						console.log(workNm + " 완료!");
+					})
+					.catch(function(workNm) {
+						console.log(workNm + "실패 !");
 					});
