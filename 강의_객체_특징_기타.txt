@@ -8,3 +8,68 @@ const person = {
         console.log("걷기");
     }
 };
+
+객체 속성, 값 축약
+
+const list = [0,1,2,3,4,5];
+const data = {
+    list : list
+};
+===> const data = { list };
+
+
+const list1 = [0,1,2,3];
+const list2 = [4,5,6,7];
+const data = { list1, list2 };
+				==> { list1 : list1, list2 : list2 }
+				
+				
+객체의 구조 분해 문법
+	1. 객체의 속성명과 동일한 변수명을 { }안에 정의해 주면 분해가 가능
+	    - 독립된 변수, 함수로 분해 가능하다
+		
+		const person = {
+			walk : function() {
+				console.log("걷기");
+			},
+		};
+		
+		const { walk } = person;
+		
+		walk 메서드가 walk 변수로 구조 분해
+		
+		
+		const person = {
+			age : 40,
+			gender : "F",
+			walk : function() {
+				console.log("걷기");
+			},
+		};
+		
+		const { age, gender, walk } = person;
+		
+		
+		const person = {
+			age : 40,
+			gender : "F",
+			status : { 
+			   count : 10,
+			},
+			walk : function() {
+				console.log("걷기");
+			},
+		};
+		
+		const { status : { count } } = person;
+		
+		
+	  배열객체에서 구조분해
+	   const [ .... ] -> 순서로 분해
+	   
+	   const nums = [0,1,2,3,4,5];
+	   const [ a, b, c, d, e ] = nums;
+	   
+	   const nums = [0,1,2,3,4,5];
+	   const [a,,,,,e] = nums;
+	  	
