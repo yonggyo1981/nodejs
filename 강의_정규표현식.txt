@@ -136,6 +136,12 @@
 								images.push(data[1]);
 							}
 							
+							과제)
+							네이버 메인 (document.body.innerHTML)
+							1) 태그의 아이디명 전체 추출 
+							2) 태그의 클래스명 전체 추출 
+							3) a태그의 href 속성의 값(링크 URL) 전체 추출 
+							
 	플래그
 		/패턴/플래그
 		i - case-insensitive -> 대소문자 구분 없이 체크 [a-zA-Z] --> /[a-z]/i 
