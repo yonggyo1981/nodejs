@@ -14,3 +14,28 @@ querystring 모듈
 url 모듈 - url관련된 기능
 	.parse -> URL을 구성 요소로 분해
 	.format -> 분해된 URL을 결합
+	
+	
+	
+url 모듈의 URL 생성자
+	URL - class -> 생성자
+	
+	const url = new URL("URL 경로");
+	
+	- 쿼리스트링의 가공 편하게 해주는 편의 기능
+	- URL인스턴스.searchParams -> 쿼리스트링 관리 객체 
+			Object 객체 
+				.get("속성명") -> 조회
+			    .getAll("속성명") -> 전체 조회
+				.append("속성", 값") -> 쿼리 스트링 값 하나 더 추가
+				.delete("속성") -> 쿼리스트링 값 삭제
+				.set("속성", "값") -> 쿼리스트링 (없는경우)추가 또는 변경
+				.toString() -> 쿼리스트링 관리 객체 -> 쿼리스트링 문자열로 변환
+				(객체, 인스턴스를 출력할때도 호출)
+				
+		formData -> Object 상속 
+					.get
+					.getAll 
+					.append
+					.delete 
+					.set
