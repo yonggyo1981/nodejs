@@ -1,0 +1,11 @@
+global 
+	Node.js에서 최상위 객체 - global 
+	전역에서 공유가 가능
+	
+	예) 브라우저 객체 모델 - 최상위 객체 - window
+	
+	
+	Node.js 함수 안에서 this === global 
+		       함수 밖에서 this === module.exports 
+			   
+	브라우저 객체 모델에서는 둘다 window(함수 밖, 함수 안)

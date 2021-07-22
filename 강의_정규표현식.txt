@@ -150,7 +150,7 @@
 								
 								예)
 								const html = document.body.innerHTML;
-								const pattern = /<[a-z0-9]+\s?.*\s+id=["']?([^"'>]+)["']?[^>]*>/igm;
+								const pattern = /<[a-z0-9]+.*\s+id=["']?([^"'>]+)["']?[^>]*>/igm;
 								
 								let data;
 								const ids = [];
@@ -159,7 +159,40 @@
 								}
 								
 							2) 태그의 클래스명 전체 추출 
+								<div class="클래스명">
+								<div class='클래스명'>
+								<div class=클래스명>
+								<div id='..' data-price='..' class='클래스명'>
+								<div class='클래스명' id='..' data-price='...'>
+								<DIV CLASS="클래스명">
+							
+								/<[a-z0-9]+.*\s+class=["']?([^"'>]+)["']?[^>]*>/igm
+								
+								const html = document.body.innerHTML;
+								const pattern = /<[a-z0-9]+.*\s+class=["']?([^"'>]+)["']?[^>]*>/igm;
+								
+								let data;
+								const classes = [];
+								while (data = pattern.exec(html)) {
+									classes.push(data[1]);
+								}
+								
 							3) a태그의 href 속성의 값(링크 URL) 전체 추출 
+							<a href="링크 URL">
+							<a href='링크 URL'>
+							<a href=링크 URL>
+							<a class='..' id='..' ... href='링크 URL'>
+							<a href='링크 URL' class='...' id='...'>
+							
+							/<a.*\s+href=["']?([^"'>]+)["']?[^>]*>/igm
+							
+							const html = document.body.innerHTML;
+							const pattern = /<a.*\s+href=["']?([^"'>]+)["']?[^>]*>/igm;
+							let data;
+							const links = [];
+							while (data = pattern.exec(html)) {
+								links.push(data[1]);
+							}
 							
 	플래그
 		/패턴/플래그

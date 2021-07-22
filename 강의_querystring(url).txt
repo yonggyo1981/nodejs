@@ -1,0 +1,16 @@
+http://www.yonggyo.com/?page=3&limit=10&category=nodejs&category=javascript
+
+쿼리스트링 - URL 형태의 데이터 (키=값&키=값)
+page=3
+limit=10
+category=nodejs
+category=javascript
+
+querystring 모듈
+	쿼리스트링 형태의 문자열 -> 객체의 형태로 변환(.parse())
+	
+	객체 형태의 값 -> 쿼리 스트링 형태(.stringify())
+	
+url 모듈 - url관련된 기능
+	.parse -> URL을 구성 요소로 분해
+	.format -> 분해된 URL을 결합

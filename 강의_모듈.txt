@@ -1,0 +1,24 @@
+module - 작성한 기능을 다른 페이지에서 공유하기위한 객체
+			.exports = 작성한 객체, 변수, 함수 
+			
+require - 공유한 기능을 사용하기위해 불러오는 함수
+			- module 의 경로
+			
+			파일명 입력 -> 1) 내장모듈
+							     2) 외부에서 설치한 모듈(node_modules)
+								 
+			사용자 정의 모듈
+					-> 파일 경로를 절대 경로 또는 상대 경로 명시
+					-> 기준 - 현재 파일이 실행되는 위치
+					  같은 폴더 ("./파일명")
+					  
+					  test/test.js -> require("./test/test.js");
+					  
+					-> 파일명은 확장자(.js, .json) 생략 가능
+					
+					-> index.js는 생략 가능 
+					member/index.js 
+					-> require('./member');
+
+파일 실행방법
+node 파일명 -> .js(생략 가능)
