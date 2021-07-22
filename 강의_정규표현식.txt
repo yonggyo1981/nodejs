@@ -119,6 +119,23 @@
 					
 					/<img\s+\S*src=["']?([^"'>]+)["']?[^>]*>/igm
 					
+					.exec -> 실행될때마다 다음 찾는 위치로 이동 하면서 데이터를 추출 
+							1번 실행시 데이터는 1번
+							-> 마지막 위치 -> null 반환
+							
+							false가 되는 경우 -> 0, "", null, undefined
+							
+							-> 전부 추출 -> 반복문을 사용하여 추출
+							
+							예) img태그의 src 속성의 이미지 URL 전부 추출 예
+							const html = document.body.innerHTML;
+							const pattern = /<img\s+\S*src=["']?([^"'>]+)["']?[^>]*>/igm;
+							let data;
+							const images = [];
+							while(data = pattern.exec(html)) { // data 객체로 반환 - true, 끝에 도달하면 null - false - 반복 정지
+								images.push(data[1]);
+							}
+							
 	플래그
 		/패턴/플래그
 		i - case-insensitive -> 대소문자 구분 없이 체크 [a-zA-Z] --> /[a-z]/i 
