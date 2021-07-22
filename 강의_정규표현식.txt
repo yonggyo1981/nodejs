@@ -138,7 +138,26 @@
 							
 							과제)
 							네이버 메인 (document.body.innerHTML)
-							1) 태그의 아이디명 전체 추출 
+							1) 태그의 아이디명 전체 추출
+								<div id="아이디명">
+								<div id='아이디명'>
+								<div class='...' data-price='...' id='아이디명'>
+								<div id=아이디명>
+								<DIV ID="아이디명">
+								<div         id='아이디명' class='...' data-price='...'>
+								
+								/<[a-z0-9]+\s?.*\s+id=["']?([^"'>]+)["']?[^>]*>/igm 
+								
+								예)
+								const html = document.body.innerHTML;
+								const pattern = /<[a-z0-9]+\s?.*\s+id=["']?([^"'>]+)["']?[^>]*>/igm;
+								
+								let data;
+								const ids = [];
+								while (data = pattern.exec(html)) {
+									ids.push(data[1]);
+								}
+								
 							2) 태그의 클래스명 전체 추출 
 							3) a태그의 href 속성의 값(링크 URL) 전체 추출 
 							
