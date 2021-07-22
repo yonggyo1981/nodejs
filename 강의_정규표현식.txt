@@ -80,9 +80,45 @@
 					const data = pattern.exec(birthDay);
 					const newBirthDay = data[0].replace(pattern, "$1/$2/$3");
 					
+					예) 전화번호 변경 예시
+					const mobile = "010/3481/2101"; // 010-3481-2101 - 정규표현식, 서브패턴()
+					const pattern = /(01[016789])\/([\d]{3,4})\/([\d]{4})/
+					const newMobile = mobile.replace(pattern, "$1-$2-$3");
+					
+					
+					함수 
+					function mobileFormat(mobile) {
+						/**
+							1. mobile 번호를 숫자로 전부 변경
+								-> 숫자가 아닌 문자를 제거하면 -> 숫자만 남는다
+
+							2. 숫자를 지정된 형식으로 변환
+						*/
+						mobile = mobile.replace(/[\D]/g, '');
+						
+					   
+						let pattern = /(\d{3})(\d{4})(\d{4})/;
+						if (mobile.length == 10) { // 구 휴대전화번호 
+							pattern = /(\d{3})(\d{3})(\d{4})/;
+						}
+					   
+						mobile = mobile.replace(pattern, "$1-$2-$3");
+
+						return mobile;
+					}
 					
 			-> 2) 특정 패턴의 문자열만 별도로 추출(이미지에서 src 속성에 있는 경로만 가져올때)
-	
+				   2-1) 네이버 메인페이지 -> 이미지의 경로
+				   <img src="경로">
+				   
+				   <img src='경로'>
+				   <img src=경로>
+				   <IMG SRC=.. >
+				   <img class='...' id='...' src=''>
+				    <img class='...' id='...' src='' width='...' alt='...'>
+					
+					/<img\s+\S*src=["']?([^"'>]+)["']?[^>]*>/igm
+					
 	플래그
 		/패턴/플래그
 		i - case-insensitive -> 대소문자 구분 없이 체크 [a-zA-Z] --> /[a-z]/i 
