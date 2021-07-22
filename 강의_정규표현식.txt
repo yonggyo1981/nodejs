@@ -72,7 +72,16 @@
 	/단어1|단어2|단어3/ -> 단어1, 단어2, 단어3 중에 하나
 	
 	(패턴) -> 서브패턴
-			
+			-> 1) 특정 패턴을 분리하여 문자열 치환
+					replace
+					예)
+					const birthDay = "1990년 10월 3일"; // 1990/10/3
+					const pattern = /([\d]{4})\D+([\d]{1,2})\D+([\d]{1,2})/
+					const data = pattern.exec(birthDay);
+					const newBirthDay = data[0].replace(pattern, "$1/$2/$3");
+					
+					
+			-> 2) 특정 패턴의 문자열만 별도로 추출(이미지에서 src 속성에 있는 경로만 가져올때)
 	
 	플래그
 		/패턴/플래그
