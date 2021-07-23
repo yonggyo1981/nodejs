@@ -15,3 +15,6 @@ console.log("buffer2", buffer2);
 const buffer3 = Buffer.concat(buffer2);
 console.log(buffer3);
 console.log(buffer3.toString());
+
+// .alloc - 빈 버퍼를 생성하는 메서드
+console.log("alloc", Buffer.alloc(5));
