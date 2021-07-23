@@ -15,9 +15,13 @@
 		
 		
 		이벤트 제거 
-		removeListener("이벤트명", 이벤트 핸들러);
+		.off("이벤트명", 이벤트 핸들러);
+		.removeListener("이벤트명", 이벤트 핸들러);
 			-> 이벤트 핸들러 객체의 주소를 담는 변수가 반드시 필요
 		
+		
+		이벤트 모두제거
+		.removeAllListeners("이벤트명");
 		
 		참고) document... addEventListener
 	
