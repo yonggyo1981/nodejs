@@ -1,4 +1,5 @@
 const fs = require('fs');
+// 비동기 순처 처리 
 fs.readFile('./writeme.txt', (err, data) => {
 		console.log("1번", data.toString());
 		fs.readFile("./writeme.txt", (err, data) => {
