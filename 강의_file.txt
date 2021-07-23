@@ -1,0 +1,33 @@
+파일 모듈 fs  
+	- 내장모듈  - require('fs') - 기존방식 
+	- 내장모듈 - Promise 방식 - require('fs').promises;
+					- 기존 기능을 promise 방식으로 변환 
+
+fs.readFile  - 파일 읽기(비동기)
+			   - 기존 - 함수 콜백 방식 
+			   - 현재 - Promise 방식
+ 
+
+	fs.readFileSync - 동기식
+	
+	
+fs.writeFile - 파일 쓰기(비동기)
+	fs.writeFileSync - 파일쓰기 (동기식)
+	
+	
+	
+fs.createReadStream
+fs.createWriteStream
+
+pipe
+
+fs.access
+fs.mkdir
+fs.rmdir
+fs.open
+fs.rename
+fs.readdir
+fs.unlink
+fs.copyFile
+fs.watch
+
