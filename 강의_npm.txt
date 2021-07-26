@@ -6,3 +6,73 @@ npm - Node Package Manager
 	npm init 
 		-> 패키지에 대한 정보를 담은 파일을 생성
 		   package.json
+				- version 
+						Major   Minor   Patch
+						1         .0         .0 
+					
+						Major - 하위버전과 호환되지 않는 새로운 버전
+						Minor - 기능의 추가, 오류 수정, 주요한 변화가 있지만 - 하위버전과 호환
+									1.3.0 -> 1.5.0
+						Patch  - 오류, 기타 자잘한 수정 - 하위버전과 호환
+				- license  
+					1) ISC, MIT, BSD  - 자유롭게 사용, 수정, 상업적 사용도 가능
+					
+					2) GPL- 자유롭게 사용, 수정, 상업적 사용도 가능
+							 - 수정할때, 이 라이센스의 소스를 이용할때 
+							 - 개발된 소스도 GPL로 공개, 출처 공개
+							 
+				- scripts  -  사용자 정의 명령어를 등록
+							- npm run 명령어 
+							  (npm 명령어 - 원래 npm에서 제공된 명령어)
+							  
+					의존성 - 설치된 패키지 종류 
+				- dependencies  - 설치된 패키지 정보
+				
+				- devDependencies - 설치된 패키지 정보(개발할때만 사용할 패키지)
+					예) nodemon - 파일에 변경이 발생 -> 서버를 자동 재시작
+					
+					개발용 패키지 
+					npm i -D 패키지명
+					예) npm i -D nodemon
+					
+					
+				
+	패키지 설치(외부)
+		npm install 패키지명
+			- npm i 패키지명
+			예) npm install express
+				 npm i express
+			
+			- node_modules 폴더가 생성(없는 경우) 
+				- express 패키지 관련 모듈이 설치
+			
+			- 전역에 적용되는(따로 설치 없이) 패키지를 설치  -g 
+			  새로 패키지를 만들어도 전체 패키지에 자동 적용
+			  npm i -g 패키지명
+			  
+			
+			- package.json 
+				- dependency에 설치모듈이 명시
+		
+		npm install / npm i -> package.json에 정의된 dependencies를 모두 설치 
+		
+	패키지 제거(외부)
+		npm uninstall 패키지명
+			예) npm uninstall 패키지명
+			
+			
+	참고)
+		깃 업로드시 특정 폴더, 특정 파일을 제외하고 올리는 설정 파일
+		.gitignore
+		
+		폴더/
+		파일명
+		폴더/* - 폴더의 모든파일 
+		폴더/*.확장자 
+		*.확장자
+		
+		
+
+node
+npm 
+npx -> node_modules 폴더에 설치된 CLI 프로그램을 실행 
