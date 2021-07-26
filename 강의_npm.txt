@@ -1,0 +1,8 @@
+npm - Node Package Manager
+	- 패키지 관리 프로그램 
+	- 패키지 - 개발하는 프로그램 단위
+	
+1. 패키지 시작 
+	npm init 
+		-> 패키지에 대한 정보를 담은 파일을 생성
+		   package.json
