@@ -1,0 +1,45 @@
+1. npm init 
+	- package.json
+	
+2. 패키지 설치
+	express  
+		npm i express
+		
+	nodemon - 개발용
+		npm i -D nodemon
+		
+3. const express = require('express');
+   const app = express();  // express 객체 생성 
+	
+	
+   app
+		.listen(포트번호, 이벤트 핸들러)
+		
+		요청 method 별 메서드
+		.get("URL", 미들웨어 - 함수)
+		.post("URL", 미들웨어 - 함수)
+		
+		.put
+		.patch
+		.delete
+		
+		.use(미들웨어) -> 미들웨어 등록 역할
+								(모든 라우터 - 모든 URL에 해당하는 미들웨어)
+		
+		.use("URL", 미들웨어) -> 특정 URL에 적용되는 미들웨어(모든 method);
+		
+	미들웨어
+		- express 미들웨어 
+		요청과 응답 사이에서 동작하는 부분 
+		function (req, res, next) {
+		
+		}
+		
+		1. req - Request 객체 
+		2. res - Response 객체
+		3. next - 함수 -> 다음 미들웨어로 넘어가는 역할 
+						-> 미들웨어서 출력을 하기 전까지 (출력이 되면 이동을 멈춘다)
+						-> 미들웨어는 여러개 등록 가능 
+			
+	
+	
