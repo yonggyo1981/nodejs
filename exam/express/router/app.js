@@ -6,8 +6,11 @@ const memberInfo = require("./middleware/member_info"); // 미들웨어 방식1
 //const validator = require("./middleware/validator"); // 미들웨어 방식2 - 여러개 등록
 //console.log(validator);
 const { joinValidator, updateValidator, loginValidator } = require("./middleware/validator");
-
 const dataCheck = require('./middleware/data_check'); // 미들웨어 방식3 
+
+/** 라우터 */
+const memberRouter = require("./routes/member");
+
 
 dotenv.config(); // .env -> process.env 하위 속성으로 추가
 
@@ -19,21 +22,26 @@ app.use(morgan('dev'));
 /** 정적 페이지 설정 */
 app.use(express.static(path.join(__dirname, 'public')));
 
+/** 라우터 등록 */
+// /member/....
+app.use("/member", memberRouter);
+
 /** 미들웨어 방식1 등록 */
-app.use(memberInfo);
+//app.use(memberInfo);
 
 /** 미들웨어 방식2 등록 */
 //app.use(validator.joinValidator);
 //app.use(validator.updateValidator);
 //app.use(validator.loginValidator);
-app.use(joinValidator);
-app.use(updateValidator);
-app.use(loginValidator);
+//app.use(joinValidator);
+//app.use(updateValidator);
+//app.use(loginValidator);
 
 /** 미들웨어 방식3 등록 */
 app.use(dataCheck("데이터1"));
 
 /** 기본 페이지 라우터 */
+/*
 app.get("/", dataCheck("미들웨어1"), (req, res, next) => {
 	// .sendFile()
 	
@@ -42,11 +50,6 @@ app.get("/", dataCheck("미들웨어1"), (req, res, next) => {
 	//return res.send(`<h1>${res.data1}</h1>`);
 	next();
 }, dataCheck("미들웨어2"), dataCheck("미들웨어3"));
-
-/*
-app.get("url", upload.single('image'), (req, res, next) => {
-	
-});
 */
 
 /** 없는 페이지 라우터 */
