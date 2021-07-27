@@ -106,8 +106,9 @@ express - 웹 프레임워크
 				[HTTP 메서드] [주소 - URL] [HTTP 상태코드] [응답속도] - [응답바이트] 
 				
 		12. 라우터 URL에 영향을 받지 않는 정적인 경로를 특정 디렉토리에 설정 
-			express.static("경로") 
+			express.static("경로")  - 절대경로- path.join
 			
 			-> 이미지, css, js, 업로드된 파일 등등...
 			
+		
 			
