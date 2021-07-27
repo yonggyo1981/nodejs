@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+	</head>
+	<body>
+		{% block content %}
+		// 변경이 될 부분  - 공통 출력부분
+		{% endblock %}
+		
+		<div>
+		{% block content2 %}
+		2번째 변경 가능 공통 부분
+		{% endblock %}
+		</div>
+		<div>
+		{% block content3 %}
+		3번째 변경 가능 공통 부분 
+		{% endblock %}
+		</div>
+	</body>
+</html>

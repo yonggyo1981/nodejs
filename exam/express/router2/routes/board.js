@@ -3,8 +3,11 @@ const router = express.Router();
 
 /** /board/list/인수 */
 router.get("/list/:boardId", (req, res) => {
-	
-	return res.send("게시판 아이디 - " + req.params.boardId);
+	const data = { 
+						boardId : req.params.boardId,
+						list : ["apple", "orange", "mango"],
+					 };
+	return res.render("board/list", data); // views/board/list.html
 });
 
 /** /board/view/인수 */

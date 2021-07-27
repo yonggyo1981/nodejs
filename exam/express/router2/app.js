@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 const path = require('path');
+const nunjucks = require('nunjucks');
 
 /** 라우터 */
 const boardRouter = require("./routes/board");
@@ -9,6 +10,12 @@ const boardRouter = require("./routes/board");
 const app = express();
 
 dotenv.config(); // .env --> process.env의 하위 속성
+
+app.set('view engine', 'html'); // 1. 템플릿 엔진 사용, 2. 템플릿 파일의 확장자
+nunjucks.configure(path.join(__dirname, 'views'), {
+	express : app,
+	watch : true,
+});
 
 app.set('PORT', process.env.PORT || 3000);
 

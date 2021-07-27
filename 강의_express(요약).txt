@@ -171,3 +171,58 @@ express - 웹 프레임워크
 				console.log("req.body", req.body);
 				return res.send("");
 			});
+			
+		16. 템플릿 
+			-> HTML 페이지 출력 동적으로 조작할 수 있는 편의 기능 제공 
+			-> nunjucks - 외부 모듈(패키지)
+			-> npm i nunjucks
+			
+			express - view engine 
+			
+			
+			app.set('view engine', 'html'); // 1. 템플릿 엔진 사용, 2. 템플릿 파일의 확장자
+			nunjucks.configure(템플릿 파일 폴더 경로, {
+				express :  // express 객체, // 명시한 객체 기준으로 추가 설정, 추가 메서드 등이 자동 추가 
+				watch : true - 템플릿에 변화 -> 자동 갱신, false - 템플릿 변화 -> 자동 갱신 X
+			});
+
+
+			예)
+			app.set('view engine', 'html');
+			nunjucks.configure(path.join(__dirname, 'views'), {
+				express : app,
+				watch : true,
+			});
+			
+			res.render 메서드가 nunjucks와 호환
+			
+			res.render("템플릿 경로", 객체 - 템플릿에 넘겨줄 데이터);
+			              -> 기준이 configure에서 설정한 템플릿 경로
+
+
+			nunjucks 사용법
+				1) 템플릿 레이아웃 
+					공통적인 레이아웃 정의
+					변경될 부분 정의 
+					{% block 블록명 %}
+					// 변경이 될 수 있는 영역 
+					{% endblock %}
+					
+					
+					템플릿 사용 
+					{% extends '템플릿 파일 경로' %}
+					
+			    2) 반복문 
+					{% for ..  in .. %}
+						// loop.index -> 현재 반복하는 순서(인덱스 - 1부터 시작)
+					{% endfor %}
+					
+				3) 조건문 
+					{% if 조건식 %}
+						// 조건식이 참일때 출력되는 부분 
+					{% elif 조건식 %}
+					
+					{% else %}
+						// 조건이 거짓일 때 출력되는 부분
+					{% endif %}
+				

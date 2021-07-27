@@ -1,0 +1,15 @@
+{% extends '../layout.html' %}
+
+{% block content %}
+게시판 아이디 - {{ boardId }}
+
+<h1>반복문 출력</h1>
+{% for item in list %}
+	<div>{{ loop.index }}. {{ item }}</div>
+{% endfor %}
+
+{% endblock %}
+
+{% block content3 %}
+변경된 부분...
+{% endblock %}
