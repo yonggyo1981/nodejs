@@ -121,4 +121,26 @@ express - 웹 프레임워크
 				req, res, next
 			
 			
+		14. 데이터
+			GET - URL에 전송되는 데이터 
+				  - 속성=값&속성=값.... 
+				  - 쿼리스트링 
+				  예)
+				   https://www.imwell.com/goods/goods_list.php?cateCd=028
+				   
+				   cateCd=028&goodsNo=1234
+				   
+			POST 
+				- method - POST인 경우 
+				
+			--> 사용자가 요청해서 서버로 전송한 데이터
+				  (REQUEST)
+				  
+			express - 미들웨어 -  req - Request 객체
+			
+			req - 사용자가 전송한 데이터를 확인 
+				- req.query - GET으로 전송한 데이터 객체
+				- req.body - POST로 전송한 데이터 객체 
+							   - 추가 미들웨어를 등록해야 접근 가능
+			
 			
