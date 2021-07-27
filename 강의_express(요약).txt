@@ -111,4 +111,14 @@ express - 웹 프레임워크
 			-> 이미지, css, js, 업로드된 파일 등등...
 			
 		
+		
+		13. 미들웨어 추가 
+			function (req, res, next) {
+			
+			}
+			
+			반드시 
+				req, res, next
+			
+			
 			
