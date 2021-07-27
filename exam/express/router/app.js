@@ -10,7 +10,8 @@ const dataCheck = require('./middleware/data_check'); // 미들웨어 방식3
 
 /** 라우터 */
 const memberRouter = require("./routes/member");
-
+const goodsRouter = require('./routes/goods');
+const orderRouter = require('./routes/order');
 
 dotenv.config(); // .env -> process.env 하위 속성으로 추가
 
@@ -25,6 +26,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 /** 라우터 등록 */
 // /member/....
 app.use("/member", memberRouter);
+
+// /goods/...
+app.use("/goods", goodsRouter);
+
+// /order/...
+app.use('/order', orderRouter);
+
 
 /** 미들웨어 방식1 등록 */
 //app.use(memberInfo);
@@ -41,6 +49,11 @@ app.use("/member", memberRouter);
 app.use(dataCheck("데이터1"));
 
 /** 기본 페이지 라우터 */
+app.get("/", (req, res) => {
+	console.log("req.query", req.query);
+	return res.send("");
+});
+
 /*
 app.get("/", dataCheck("미들웨어1"), (req, res, next) => {
 	// .sendFile()
