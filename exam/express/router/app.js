@@ -23,6 +23,11 @@ app.use(morgan('dev'));
 /** 정적 페이지 설정 */
 app.use(express.static(path.join(__dirname, 'public')));
 
+/** body-parser 등록 */
+app.use(express.json());
+app.use(express.urlencoded({ extended : false }));
+
+
 /** 라우터 등록 */
 // /member/....
 app.use("/member", memberRouter);
@@ -49,10 +54,26 @@ app.use('/order', orderRouter);
 app.use(dataCheck("데이터1"));
 
 /** 기본 페이지 라우터 */
+/**
 app.get("/", (req, res) => {
-	console.log("req.query", req.query);
+	//console.log("req.query", req.query);
+	//return res.send("");
+	return res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.post("/", (req, res) => {
+	console.log("req.body", req.body);
 	return res.send("");
 });
+*/
+app.route("/")
+	.get((req, res) => {
+		return res.sendFile(path.join(__dirname, 'index.html'));
+	})
+	.post((req, res) => {
+		console.log("req.body", req.body);
+		return res.send("");
+	});
 
 /*
 app.get("/", dataCheck("미들웨어1"), (req, res, next) => {

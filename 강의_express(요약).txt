@@ -140,7 +140,34 @@ express - 웹 프레임워크
 			
 			req - 사용자가 전송한 데이터를 확인 
 				- req.query - GET으로 전송한 데이터 객체
+				- req.params - GET으로 전송한 데이터 
+									URL 인수(parameter) 형태로 전달된 형태
+									/url/:인수
+									
 				- req.body - POST로 전송한 데이터 객체 
 							   - 추가 미들웨어를 등록해야 접근 가능
-			
-			
+								(body-parser)
+								- express.json()
+								- express.urlencoded({ extended : false })
+								   
+								  extended - 쿼리스트링 처리 확장모듈
+											   - false - 내장모듈 querystring을 사용해서 객체로 변환
+											   - true - 외부모듈 qs 사용하여 변환
+								
+								// memId=testid&memPw=1234
+								
+				(content-type: x-form-www-urlencoded) 
+				
+		15. 같은 URL 라우터로 묶어는 기능 
+			.route("공통 URL")
+				.각 메서드별 라우터
+				
+		예)
+		app.route("/")
+			.get((req, res) => {
+				return res.sendFile(path.join(__dirname, 'index.html'));
+			})
+			.post((req, res) => {
+				console.log("req.body", req.body);
+				return res.send("");
+			});
