@@ -3,8 +3,14 @@ const morgan = require('morgan');
 const dotenv = require('dotenv');
 const nunjucks = require('nunjucks');
 const path = require('path');
+const logger = require('./lib/logger');
+
+/** 라우터 */
+const indexRouter = require('./routes'); // index, index.js 생략 가능 
+const memberRouter = require('./routes/member');
 
 const app = express();
+
 
 dotenv.config(); // .env -> process.env의 하위 속성 추가 
 
@@ -26,6 +32,10 @@ app.use(express.urlencoded({ extended : false }));
 // 정적 경로
 app.use(express.static(path.join(__dirname, "public")));
 
+/** 라우터 등록 */
+app.use(indexRouter); // "/"
+app.use("/member", memberRouter);
+
 
 /** 없는 페이지 처리 라우터 */
 app.use((req, res, next) => {
@@ -41,11 +51,16 @@ app.use((err, req, res, next) => {
 		status : err.status || 500,
 		stack : err.stack,
 	};
+		
+	/** 로거 기록 */	
+	logger(`[${data.status}]${data.message}`, 'error');
+	logger(data.stack, 'error');
 	
 	if (process.env.NODE_ENV === 'production') { // 서비스 중 -> stack 정보는 제거
 		delete data.stack;
 	}
 	
+
 	res.status(data.status).render('error', data);
 });
 
