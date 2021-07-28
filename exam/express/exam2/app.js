@@ -8,16 +8,45 @@ const app = express();
 
 dotenv.config(); // .env -> process.env의 하위 속성 추가 
 
+// nunjucks
+app.set('view engine', 'html');
+nunjucks.configure(path.join(__dirname, "views"), {
+	express : app,
+	watch : true,
+});
+
 app.set('PORT', process.env.PORT || 3000);
+
+app.use(morgan('dev'));
+
+// body-parser 
+app.use(express.json());
+app.use(express.urlencoded({ extended : false }));
+
+// 정적 경로
+app.use(express.static(path.join(__dirname, "public")));
+
 
 /** 없는 페이지 처리 라우터 */
 app.use((req, res, next) => {
-	
+	const err = new Error(`${req.url}은 없는 페이지 입니다.`);
+	err.status = 404;
+	next(err);
 });
 
 /** 오류 페이지 처리 라우터 */
 app.use((err, req, res, next) => {
+	const data = {
+		message : err.message,
+		status : err.status || 500,
+		stack : err.stack,
+	};
 	
+	if (process.env.NODE_ENV === 'production') { // 서비스 중 -> stack 정보는 제거
+		delete data.stack;
+	}
+	
+	res.status(data.status).render('error', data);
 });
 
 app.listen(app.get('PORT'), () => {
