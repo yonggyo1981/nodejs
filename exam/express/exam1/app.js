@@ -58,9 +58,12 @@ app.use((err, req, res, next) => {
 		data.stack = err.stack;
 	}
 	
-	
 	res.status(err.status || 500);
 	res.render('error', data);
+	
+	// 로거 기록 
+	logger("[" + err.status + "]"+ err.message, 'error');
+	logger(err.stack, 'error');
 });
 
 app.listen(app.get('PORT'), () => {

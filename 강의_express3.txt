@@ -85,5 +85,47 @@
 					- delete 앱아이디|앱이름|all - 삭제 
 					- monit -> 앱 동작을 모니터링
 		
-	winston
+	winston 
+			- 로그를 기록하는 모듈 
+				npm i winston
+				
+		    - logs/오늘날짜.log -> 파일명
+			- 로그 데이터 -> [시간]
+			
+	
+기본셋팅	
+1. package.json - npm init
+	"scripts": {
+		"dev": "nodemon app", // 개발중일때 실행 하는 명령어
+		"start" : "cross-env NODE_ENV=production pm2 start app.js" // 서비스 중일때 실행하는 명령어
+	},
+	
+2. 모듈 
+   npm i express morgan dotenv nunjucks pm2 cross-env winston
+   npm i -D nodemon
+   
+3. app.js
+	1) 필요한 모듈 require
+	2) listen 
+	3) 없는 페이지 + 오류 처리 
+	    (템플릿 error.html에 출력 + 로그 기록 - 개발중 - 콘솔, 서비스 - 파일 로그)
+	4) 필요한 미들웨어 
+		morgan 
+		body-parser (express.json(), express.urlencoded({ extended : false }))
+		express.static -> 정적 경로 
+		
+	5) 필요한 설정 
+		dotenv.config()
+		nunjucks 설정 
+			 - app.set('view engine', 'html');
+			 - nunjucks.configure('.. 템플릿 파일 경로 ', {
+				   express : 생성된 express 객체,
+				   watch : true, 
+			    });
+	 6. 로거를 커스텀 추가 
+		(winston)
+		- log level -> info 이상(info, warn, error)
+		- 날짜, 시간 -> 파일명은 날짜.log, 메세지 앞에 시간을 추가
+		- logs 폴더에 기록, 없으면 생성(fs.access -> ENOENT -> fs.mkdir)
+	
 	
