@@ -77,11 +77,11 @@
 		npx -> node_modules에 설치된 명령어를 실행
 		npx pm2
 					- start 앱 파명 -> 시작 
-					- stop  앱아이디|앱이름|all
-					- restart 앱아이디|앱이름|all
-					- reload 앱아이디|앱이름|all
-					- delete 앱아이디|앱이름|all
-					- monit -> 앱이 동작을 모니터링
+					- stop  앱아이디|앱이름|all - 정지
+					- restart 앱아이디|앱이름|all - 재시작
+					- reload 앱아이디|앱이름|all - 새로고침
+					- delete 앱아이디|앱이름|all - 삭제 
+					- monit -> 앱 동작을 모니터링
 		
 	winston
 	
