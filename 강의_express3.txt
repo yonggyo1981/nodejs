@@ -55,5 +55,33 @@
 	
 	서비스 환경 (production)
 	cross-env 
+		- dotenv는 dotenv.config()를 호출 했을때 .env -> process.env에 추가 
+		- 호출하지 않으면?... 환경변수가 유지 되지 X
+		
+		- 서버 시작시 환경 변수를 추가 -> 전역에 유지
+		- 개발 중, 서비 중인지 구분하는 환경변수 -> 전역 유지 필요
+		  process.env.NODE_ENV 
+						  - developement - 개발 중
+						  - production - 서비스 중 
+		
+	    - 실제 서비스 환경에서만 적용
+			(nodemon에서는 적용 X)
+			(pm2 환경에서만 적용 O)
+			
 	pm2
+		- 백그라운드에서 실행 
+		- node.js 쓰레드가 1개  - 쓰레드가 죽게 되면 -> 서버 다운 
+		- 쓰레드가 종료 -> 다시 재실행
+		
+		npm i pm2 // npm i -g pm2 -> 전역 설치 pm2
+		npx -> node_modules에 설치된 명령어를 실행
+		npx pm2
+					- start 앱 파명 -> 시작 
+					- stop  앱아이디|앱이름|all
+					- restart 앱아이디|앱이름|all
+					- reload 앱아이디|앱이름|all
+					- delete 앱아이디|앱이름|all
+					- monit -> 앱이 동작을 모니터링
+		
 	winston
+	
