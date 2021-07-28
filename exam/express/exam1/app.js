@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const dotenv = require('dotenv');
 const nunjucks = require('nunjucks');
 const path = require('path');
+const logger = require('./lib/logger'); 
 
 /** 라우터 */
 const boardRouter = require('./routes/board'); // 게시판 라우터
@@ -41,7 +42,25 @@ app.use((req, res, next) => {
 
 /** 오류 처리 페이지 라우터 */
 app.use((err, req, res, next) => { 
-	return res.status(err.status || 500).send(err.message);
+	/**
+		err
+			.message - 에러메세지
+			.stack - 에러가 발생한 상세한 정보
+				    - 에러가 발생한 파일 스택, 파일 위치, 소스 위치
+					- 개발 중일때만 노출, 서비스 중 노출 X 
+	*/
+	const data = {
+		message : err.message,
+		status : err.status
+	};
+	
+	if (process.env.NODE_ENV != 'production') {
+		data.stack = err.stack;
+	}
+	
+	
+	res.status(err.status || 500);
+	res.render('error', data);
 });
 
 app.listen(app.get('PORT'), () => {
