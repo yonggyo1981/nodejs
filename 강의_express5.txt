@@ -1,4 +1,4 @@
-1. npm init --> package.json
+1. npm init --> package.json - O
 	-> scripts 
 	-> 사용자 정의 명령어
 		"dev" : "nodemon ... ", // 개발중 
@@ -9,24 +9,24 @@
 		    
 		   process.env -> 하위 속성 -> 환경변수
 		   
-2. 필요한 모듈(패키지) 설치
+2. 필요한 모듈(패키지) 설치 - O
 	npm i express morgan dotenv nunjucks pm2 cross-env winston
 	npm i -D nodemon
 	
-3. app.js 파일 생성
+3. app.js 파일 생성 - O
 
-4. 필수 모듈(package) require로 추가
+4. 필수 모듈(package) require로 추가 - O 
 
-5. listen - PORT는 추후 변경이 될 가능성이 크다, 변경 가능하게 설정
+5. listen - PORT는 추후 변경이 될 가능성이 크다, 변경 가능하게 설정 - O
 
-6. 없는 페이지 + 오류 처리 페이지 라우터
+6. 없는 페이지 + 오류 처리 페이지 라우터 - O 
 
-7. 필요한 미들웨어 등록 
+7. 필요한 미들웨어 등록 - O 
    morgan
    express.static 
    body-parser (express.json(), express.urlencoded({ extended : false });
    
-8. 필요한 설정 
+8. 필요한 설정  - O 
     nunjucks 설정
 	app.set('view engine', 'html');
 	nunjucks.configure('템플릿 파일 경로', {
