@@ -5,6 +5,8 @@ const nunjucks = require('nunjucks');
 const path = require('path');
 const logger = require('./lib/logger');
 
+const bootStrap = require('./boot/init'); // 사이트 초기화 
+
 /** 라우터 */
 const indexRouter = require('./routes'); // index, index.js 생략 가능 
 const memberRouter = require('./routes/member');
@@ -22,6 +24,8 @@ nunjucks.configure(path.join(__dirname, "views"), {
 });
 
 app.set('PORT', process.env.PORT || 3000);
+
+app.use(bootStrap); // 사이트 초기화 미들웨어 등록 
 
 app.use(morgan('dev'));
 
