@@ -14,6 +14,9 @@ module.exports = async (message, mode) => {
 	try {
 		mode = mode || 'info';
 		
+		// 폴더 존재여부 체크 - 없으면 cache의 err로 유입 
+		await fs.access(logDir, constants.F_OK);
+		
 		const date = new Date();
 		
 		/** 파일명 - 날짜 형식으로 생성 */
@@ -26,6 +29,19 @@ module.exports = async (message, mode) => {
 		
 		
 		const filename = logDir + "/" + `${year}${month}${day}.log`;
+		// date.getDay() -> 요일 0~6 (일~토)
+		
+		/** 메세지에 추가할 시간 */
+		let hours = date.getHours();
+		hours = (hours < 10)?`0${hours}`:hours;
+		
+		let mins = date.getMinutes();
+		mins = (mins < 10)?`0${mins}`:mins;
+		
+		let secs = date.getSeconds();
+		secs = (secs < 10)?`0${secs}`:secs;
+		
+		message = `[${hours}:${mins}:${secs}]${message}`;
 		
 		const logger = winston.createLogger({
 			  level: 'info',
@@ -47,6 +63,8 @@ module.exports = async (message, mode) => {
 			message,
 		});
 	} catch (err) {
-		
+		if (err.code == 'ENOENT') { // 폴더가 없는 경우 .. -> fs.mkdir로 폴더 생성
+			await fs.mkdir(logDir)
+		}
 	}
 };

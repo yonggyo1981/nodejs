@@ -3,6 +3,10 @@ const morgan = require('morgan');
 const dotenv = require('dotenv');
 const nunjucks = require('nunjucks');
 const path = require('path');
+const logger = require('./lib/logger');
+
+/** 라우터 */
+const indexRouter = require('./routes'); // routes/index.js
 
 const app = express();
 
@@ -22,6 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended : false }));
 
+/** 라우터 연동 */
+app.use(indexRouter);
 
 /** 없는 페이지 처리 라우터 */
 app.use((req, res, next) => {
@@ -38,6 +44,10 @@ app.use((err, req, res, next) => {
 		status : err.status || 500,
 		stack : err.stack,
 	};
+	
+	// 로그 기록 
+	logger(`[${data.status}]${data.message}`, 'error');
+	logger(data.stack, 'error');
 	
 	if (process.env === 'production') {
 		delete data.stack;
