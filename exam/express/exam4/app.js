@@ -5,6 +5,8 @@ const nunjucks = require('nunjucks');
 const path = require('path');
 const logger = require('./lib/logger');
 
+const bootStrap = require('./boot'); // ./boot/index.js 
+
 /** 라우터 */
 const indexRouter = require('./routes'); // routes/index.js
 
@@ -19,6 +21,8 @@ nunjucks.configure(path.join(__dirname, 'views'), {
 });
 
 app.set('PORT', process.env.PORT || 3000);
+
+app.use(bootStrap); // 사이트 초기화 
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));

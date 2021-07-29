@@ -37,7 +37,7 @@
 9. 로거 구성 및 연동  - O 
 	winston
 	
-10. 기본 템플릿 layout 구성
+10. 기본 템플릿 layout 구성 - O 
 	- outline
 		- header  
 			- main.html - 공통 헤더 
@@ -52,3 +52,4 @@
 	 - layout.html 
 	 
 11. 사이트 초기화 미들웨어 구성 
+	- boot/index.js 

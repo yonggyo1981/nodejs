@@ -11,8 +11,14 @@
 		{% block style %}
 		{% endblock %}
 		<script src="/js/common.js"></script>
+		{% if addScript.length > 0 %}
+		{% for js in addScript %}
+		<script src='/js/{{ js }}.js'></script>
+		{% endfor %}
+		{% endif %}
 		{% block script %}
 		{% endblock %}
+		<title>{{ pageTitle }}</title>
 	</head>
 	<body>
 		{% block header %}
