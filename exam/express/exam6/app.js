@@ -4,6 +4,35 @@ const dotenv = require('dotenv');
 const nunjucks = require('nunjucks');
 const path = require('path');
 const logger = require('./lib/logger');
+const multer = require('multer');
+
+/** multer 설정  */
+const upload = multer({
+		storage : multer.diskStorage({  // 현재 서버 로컬 폴더에 저장 설정 
+			destination : function(req, file, done) { // 업로드될 디렉토리 경로 
+				done(null, path.join(__dirname, 'public/upload'));
+			},
+			filename : function (req, file, done) {
+				/** 
+				 동일 명칭 파일 중복 방지 처리 
+				 파일명 + timestamp(Date.now()) + 확장자
+				 file - 임시로 업로드된 파일 정보
+					 .originalname - 업로드된 파일 명칭
+					 
+				path
+					.basename -> 파일이름 
+								-> 2번째 인수로 파일의 확장자를 명시 -> 확장자 없는 파일 이름
+								path.basename("파일명", "확장자");
+					.extname -> 파일의 확장자
+				*/
+				const ext = path.extname(file.originalname);
+				const filename = path.basename(file.originalname, ext); // 확장자 제거된 파일명
+				const newFileName = filename + Date.now() + ext; // 중복이 안되는 파일명
+				done(null, newFileName);
+			}
+		}),
+		limits : { fileSize : 5 * 1024 * 1024 }, // 최대 업로드 용량 5mb 
+});
 
 /** 라우터 */
 const indexRouter = require('./routes'); // index.js 생략..
@@ -26,7 +55,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended : false }));
 
 /** 라우터 등록 */
-app.use(indexRouter); 
+//app.use(indexRouter); 
+
+app.get("/", (req, res) => {
+	return res.render("main/index");
+});
+
+/**	
+	upload - multer 인스턴스(객체)
+	upload.single("file태그의 name 속성값"); - 파일1개, req.file - 업로드된 파일 데이터
+	upload.array("file태그의 name 속성값"); - 파일 여러개, req.files - 업로드된 파일 데이터
+	upload.fields(...') - req.files - 업로드된 파일 데이터
+*/
+
+app.post("/upload", upload.single("image"), (req, res) => {
+	console.log(req.file);
+	return res.send("");
+});
 
 
 /** 없는 페이지 처리 라우터 */

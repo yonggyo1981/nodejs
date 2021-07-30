@@ -1,5 +1,8 @@
 {% extends '../layout.html' %}
 
 {% block content %}
-메인페이지
+<form method="post" action='/upload' enctype="multipart/form-data">
+	<input type="file" name="image">
+	<input type="submit" value="이미지 업로드">
+</form>
 {% endblock %}

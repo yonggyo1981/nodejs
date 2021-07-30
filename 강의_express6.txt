@@ -13,7 +13,29 @@
 	
 1. 파일업로드
     - multer -> 셋팅
-	
+	- form 형태로 파일 데이터 전송
+	   - 속성 추가 필요
+	   <form enctype='multipart/form-data'>
+	   
+	   1) npm i multer
+	   2) 미들웨어, 셋팅 후 추가 
+		 - 파일 저장 폴더 - /public/upload 
+	     
+		 파일명 + timestamp + 확장자
+		 
+		참고) 
+		// Date 
+	     new Date()
+				.getTime()  - 밀리초 형태 반환 (1970.01.01 0시부터 1000분의 1초로 카운팅한 숫자)
+	    == Date.now(); 
+		 -> 중복방지, Unique Key -> 유일한 구분값 예) 주문번호
+		
+		multer 업로드 메서드
+		multer 인스턴스
+			.single("file 태그의 name 속성명"); -> 파일 1개 (req.file)
+			.array("file 태그의 name 속성명"); -> 파일 여러개 (req.files)
+			.fields(....)
+		
 2. 쿠키, 세션 
 
 3. 암호화 해시
