@@ -36,6 +36,7 @@ const upload = multer({
 
 /** 라우터 */
 const indexRouter = require('./routes'); // index.js 생략..
+const fileRouter = require('./routes/file');
 
 const app = express();
 
@@ -56,6 +57,8 @@ app.use(express.urlencoded({ extended : false }));
 
 /** 라우터 등록 */
 //app.use(indexRouter); 
+app.use("/file", fileRouter);
+
 
 app.get("/", (req, res) => {
 	return res.render("main/index");
@@ -65,14 +68,28 @@ app.get("/", (req, res) => {
 	upload - multer 인스턴스(객체)
 	upload.single("file태그의 name 속성값"); - 파일1개, req.file - 업로드된 파일 데이터
 	upload.array("file태그의 name 속성값"); - 파일 여러개, req.files - 업로드된 파일 데이터
-	upload.fields(...') - req.files - 업로드된 파일 데이터
+	upload.fields([
+		{ name : 'name 속성값' },
+		{ name : 'name 속성값' },
+		... 
+		{ name : 'name 속성값' }
+	]) - req.files - 업로드된 파일 데이터
 */
 
 app.post("/upload", upload.single("image"), (req, res) => {
-	console.log(req.file);
+	console.log(req.file); // req.file
 	return res.send("");
 });
 
+app.post("/upload2", upload.array("images"), (req, res) => {
+	console.log(req.files); // 여러개인 경우 req.files 
+	return res.send("");
+});
+
+app.post("/upload3", upload.fields([{ name : 'main' }, { name : 'list' }] ), (req, res) => {
+	console.log(req.files);
+	return res.send("");
+});
 
 /** 없는 페이지 처리 라우터 */
 app.use((req, res, next) => {

@@ -1,8 +1,22 @@
 {% extends '../layout.html' %}
 
 {% block content %}
+<h1>파일 1개 업로드</h1>
 <form method="post" action='/upload' enctype="multipart/form-data">
 	<input type="file" name="image">
 	<input type="submit" value="이미지 업로드">
+</form>
+
+<h1>파일 여러개 업로드..</h1>
+<form method="post" action="/upload2" enctype="multipart/form-data">
+	<input type="file" name="images" multiple>
+	<input type="submit" value="이미지 여러개 업로드">
+</form>
+
+<h1>파일 항목별 업로드..</h1>
+<form method="post" action="/upload3" enctype="multipart/form-data">
+	메인 <input type="file" name="main"><br>
+	목록 <input type="file" name="list"><br>
+	<input type="submit" value="항목별 업로드...">
 </form>
 {% endblock %}
