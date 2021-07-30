@@ -1,0 +1,14 @@
+0. 초기 셋팅 
+	express morgan dotenv nunjucks pm2 cross-env winston
+
+    nodemon
+	
+1. 파일업로드
+    - multer -> 셋팅
+	
+2. 쿠키, 세션 
+
+3. 암호화 해시
+
++ 회원 가입, 로그인
+ -> 파일로 저장
