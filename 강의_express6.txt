@@ -37,7 +37,48 @@
 			.fields(....)
 		
 2. 쿠키, 세션 
+	-  브라우저별 개인화된 데이터 
+				예) 로그인 한 정보는 제 자리 제 컴퓨터의 제 브라우저에서만 유효 
+		
+			저장, 수정, 삭제
+	- 쿠키 - 브라우저에 저장 
+				- Request Header - 쿠키 데이터가 문자열 형태로 저장
+				- 정보가 브라우저에 모두 노출  -> 보안에 취약 
+				  (Request Header)
+				- 회원 아이디, 비밀번호, 이름, 전화번호 -> 개인정보 저장하면 안됨.
+				- 개인정보를 제외한 기타 브라우저별 개인화된 데이터만 권장 
+				
+				- cookie-parser 	
+					- Request Header - cookie 데이터(문자열) -> 사용하기 쉽도록 객체로 변환
+					- 추가, 변경, 삭제에 대한 기능
+			    
+			    npm i cookie-parser 
+   				- 미들웨어 등록 
+		        - 쿠키 추가, 변경 
+				res.cookie("이름", "값");
+				
+				- 쿠키 조회
+				req.cookies 하위 속성으로 조회
+				
+				- 쿠키 삭제 
+				res.clearCookie("이름");
+				
+				
+	- 세션 - 서버에 저장 
+		     - 브라우에 노출  X (Request Header에 존재 X)
+			 - 개인화된 데이터를 어떻게 찾는가? 
+			 - 쿠키가 없으면 세션을 통한 데이터 검색 불가 X 
+			 - 세션ID는 쿠키에 설정 -> 값 -> 서버에서 개인화된 데이터를 찾는 키값 
+			 
+			예) 
+			GDSESSID  - 2frj2vh69kmolfil5vk6g6tukuj3a4db91017k74qcbuqlfucm3o2uriirnmdvj9d2qdjt6bgrudq0e5mdmgsgp194n2dkc4q4vfc72
 
+			GDSESSID - 	spa9a0a4fko2q89t1sbp5go04tslknq4ja5ngurm665s1beg8o65nvl5ttbo25rf4dee1ulvmd20fevj507tf6ruj8g1odh42qsvh61
+			
+			express-session
+			npm i express-session
+			
+			
 3. 암호화 해시
 
 + 회원 가입, 로그인
