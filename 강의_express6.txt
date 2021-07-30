@@ -78,8 +78,15 @@
 			express-session
 			npm i express-session
 			
+			req.session - 객체
+			req.session.속성명 = 값; // 추가 변경 
+			delete req.session.속성명; // 세션 값 삭제
+			req.session.destory(); // 세션 전부 삭제 
 			
 3. 암호화 해시
 
 + 회원 가입, 로그인
  -> 파일로 저장
+ 
+ 
+ npm i express morgan dotenv nunjucks pm2 cross-env winston multer cookie-parser express-session
