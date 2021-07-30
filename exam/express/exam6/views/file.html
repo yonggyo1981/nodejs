@@ -2,17 +2,22 @@
 
 {% block content %}
 <h1>파일 하나 업로드</h1>
-<form>
-
+<form method="post" action="/file/upload" enctype="multipart/form-data">
+	<input type="file" name="file">
+	<input type="submit" value="업로드">
 </form>
 
 <h1>파일 여러개 업로드 - multiple</h1>
-<form>
-
+<form method="post" action="/file/upload2" enctype="multipart/form-data">
+	<input type="file" name="file" multiple>
+	<input type="submit" value="업로드">
 </form>
 
 <h1>파일 항목별 여러개 업로드</h1>
 <form>
-
+<form method="post" action="/file/upload3" enctype="multipart/form-data">
+	<input type="file" name="file1">
+	<input type="file" name="file2">
+	<input type="submit" value="업로드">
 </form>
 {% endblock %}
