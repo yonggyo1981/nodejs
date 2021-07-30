@@ -3,6 +3,14 @@
 
     nodemon
 	
+	views - outline 
+						- header 
+								- main.html
+						- footer 
+							   - main.html
+						- menu 
+							   - main.html
+	
 1. 파일업로드
     - multer -> 셋팅
 	

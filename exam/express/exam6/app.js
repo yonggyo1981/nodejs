@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended : false }));
 
 /** 라우터 등록 */
-app.use(indexRouter);
+app.use(indexRouter); 
 
 
 /** 없는 페이지 처리 라우터 */
