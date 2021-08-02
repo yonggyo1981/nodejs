@@ -84,9 +84,29 @@
 			req.session.destory(); // 세션 전부 삭제 
 			
 3. 암호화 해시
+	비밀번호를 그대로 저장 X 
+	
+	암호화 - 단방향 암호화 (암호화만 가능 - 복호화 불가능) - 해시
+			  - 양방향 암호화 ( 암호화 <-> 복호화) === 원데이터로 복구가 가능
+	
+	
+	비밀번호 - 단방향 암호화(해시)
+				 - 관리자는 회원의 비밀번호를 알 필요가 X 
+				 - 입력한 비밀번호가 일치하는지만 체크
+					데이터 저장을 해시(단방향 암호화)로 저장 
+					회원이 입력한 비밀번호를 해시화 해서 저장된 해시와 일치 여부만 체크
+
 
 + 회원 가입, 로그인
  -> 파일로 저장
  
  
  npm i express morgan dotenv nunjucks pm2 cross-env winston multer cookie-parser express-session
+ 
+ 
+4. GET 
+	 - req.query
+	 - req.params
+	 
+   POST(+DELETE, PUT, PATCH, ... )
+	  - req.body
