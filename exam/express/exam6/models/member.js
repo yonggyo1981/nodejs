@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs').promises;
+const bcrypt = require('bcrypt');
 
 /** 
 * 회원 관련 Model 
@@ -16,6 +17,10 @@ const member = {
 	join : async function(data) {
 		try {
 			delete data.memPwRe;
+			
+			/** 비밀번호를 bcrypt 방식의 유동해시로 변환 */
+			data.memPw = await bcrypt.hash(data.memPw, 10);
+			
 			const filePath = path.join(__dirname, "../data/member", data.memId + ".json");
 			/**
 			* data는 문자열로만 기입이 가능 
