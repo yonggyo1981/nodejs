@@ -1,4 +1,5 @@
 const express = require('express');
+const { joinValidator } = require("../middleware/member");
 const router = express.Router();
 /**
  /member/join - 회원가입 (양식, 처리)
@@ -9,10 +10,11 @@ const router = express.Router();
 // 회원가입 
 router.route("/join")
 		.get((req, res) => {
-			
+			return res.render("member/join");
 		})
-		.post((req, res) => {
-			
+		.post(joinValidator, (req, res) => {
+			//console.log(req.body);
+			return res.send(""); // 임시
 		});
 
 // 로그인

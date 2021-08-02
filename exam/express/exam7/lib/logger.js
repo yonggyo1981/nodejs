@@ -14,7 +14,7 @@ module.exports = async (message, mode) => {
 	try {
 		mode = mode || 'info';
 		
-		// 폴더 존재여부 체크 - 없으면 cache의 err로 유입 
+		// 폴더 존재여부 체크 - 없으면 catch의 err로 유입 
 		await fs.access(logDir, constants.F_OK);
 		
 		const date = new Date();
