@@ -1,5 +1,5 @@
 const express = require('express');
-const { joinValidator } = require("../middleware/member");
+const { joinValidator, loginValidator } = require("../middleware/member");
 const { alert } = require('../lib/common');
 const member = require("../models/member"); // member model 
 const router = express.Router();
@@ -28,7 +28,16 @@ router.route("/login")
 	.get((req, res) => { // 로그인 양식 
 		return res.render("member/login");
 	})
-	.post((req, res) => { // 로그인 처리 
+	.post(loginValidator, async (req, res) => { // 로그인 처리 
+		
+		const result = await member.login(req.body.memId, req.body.memPw, req); 
+		// 로그인 성공시 -> 메인 페이지로 이동 
+		if (result) {
+			return res.redirect("/");
+		}
+		
+		// 로그인 실패시 -> 로그인 실패 메세지 출력
+		return alert("로그인 실패하였습니다", res, true);
 		
 	});
 

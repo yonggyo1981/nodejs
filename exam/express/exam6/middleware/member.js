@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs').promises;
 const constants = require('fs').constants;
 const { alert } = require("../lib/common");
+
 /**
 * 회원 가입 유효성 검사 미들웨어
 *  
@@ -53,4 +54,27 @@ module.exports.joinValidator = async (req, res, next) => {
 			return alert(err.message, res, true); // 메세지 출력 후 뒤로가기
 		}
 		next();
+};
+
+/**
+* 로그인 유효성 검사  - 아이디와 비밀번호가 필수 데이터
+*
+*/ 
+module.exports.loginValidator = (req, res, next) => {
+	try {
+		// 아이디 체크 
+		if (!req.body.memId) { // 아이디가 없는 경우
+			throw new Error('아이디를 입력하세요.');
+		}
+		
+		// 비밀번호 체크 
+		if (!req.body.memPw) {
+			throw new Error('비밀번호를 입력하세요.');
+		}
+		
+	} catch (err) {
+		return alert(err.message, res, true);
+	}
+		
+	next();
 };
