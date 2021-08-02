@@ -20,7 +20,7 @@ app.use(session({
 	saveUninitialized : true,
 	secret : process.env.COOKIE_SECRET,
 	name : 'yhsession'
-});
+}));
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
