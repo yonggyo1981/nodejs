@@ -24,6 +24,7 @@ router.use((req, res, next) => {
 router.route("/") 
 	.get((req, res) => { // 스케줄 등록/수정 양식
 		
+		return res.render("schedule/form");
 	})
 	.post((req, res) => { // 스케줄 등록 처리 
 		

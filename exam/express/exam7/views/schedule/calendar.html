@@ -21,7 +21,7 @@
 	
 	<ul class='days'>
 	{% for item in days %}
-		<li>
+		<li data-stamp='{{ item.stamp }}'>
 			<div class='day'>{{ item.day }}</div>
 		</li>
 	{% endfor %}
