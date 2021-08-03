@@ -1,0 +1,13 @@
+ssh 22번 포트로 접속하는 콘솔
+
+host : yonggyo.com
+
+username : schoolteam
+
+password : schoolteam1234
+
+접속 방법 
+ssh schoolteam@yonggyo.com 
+
+dir -> 디렉토리 목록, 파일명
+리눅스 -> ls 

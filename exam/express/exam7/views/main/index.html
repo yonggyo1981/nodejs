@@ -1,5 +1,13 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-메인 페이지
+
+{% if isLogin %}
+{{ member.memNm }}님 로그인... 
+<a href='/member/logout'>로그아웃</a>
+{% else %}
+<a href='/member/join'>회원가입</a> 
+<a href='/member/login'>로그인</a>
+{% endif %}
+
 {% endblock %}

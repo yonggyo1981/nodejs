@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const path = require('path');
 const logger = require('./lib/logger');
+const bootStrap = require('./boot');
 
 /** 라우터 */
 const indexRouter = require('./routes'); // 메인 페이지 라우터 
@@ -31,6 +32,8 @@ app.use(session({
 	secret : process.env.COOKIE_SECRET,
 	name : 'yhsession'
 }));
+
+app.use(bootStrap); // 사이트 초기화 미들웨어
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
