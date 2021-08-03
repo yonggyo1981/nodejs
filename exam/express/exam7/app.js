@@ -11,6 +11,7 @@ const bootStrap = require('./boot');
 /** 라우터 */
 const indexRouter = require('./routes'); // 메인 페이지 라우터 
 const memberRouter = require('./routes/member'); // 회원 관련 라우터 
+const scheduleRouter = require('./routes/schedule'); // 스케줄 관련 라우터
 
 const app = express();
 
@@ -43,7 +44,7 @@ app.use(express.urlencoded({ extended : false }));
 /** 라우터 등록 */
 app.use(indexRouter);
 app.use("/member", memberRouter);
-
+app.use("/schedule", scheduleRouter);
 
 /** 없는 페이지 라우터 */
 app.use((req, res, next) => {
