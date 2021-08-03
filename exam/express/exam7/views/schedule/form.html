@@ -1,4 +1,15 @@
 {% extends '../popup.html' %}
 {% block header %}
-스케줄 등록
+스케줄 등록 - {{ date }}
+{% endblock %}
+
+{% block content %}
+<div class='schedule_form'>
+	<form method="post" action="/schedule" target='ifrmHidden'>
+		<input type="hidden" name="date" value="{{ date }}">
+		<input type="text" name="title" placeholder="스케줄 명">
+		<textarea name="contents" placeholder="스케줄 내용.."></textarea>
+		<input type="submit" value="등록하기">
+	</form>
+</div>
 {% endblock %}

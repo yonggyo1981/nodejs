@@ -1,3 +1,6 @@
+const path = require('path');
+const fs = require('fs').promises;
+
 /**
 * 스케줄 관련 기능 
 *
@@ -79,6 +82,16 @@ const schedule = {
 		};
 		
 		return data;
+	},
+	/** 스케줄 저장, 수정 */
+	async update(data) {
+		try {
+			const filePath = path.join(__dirname, "../data/schedule/", data.date + ".json");
+			await fs.writeFile(filePath, JSON.stringify(data));
+			return true;
+		} catch (err) {
+			return false;
+		}
 	}
 };
 

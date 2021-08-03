@@ -23,14 +23,26 @@ router.use((req, res, next) => {
 /** /schedule */
 router.route("/") 
 	.get((req, res) => { // 스케줄 등록/수정 양식
+		const stamp = Number(req.query.stamp); //  문자열 -> 숫자
+		const date = new Date(stamp);
+		const year = date.getFullYear();
+		let month = date.getMonth() + 1;
+		month = (month < 10)?`0${month}`:month;
 		
-		return res.render("schedule/form");
+		let day = date.getDate();
+		day = (day < 10)?`0${day}`:day;
+		
+		const scheduleDate = `${year}${month}${day}`;
+		
+		const data = {
+				date : scheduleDate,
+		};
+		return res.render("schedule/form", data);
 	})
-	.post((req, res) => { // 스케줄 등록 처리 
-		
-	})
-	.patch((req, res) => { // 스케줄 수정 처리 
-		
+	.post(async (req, res) => { // 스케줄 등록 처리 
+		const result = await schedule.update(req.body);
+		console.log(result);
+		return res.send("");
 	})
 	.delete((req, res) => { // 스케줄 삭제 처리 
 		
