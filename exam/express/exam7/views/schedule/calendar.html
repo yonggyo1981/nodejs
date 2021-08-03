@@ -2,9 +2,15 @@
 {% block content %}
 <div class='calendar'>
 	<div class='navi'>
-		<a href='?year={{ prevYear }}&month={{ prevMonth }}'>이전달</a>
-		{{ year }}년 {{ month }}월
-		<a href='?year={{ nextYear }}&month={{ nextMonth }}'>다음달</a>
+		<a href='?year={{ prevYear }}&month={{ prevMonth }}'>
+			<i class='xi-arrow-left'></i> 
+			이전달
+		</a>
+		<span class='current'>{{ year }}년 {{ month }}월</span>
+		<a href='?year={{ nextYear }}&month={{ nextMonth }}'>
+			다음달
+			<i class='xi-arrow-right'></i>
+		</a>
 	</div>
 
 	<ul class='yoils'>
@@ -15,7 +21,9 @@
 	
 	<ul class='days'>
 	{% for item in days %}
-		<li>{{ item.day }}</li>
+		<li>
+			<div class='day'>{{ item.day }}</div>
+		</li>
 	{% endfor %}
 	</ul>
 </div>
