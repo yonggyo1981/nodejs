@@ -15,7 +15,7 @@ const router = express.Router();
 
 /** /schedule 공통 라우터 */
 router.use((req, res, next) => {
-	res.locals.addScript = ["schedule"];
+	res.locals.addScript = ["schedule", "layer"];
 	res.locals.addCss = ["schedule"];
 	next();
 });

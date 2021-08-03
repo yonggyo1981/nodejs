@@ -1,4 +1,25 @@
 {% extends '../layout.html' %}
 {% block content %}
-달력 출력...
+<div class='calendar'>
+	<div class='navi'>
+		<a href='?year={{ prevYear }}&month={{ prevMonth }}'>이전달</a>
+		<span class='current'>{{ year }}년 {{ month }}월</span>
+		<a href='?year={{ nextYear }}&month={{ nextMonth }}'>다음달</a>
+	</div>
+	
+	<ul class='yoils'>
+	{% for yoil in yoils %}
+		<li>{{ yoil }}</li>
+	{% endfor %}
+	</ul>
+	
+	<ul class='days'>
+	{% for item in days %}
+		<li>
+			<div class='day'>{{ item.day }}</div>
+		</li>
+	{% endfor %}
+	</ul>
+</div>
+<!--// calendar -->
 {% endblock %}

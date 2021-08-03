@@ -9,7 +9,8 @@ router.use((req, res, next) => {
 
 /** /schedule2/calendar */
 router.get("/calendar", (req, res) => {
-	return res.render("schedule/calendar2");
+	const data = schedule.getCalendar(req.query.year, req.query.month);
+	return res.render("schedule/calendar2", data);
 });
 
 module.exports = router;

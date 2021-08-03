@@ -35,8 +35,8 @@ const schedule = {
 		const end = start + 42;
 		/**
 			다음달 추가 일수가 7일 이상이면 칸수를 35칸으로 줄여서, 1주가 출력이 안되도록 
-			startStamp보다 크고 -> 작으면 이전달
-			month가 서로 달르면 다음달
+			startStamp보다 크고,  -> 작으면 이전달
+			month가 서로 다르면 다음달
 		*/
 		let nextMonthDays = 0;
 		for (let i = start; i < end; i++) {
