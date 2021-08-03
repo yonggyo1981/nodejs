@@ -23,6 +23,9 @@
 	{% for item in days %}
 		<li data-stamp='{{ item.stamp }}'>
 			<div class='day'>{{ item.day }}</div>
+			{% if item.info.title %}
+			<div class='tit'>{{ item.info.title }}</div>
+			{% endif %}
 		</li>
 	{% endfor %}
 	</ul>

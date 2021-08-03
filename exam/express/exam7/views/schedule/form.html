@@ -1,15 +1,18 @@
 {% extends '../popup.html' %}
 {% block header %}
-스케줄 등록 - {{ date }}
+스케줄 {% if title or contents %}수정{% else %}등록{% endif %} - {{ date }}
+{% if title or contents %}
+<a href='/schedule/{{ date }}' target='ifrmHidden' onclick="return confirm('정말 삭제하시겠습니까?');">[삭제]</a>
+{% endif %}
 {% endblock %}
 
 {% block content %}
 <div class='schedule_form'>
 	<form method="post" action="/schedule" target='ifrmHidden'>
 		<input type="hidden" name="date" value="{{ date }}">
-		<input type="text" name="title" placeholder="스케줄 명">
-		<textarea name="contents" placeholder="스케줄 내용.."></textarea>
-		<input type="submit" value="등록하기">
+		<input type="text" name="title" placeholder="스케줄 명" value='{{ title }}'>
+		<textarea name="contents" placeholder="스케줄 내용..">{{ contents }}</textarea>
+		<input type="submit" value="{% if title or contents %}수정{% else %}등록{% endif %}하기">
 	</form>
 </div>
 {% endblock %}

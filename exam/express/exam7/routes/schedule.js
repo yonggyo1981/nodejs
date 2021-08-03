@@ -1,5 +1,6 @@
 const express = require('express');
 const schedule = require('../models/schedule');
+const { alert } = require('../lib/common');
 const router = express.Router();
 
 /**
@@ -22,7 +23,7 @@ router.use((req, res, next) => {
 
 /** /schedule */
 router.route("/") 
-	.get((req, res) => { // 스케줄 등록/수정 양식
+	.get(async (req, res) => { // 스케줄 등록/수정 양식
 		const stamp = Number(req.query.stamp); //  문자열 -> 숫자
 		const date = new Date(stamp);
 		const year = date.getFullYear();
@@ -34,24 +35,38 @@ router.route("/")
 		
 		const scheduleDate = `${year}${month}${day}`;
 		
-		const data = {
-				date : scheduleDate,
-		};
+		let data = await schedule.get(scheduleDate);
+		data = data || {};
+		data.date = scheduleDate;
+		
 		return res.render("schedule/form", data);
 	})
 	.post(async (req, res) => { // 스케줄 등록 처리 
 		const result = await schedule.update(req.body);
-		console.log(result);
-		return res.send("");
-	})
-	.delete((req, res) => { // 스케줄 삭제 처리 
+		if (result) { // 스케줄 등록/수정 성공 - 달력 페이지 새로고침
+			return res.send("<script>parent.parent.location.reload();</script>");
+		}
 		
+		// 스케줄 등록/수정 실패
+		return alert("스케줄 등록/수정 실패하였습니다.", res);
 	});
 
 /** 스케줄 달력 */
-router.get("/calendar", (req, res) => {
-	const data = schedule.getCalendar(req.query.year, req.query.month);
+router.get("/calendar", async (req, res) => {
+	const data = await schedule.getCalendar(req.query.year, req.query.month);
 	return res.render("schedule/calendar", data);
+});
+
+
+/** 스케줄 삭제 */
+router.get("/:date", async (req, res) => {
+	const result = await schedule.delete(req.params.date);
+	if (result) { // 삭제 성공 
+		return res.send("<script>parent.parent.location.reload();</script>");
+	}
+	
+	// 삭제 실패 
+	return alert('삭제 실패하였습니다.', res);
 });
 
 module.exports = router;

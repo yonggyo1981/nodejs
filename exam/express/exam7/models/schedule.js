@@ -18,7 +18,7 @@ const schedule = {
 	* 달력의 일자를 추출 
 	*
 	*/ 
-	getCalendar(year, month) {
+	async getCalendar(year, month) {
 		// year, month가 없는 경우는 이번달 기준 
 		let date = new Date();
 		year = year || date.getFullYear();
@@ -45,9 +45,21 @@ const schedule = {
 		for (let i = start; i < end; i++) {
 			const stamp = startStamp + (1000 * 60 * 60 * 24 * i);
 			const newDate = new Date(stamp);
+			
+			const newYear = newDate.getFullYear();
+			let newMonth = newDate.getMonth() + 1;
+			newMonth = (newMonth < 10)?`0${newMonth}`:newMonth;
+			
+			let newDay = newDate.getDate();
+			newDay = (newDay < 10)?`0${newDay}`:newDay;
+			const dateStr =`${newYear}${newMonth}${newDay}`;
+			let info = await this.get(dateStr);
+			info = info || {};
+			
 			days.push({
 				stamp : stamp,
 				day : newDate.getDate(),
+				info,
 			});
 			
 			if (stamp > startStamp && newDate.getMonth() > date.getMonth()) { // 다음달 일
@@ -88,6 +100,33 @@ const schedule = {
 		try {
 			const filePath = path.join(__dirname, "../data/schedule/", data.date + ".json");
 			await fs.writeFile(filePath, JSON.stringify(data));
+			return true;
+		} catch (err) {
+			return false;
+		}
+	},
+	/**
+	* 스케줄 정보 조회
+	*
+	*/
+	async get(date) {
+		try {
+			const filePath = path.join(__dirname, "../data/schedule", date + ".json");
+			let data = await fs.readFile(filePath); // buffer -> 문자열(toString) -> 객체(JSON.parse)
+			data = JSON.parse(data.toString());
+			return data;
+		} catch(err) {
+			return false;
+		}
+	},
+	/**
+	* 스케줄 삭제 
+	*
+	*/
+	async delete(date) {
+		try {
+			const filePath = path.join(__dirname, "../data/schedule", date + ".json");
+			await fs.unlink(filePath);
 			return true;
 		} catch (err) {
 			return false;
