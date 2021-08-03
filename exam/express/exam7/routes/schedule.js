@@ -37,8 +37,8 @@ router.route("/")
 
 /** 스케줄 달력 */
 router.get("/calendar", (req, res) => {
-	const data = schedule.getCalendar();
-	return res.render("schedule/calendar");
+	const data = schedule.getCalendar(req.query.year, req.query.month);
+	return res.render("schedule/calendar", data);
 });
 
 module.exports = router;
