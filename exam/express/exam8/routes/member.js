@@ -1,5 +1,7 @@
 const express = require('express');
 const { joinValidator } = require('../middleware/validator');
+const { alert } = require("../lib/common");
+const member = require("../models/member"); // member 모델 
 const router = express.Router();
 
 router.route("/join")
@@ -8,9 +10,15 @@ router.route("/join")
 		 
 		 return res.render("member/join");
 	})
-	.post(joinValidator, (req, res) => {
-	
-		return res.send("");
+	.post(joinValidator, async (req, res) => {
+		const result = await member.join(req.body);
+		if (result) { // 회원 가입 성공 
+			return res.redirect("/member/login");
+		}
+		
+		// 회원 가입 실패 
+		return alert("회원가입에 실패하였습니다.", res);
+		
 	});
 
 router.route("/login")

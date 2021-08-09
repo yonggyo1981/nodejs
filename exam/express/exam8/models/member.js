@@ -1,0 +1,33 @@
+const fs = require('fs').promises;
+const path = require('path');
+const bcrypt = require('bcrypt');
+
+const member = {
+	/** 회원가입 */
+	async join(data) {
+		/**
+		* data/member/아이디.json
+		* 해시 - 단방향 암호화 ( 동일한 데이터 - 동일한 해시) - md5, sha1, sha256, sha512 ... 
+								- 동일한 데이터 - 유동적인 해시(bcrypt)
+								
+			JSON.stringify -> JSON 객체 -> 문자열 
+			JSON.parse -> 문자열 -> JSON 객체
+		*/ 
+		try {
+			data.memPw = await bcrypt.hash(data.memPw, 10);
+			delete data.memPwRe;
+			
+			const filePath = path.join(__dirname, "../data/member", data.memId + ".json");
+			await fs.writeFile(filePath, JSON.stringify(data)); // 파일 데이터 버퍼, 문자열
+			
+			return true; // 회원 가입 성공 
+		} catch (err) {
+			return false; // 회원 가입 실패 
+		}
+	},
+	login() {
+		
+	}
+};
+
+module.exports = member;
