@@ -25,8 +25,23 @@ const member = {
 			return false; // 회원 가입 실패 
 		}
 	},
-	login() {
-		
+	login(memId, memPw, req) {
+		/**
+			1. 아이디 -> 회원 정보를 조회 
+			2. 회원정보의 비밀번호 해시와 회원이 입력한 비밀번호의 일치 여부
+			3. 일치하는 경우 -> 세션에 회원을 구분할 수 있는 값을 저장(회원아이디 또는 회원번호)
+									(로그인!!)
+		*/
+	},
+	/** 회원 정보 조회 */
+	async get(memId) {
+		try {
+			const filePath = path.join(__dirname, "../data/member", memId + ".json");
+			
+			let data = await fs.readFile(filePath);
+		} catch (err) {
+			return false;
+		}
 	}
 };
 
