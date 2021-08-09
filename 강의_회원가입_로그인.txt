@@ -1,0 +1,15 @@
+1. npm init -> package.json
+	-> 사용자 정의 명령어
+		1) 개발중 실행 명령어 - nodemon 
+		2) 서비스중 실행 명령어 - pm2 
+		
+2. 필요한 패키지(모듈) 설치 
+	npm i express morgan dotenv nunjucks winston pm2 cross-env cookie-parser express-session bcrypt 
+	
+	npm i -D nodemon
+
+3. app.js 파일 생성 
+
+4. app.js 기본 설정 
+	1) 필요한 모듈(패키지) require
+	2) listen 부분 구현
