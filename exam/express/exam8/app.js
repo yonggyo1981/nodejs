@@ -7,6 +7,10 @@ const session = require('express-session');
 const path = require('path');
 const logger = require('./lib/logger');
 
+/** 라우터 */
+const memberRouter = require('./routes/member');
+const mainRouter = require("./routes");
+
 const app = express();
 
 dotenv.config(); // .env -> process.env 하위 속성으로 추가 
@@ -34,6 +38,10 @@ app.use(session({
 }));
 
 
+/** 라우터 등록 */
+app.use(mainRouter); // 메인 페이지
+app.use("/member", memberRouter); /** /member ... 라우터 */
+
 /** 없는 페이지 라우터  - 404 - NOT FOUND */
 app.use((req, res, next) => {
 	const err = new Error(`${req.url}은 없는 페이지 입니다.`);
@@ -43,7 +51,21 @@ app.use((req, res, next) => {
 
 /** 오류 처리 라우터 */
 app.use((err, req, res, next) => {
-	return res.status(err.status || 500).render("error");
+	const data = {
+		message : err.message,
+		status : err.status || 500,
+		stack : err.stack,
+	};
+	
+	/** 로그 기록 */
+	logger(`[${data.status}]${data.message}`, 'error');
+	logger(data.stack, 'error');
+	
+	if (process.env.NODE_ENV === 'production') {
+		delete data.stack;
+	}
+	
+	return res.status(data.status).render("error", data);
 });
 
 app.listen(app.get('PORT'), () => {
