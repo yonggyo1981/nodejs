@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const path = require('path');
 const logger = require('./lib/logger');
+const bootStrap = require("./boot");
+
 
 /** 라우터 */
 const memberRouter = require('./routes/member');
@@ -37,6 +39,7 @@ app.use(session({
 	name : "yhsessid",
 }));
 
+app.use(bootStrap); // 사이트 초기화 미들웨어
 
 /** 라우터 등록 */
 app.use(mainRouter); // 메인 페이지

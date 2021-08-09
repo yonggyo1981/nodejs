@@ -25,20 +25,40 @@ const member = {
 			return false; // 회원 가입 실패 
 		}
 	},
-	login(memId, memPw, req) {
+	async login(memId, memPw, req) {
 		/**
-			1. 아이디 -> 회원 정보를 조회 
+			1. 아이디 -> 회원 정보를 조회 - O 
 			2. 회원정보의 비밀번호 해시와 회원이 입력한 비밀번호의 일치 여부
 			3. 일치하는 경우 -> 세션에 회원을 구분할 수 있는 값을 저장(회원아이디 또는 회원번호)
 									(로그인!!)
 		*/
+		try {
+			const info = await this.get(memId);
+			if (!info) { // false -> 회원정보 X 
+				throw new Error("회원정보 없음.");
+			}
+			
+			const match = await bcrypt.compare(memPw, info.memPw);
+			if (match) { // 회원 아이디, 비밀번호가 일치 
+				req.session.memId = memId; // 세션에 회원 아이디 등록  -> 로그인
+				return true;
+			}
+			
+			throw new Error("비밀번호 불일치");
+		} catch (err) {
+			return false; // 로그인 실패
+		}
 	},
 	/** 회원 정보 조회 */
 	async get(memId) {
 		try {
 			const filePath = path.join(__dirname, "../data/member", memId + ".json");
+			let data = await fs.readFile(filePath); 
+			// 버퍼 -> 문자열(toString()) -> JSON 객체(JSON.parse)
 			
-			let data = await fs.readFile(filePath);
+			data = JSON.parse(data.toString());
+			
+			return data;
 		} catch (err) {
 			return false;
 		}
