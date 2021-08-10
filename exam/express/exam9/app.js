@@ -78,6 +78,21 @@ app.post("/file3", upload.fields([{ name : "image1"}, { name : "image2" }]), (re
 	return res.send("");
 });
 
+
+app.get("/", (req, res) => {
+	const list = [
+                { city : '인천', sigugun : '계양구' },
+                { city : '인천', sigugun : '서구' },
+                { city : '인천', sigugun : '미추홀구' },
+				{ city : '서울', sigugun : '양천구' },
+            ];
+	// res.send 
+	// res.json -> JSON 형태로 출력
+	// 출력 헤더 -> 자원 공유 허용 
+	res.header("Access-Control-Allow-Origin", "*");
+	return res.json(list);
+});
+
 app.listen(3000, () => {
 	console.log("서버 대기중...");
 });
