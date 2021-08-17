@@ -5,10 +5,24 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const path = require('path');
 const dotenv = require('dotenv');
+const { sequelize } = require("./models");
+
+
+/** 라우터 */
+const indexRouter = require('./routes'); 
+const memberRouter = require('./routes/member');
 
 const app = express();
 
 dotenv.config();
+
+sequelize.sync({ force : false })
+			.then(() => {
+				console.log("데이터베이스 연결 성공");
+			})
+			.catch((err) => {
+				console.error(err);
+			});
 
 app.set('PORT', process.env.PORT || 3000);
 
@@ -24,7 +38,20 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended : false }));
 
+/** 쿠키 */
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
+/** 세션 */
+app.use(session({
+	resave : false,
+	saveUninitialized : true,
+	secret : process.env.COOKIE_SECRET,
+	name : "yhsessionid",
+}));
+
+/** 라우터 등록 */
+app.use(indexRouter);
+app.use("/member", memberRouter);
 
 
 /** 없는 페이지 처리 라우터 */
