@@ -61,19 +61,53 @@ const member = {
 			2. 조회했을때 존재하면 -> 비밀번호 체크(회원 입력한 memPw와 memPw 해시 일치 여부 체크)
 			3. 일치하면 - 세션 처리(memNo 회원번호 세션에 담는다)
 		*/
-		
-		const info = await this.get(memId);
+		try {
+			const info = await this.get(memId);
+			if (!info) { // 회원 정보가 없는 경우 
+				throw new Error('회원 정보가 없음');
+			}
+			
+			const match = await bcrypt.compare(memPw, info.memPw);
+			if (!match) { // 비밀번호가 일치 X 
+				throw new Error('비밀번호 불일치');
+			}
+			
+			// 일치하면 -> 세션 처리 
+			req.session.memNo = info.memNo;
+			
+			return true;
+		} catch (err) {
+			return false; // 로그인 실패 
+		}
 		
 	},
-	/** 회원정보 조회 */
+	/** 
+		회원정보 조회 
+		@param memId - 문자 - memId, 숫자 - memNo 
+	*/
 	async get(memId) {
-		const sql = "SELECT * FROM member WHERE memId = ?";
+		const field = isNaN(memId)?"memId":"memNo";
+		
+		const sql = `SELECT * FROM member WHERE ${field} = ?`;
 		const result = await sequelize.query(sql, {
 			replacements : [memId],
 			type : QueryTypes.SELECT,
 		});
 		
 		return result[0];
+	},
+	/** 회원 목록 */
+	async getList() {
+		try {
+			const sql = "SELECT * FROM member ORDER BY memNo DESC";
+			const list = await sequelize.query(sql, {
+					type : QueryTypes.SELECT,
+			});
+			
+			return list;
+		} catch (err) {
+			return false;
+		}
 	}
 };
 

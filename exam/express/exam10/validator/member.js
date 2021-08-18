@@ -91,6 +91,20 @@ const validator = {
 			}
 			
 			next();
+		},
+		/** 비회원인 경우만 접속 제한 */
+		guestOnly(req, res, next) {
+			if (req.isLogin) { // 로그인이 되어 있으면 접속 제한
+				return alert("로그인한 회원은 접근할 수 없습니다.", res, true);
+			}
+			next();
+		},
+		/** 회원만 접속 제한 */
+		memberOnly(req, res, next) {
+			if (!req.isLogin) { // 비회원인 경우 접속 제한 
+				return alert("회원 전용 페이지 입니다.", res, true);
+			}
+			next();
 		}
 };
 

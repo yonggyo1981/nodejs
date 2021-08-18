@@ -1,0 +1,32 @@
+{% extends '../layout.html' %}
+{% block content %}
+
+{% if isLogin %}
+{{ member.memNm }}님 로그인....
+<a href='/member/logout'>로그아웃</a>
+{% else %}
+<a href='/member/join'>회원가입</a>  
+<a href='/member/login'>로그인</a>
+{% endif %}
+
+<h1>회원목록</h1>
+<table border='1'>
+	<thead>
+		<tr>
+			<th>회원번호</th>
+			<th>아이디</th>
+			<th>회원명</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for item in list %}
+		<tr>
+			<td>{{ item.memNo }}</td>
+			<td>{{ item.memId }}</td>
+			<td>{{ item.memNm }}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}

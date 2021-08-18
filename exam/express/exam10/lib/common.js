@@ -4,8 +4,12 @@
 */
 const commonLib = {
 	/** 알림 메세지 */
-	alert(msg, res) {
-		return res.send(`<script>alert('${msg}');</script>`);
+	alert(msg, res, isBack) {
+		let script = `<script>alert('${msg}');</script>`;
+		if (isBack) { // 되돌아가기가 있으면 
+			script += "<script>history.back();</script>";
+		}
+		return res.send(script);
 	},
 	/** 페이지 이동 */
 	go(url, res, target) {
