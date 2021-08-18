@@ -53,6 +53,27 @@ const member = {
 			
 			return false;
 		}
+	},
+	/** 로그인 처리 */
+	async login(memId, memPw, req) {
+		/**
+			1. memId가 있으면 -> 회원 정보를 조회
+			2. 조회했을때 존재하면 -> 비밀번호 체크(회원 입력한 memPw와 memPw 해시 일치 여부 체크)
+			3. 일치하면 - 세션 처리(memNo 회원번호 세션에 담는다)
+		*/
+		
+		const info = await this.get(memId);
+		
+	},
+	/** 회원정보 조회 */
+	async get(memId) {
+		const sql = "SELECT * FROM member WHERE memId = ?";
+		const result = await sequelize.query(sql, {
+			replacements : [memId],
+			type : QueryTypes.SELECT,
+		});
+		
+		return result[0];
 	}
 };
 

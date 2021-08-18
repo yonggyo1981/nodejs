@@ -1,7 +1,7 @@
 const express = require('express');
 const member = require('../models/member');
 const { alert, go } = require("../lib/common");
-const { joinValidator } = require("../validator/member"); // 회원 관련 유효성 검사
+const { joinValidator, loginValidator } = require("../validator/member"); // 회원 관련 유효성 검사
 const router = express.Router();
 
 /** /member/join */
@@ -23,8 +23,10 @@ router.route("/login")
 	.get((req, res) => { // 로그인 양식 
 		return res.render("member/login");
 	})
-	.post((req, res) => { // 로그인 처리 
+	.post(loginValidator, (req, res) => { // 로그인 처리  // 세션은 req.session 속성 추가로 설정 
+		member.login(req.body.memId, req.body.memPw, req);
 		
+		return res.send("");
 	});
 	
 router.get("/logout", (req, res) => {

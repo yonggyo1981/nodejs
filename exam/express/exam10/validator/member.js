@@ -79,6 +79,18 @@ const validator = {
 			}
 		
 			next();
+		},
+		/** 로그인 유효성 검사 */
+		loginValidator(req, res, next) {
+			if (!req.body.memId) { // 아이디가 없는 경우 
+				return alert('아이디를 입력해 주세요.', res);
+			}
+			
+			if (!req.body.memPw) { // 비밀번호가 없는 경우 
+				return alert('비밀번호를 입력해 주세요.', res);
+			}
+			
+			next();
 		}
 };
 
