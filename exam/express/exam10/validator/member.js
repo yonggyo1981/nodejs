@@ -12,13 +12,13 @@ const validator = {
 			2. 아이디
 					1) 자리수 제한(8~20) - O 
 					2) 문자의 종류 제한(알파벳, 숫자) - O 
-					3) 중복 아이디 체크(이미 가입된 아이디면 가입 불가)	
+					3) 중복 아이디 체크(이미 가입된 아이디면 가입 불가)	 - O
 						- 데이터베이스 접근(sequelize)
 			3. 비밀번호 
-					1) 자리수 제한(8자 이상)
-					2) 복잡성 체크
+					1) 자리수 제한(8자 이상) - O
+					2) 복잡성 체크 - O 
 						(1개 이상 알파벳, 숫자, 특수 문자로 구성된 비밀번호)
-					3) 비밀번호 확인이 일치하는 경우 
+					3) 비밀번호 확인이 일치하는 경우 - O
 		*/
 		async joinValidator(req,res,next) {
 			try {
@@ -45,16 +45,40 @@ const validator = {
 					throw new Error('아이디는 8~20자리 사이의 알파벳과 숫자로 구성해 주세요');
 				}
 				
-				/** 중복 아이디 체크 */
-				const sql = `SELECT COUNT(*) FROM member WHERE memId = ?`;
+				/** 중복 아이디 체크 S */
+				const sql = `SELECT COUNT(*) AS cnt FROM member WHERE memId = ?`;
+				const result = await sequelize.query(sql, {
+					replacements : [memId],
+					type : QueryTypes.SELECT,
+				});
+				if (result[0]['cnt'] > 0) { // 아이디가 이미 가입된 경우 
+					throw new Error('이미 가입된 아이디 입니다 - ' + memId);
+				}
+				/** 중복 아이디 체크 E */
 				
+				/** 
+					비밀번호 - 자리수(8이상) 
+					반드시 알파벳, 숫자, 특수문자가 포함
+					/[^a-z]/i - a-z 아닌 문자(숫자, 특수문자가 들어가 있으면 true -> 정확하게 알파벳 존재 여부 X -> 알파벳이 없음에도 true로 유효성 검사 성공
+					!/[a-z]/i -> a-z 인 문자 조건에서 부정 
+					!/[0-9]/ -> 숫자 포함여부
+					!/[~!@#$%&*]/
+				*/
+				const memPw = data.memPw;
+				if (memPw.length < 8 || !/[a-z]/i.test(memPw) || !/[0-9]/.test(memPw) || !/[~!@#$%^&*]/.test(memPw)) {
+					throw new Error('비밀번호는 8자리 이상 알파벳, 숫자, 특수문자로 구성해 주세요.');
+				}
 				
+				/** 비밀번호 확인 일치 여부 */
+				if (memPw != data.memPwRe) {
+					throw new Error("비밀번호를 정확하게 확인해 주세요.");
+				}
 				
 			} catch(err) {
 				return alert(err.message, res);
 			}
-			return res.send("");
-			//next();
+		
+			next();
 		}
 };
 
