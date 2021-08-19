@@ -1,0 +1,29 @@
+미들웨어 이동 -> 매칭이되는 해당하는 라우터 안에서만 이동
+
+라우터가 다르면 미들웨어가 서로 다르다
+
+app.
+	.get()
+	
+	.post()
+	.delete()
+	.put()
+	.patch()
+	
+
+app.use("/test", (req, res, next) => {})
+	(get, post, delete, put, patch.. 모든 메소드에 매칭되는 /test')
+	
+	
+app.use((req, res, next) => {
+	// 공통 미들웨어 
+});
+(모든 메서드 + 모든 요청 URL)
+
+
+app.use(morgan('dev'));
+
+app.use(cookieParser());
+app.use(session());
+
+app.use("/member", 라우터)
