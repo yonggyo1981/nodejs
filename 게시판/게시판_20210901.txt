@@ -1,0 +1,14 @@
+0. 기본틀
+	npm init - package.json
+	
+	express, dotenv, morgan, cookie-parser, express-session, multer, winston, cross-env, pm2, bcrypt, nunjucks
+	
+	sequelize sequelize-cli mysql2
+	
+	nodemon
+	
+	
+	app.js
+1. 회원가입, 로그인(아이디 찾기, 비밀번호 찾기 -> 프론트)
+
+2. 관리자 - 권한통제
