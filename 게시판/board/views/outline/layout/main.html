@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset='utf-8'>
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		{% if addCss.length > 0 %}
 		{% for css in addCss %}
@@ -10,15 +11,39 @@
 		{% endif %}
 		{% block style %}
 		{% endblock %}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="/js/common.js"></script>
 		{% if addScript.length > 0 %}
 		{% for script in addScript %}
 		<script src='/js/{{ script }}.js'></script>
 		{% endfor %}
 		{% endif %}
-		
 		{% block script %}
 		{% endblock %}
+		<title>{{ pageTitle }}</title>
 	</head>
-	<body></body>
+	<body>
+		{% block header %}
+		<header>
+			{% include '../header/main.html' %}
+		</header>
+		{% endblock %}
+		
+		{% block mainMenu %}
+		{% include '../menus/main.html' %}
+		{% endblock %}
+		
+		<main>
+		{% block content %}
+		{% endblock %}
+		</main>
+		
+		{% block footer %}
+		<footer>
+			{% include '../footer/main.html' %}
+		</footer>
+		{% endblock %}
+		
+		<iframe name='ifrmHidden' width='100%' height='500' frameborder='0'></iframe>
+	</body>
 </html>

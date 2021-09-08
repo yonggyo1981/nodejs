@@ -1,0 +1,11 @@
+{% if mainMenu.length > 0 %}
+<nav>
+<ul>
+{% for item in mainMenu %}
+	<li>
+		<a href='{{ item.url }}'>{{ item.name }}</a>
+	</li>
+{% endfor %}
+</ul>
+</nav>
+{% endif %}

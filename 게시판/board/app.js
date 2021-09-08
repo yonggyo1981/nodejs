@@ -6,6 +6,8 @@ const session = require('express-session');
 const nunjucks = require('nunjucks');
 const path = require('path');
 const logger = require("./lib/logger");
+const bootStrap = require("./boot"); // 사이트 초기화 미들웨어
+
 
 /** 라우터 */
 const mainRouter = require('./routes/main');
@@ -37,6 +39,8 @@ app.use(session({
 	secret : process.env.COOKIE_SECRET,
 	name : 'yhsessionid',
 }));
+
+app.use(bootStrap); // 사이트 초기화 
 
 /** 라우터 등록 */
 app.use(mainRouter);
