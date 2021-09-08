@@ -7,15 +7,24 @@ const nunjucks = require('nunjucks');
 const path = require('path');
 const logger = require("./lib/logger");
 const bootStrap = require("./boot"); // 사이트 초기화 미들웨어
-
+const { sequelize } = require('./models');
 
 /** 라우터 */
 const mainRouter = require('./routes/main');
-
+const memberRouter = require('./routes/member'); // 회원 관련 
 
 const app = express();
 
 dotenv.config(); // process.env
+
+sequelize.sync({ force : false })
+	.then(() => {
+		logger("데이터 베이스 연결 성공");
+	})
+	.catch((err) => {
+		logger(err.message, 'error');
+		logger(err.stack, 'error');
+	});
 
 app.set('PORT', process.env.PORT || 3000);
 app.set("view engine", "html");
@@ -44,6 +53,7 @@ app.use(bootStrap); // 사이트 초기화
 
 /** 라우터 등록 */
 app.use(mainRouter);
+app.use("/member", memberRouter); // 회원 관련 
 
 /** 없는 페이지 처리 라우터 */
 app.use((req, res, next) => {

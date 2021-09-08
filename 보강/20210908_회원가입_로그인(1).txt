@@ -1,0 +1,9 @@
+/member 
+	/member/join - GET -> 가입 양식 
+					  - POST -> 가입 처리 
+	
+	/member/login - GET -> 로그인 양식 
+						- POST -> 로그인 처리 
+						
+	
+	
