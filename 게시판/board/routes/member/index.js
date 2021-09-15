@@ -1,5 +1,7 @@
+const member = require("../../models/member"); // 회원 model 
 const express = require('express');
 const router = express.Router();
+
 /**
 /member/join - GET -> 가입 양식 
 					  - POST -> 가입 처리 
@@ -17,7 +19,8 @@ router.route("/join")
 	})
 	/** 회원 가입 처리 */
 	.post((req, res) => {
-		
+		member.join(req.body);
+		res.send("");
 	});
 
 
