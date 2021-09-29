@@ -1,0 +1,18 @@
+{% extends "../outline/layout/main.html" %}
+{% block content %}
+<form method="post" action="/member/login" target='ifrmHidden' autocomplete='off'>
+	<dl>
+		<dt>아이디</dt>
+		<dd>
+			<input type="text" name="memId">
+		</dd>
+	</dl>
+	<dl>
+		<dt>비밀번호</dt>
+		<dd>
+			<input type="password" name="memPw">
+		</dd>
+	</dl>
+	<input type="submit" value="로그인">
+</form>
+{% endblock %}

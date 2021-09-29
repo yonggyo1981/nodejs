@@ -38,6 +38,22 @@ const member = {
 			logger(err.stack, "error");
 			return false; // 회원가입 실패
 		}
+	},
+	/**
+	* 로그인 처리 
+	*
+	* @param memId 아이디
+	* @param memPw 비밀번호 
+	* @return Boolean - true 로그인 성공
+	*/
+	login(memId, memPw) {
+		/**
+		* 1. memId - 회원 정보를 DB 조회 
+		* 2. 회원 정보가 있으면 memPw 해시코드 사용자가 입력한 memPw와 비교 
+		*			bcrypt.compare 
+		* 3. 비밀번호가 일치 -> 로그인 처리(세션으로 처리) -> return true
+		* 4. 비밀번호가 불일치 -> return false 
+		*/
 	}
 };
 
