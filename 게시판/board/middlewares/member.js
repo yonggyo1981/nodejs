@@ -99,7 +99,27 @@ const member = {
 			return alert(err.message, res);
 		}
 		next();
-	}
+	},
+	/**
+	* 비회원 전용 접속 권한 체크 
+	*/
+	guestOnly(req, res, next) {
+		if (req.isLogin) { // 로그인 상태이면 접속 불가 처리 
+			return alert("비회원 전용 페이지 입니다.", res, -1);
+		}
+		
+		next();
+	},
+	/**
+	* 관리자 전용 접속 권한 체크
+	*/
+	adminOnly(req, res, next) {
+		if (!req.isLogin || !req.member.isAdmin) { // 비회원이거나 관리자가 아닌 회원인 경우 
+			return alert("접속 권한이 없습니다.", res, -1);
+		}
+		
+		next();
+	},
 };
 
 module.exports = member;

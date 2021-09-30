@@ -10,6 +10,8 @@ const bootStrap = require("./boot"); // 사이트 초기화 미들웨어
 const { sequelize } = require('./models');
 
 /** 라우터 */
+const adminRouter = require("./routes/admin"); // 관리자 페이지
+
 const mainRouter = require('./routes/main');
 const memberRouter = require('./routes/member'); // 회원 관련 
 
@@ -54,6 +56,9 @@ app.use(bootStrap); // 사이트 초기화
 /** 라우터 등록 */
 app.use(mainRouter);
 app.use("/member", memberRouter); // 회원 관련 
+
+app.use("/admin", adminRouter); // 관리자 페이지
+
 
 /** 없는 페이지 처리 라우터 */
 app.use((req, res, next) => {

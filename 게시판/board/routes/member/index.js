@@ -1,5 +1,5 @@
 const member = require("../../models/member"); // 회원 model 
-const { joinValidator, loginValidator } = require("../../middlewares/member");  // 유효성검사 미들웨어 
+const { joinValidator, loginValidator, guestOnly } = require("../../middlewares/member");  // 유효성검사 미들웨어 
 const { alert, go } = require("../../lib/common");
 const express = require('express');
 const router = express.Router();
@@ -13,14 +13,14 @@ const router = express.Router();
 */
 router.route("/join")
 	/** 회원 가입 양식 */
-	.get((req, res) => {
+	.get(guestOnly, (req, res) => {
 		const data = {
 				pageTitle : "회원가입",
 		};
 		return res.render("member/form", data);
 	})
 	/** 회원 가입 처리 */
-	.post(joinValidator, async (req, res) => {
+	.post(guestOnly, joinValidator, async (req, res) => {
 		const memNo = await member.join(req.body);
 		if (memNo) { // 회원 가입 성공 
 			 // 로그인 페이지로 이동
@@ -34,7 +34,7 @@ router.route("/join")
 
 router.route("/login")
 	/** 로그인 양식 */
-	.get((req, res) => {
+	.get(guestOnly, (req, res) => {
 		const data = {
 			pageTitle : "로그인",
 		};
@@ -42,11 +42,23 @@ router.route("/login")
 		return res.render("member/login", data);
 	})
 	/** 로그인 처리 */
-	.post(loginValidator, (req, res) => {
+	.post(guestOnly, loginValidator, async (req, res) => {
 		
-		member.login(req.body.memId, req.body.memPw);
+		const result = await member.login(req.body.memId, req.body.memPw, req);
+		if (result) { // 로그인 성공
+			return go("/", res, "parent");
+		}
 		
-		return res.send("");
+		// 로그인 실패 
+		return alert("로그인에 실패 하였습니다.", res);
 	});
+
+/** 로그아웃 */
+router.get("/logout", (req, res) => {
+	req.session.destroy();
+	
+	// 로그아웃 -> 로그인 페이지로 이동
+	return res.redirect("/member/login");
+});
 
 module.exports = router;
