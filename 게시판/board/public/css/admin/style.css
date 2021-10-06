@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+* { font-family: 'Nanum Gothic', sans-serif; box-sizing: border-box; outline: none; }
+html { font-size: 13px; color: #212121; }
+body { margin: 0; }
+a { text-decoration: none; color: #212121; }
+ul { list-style: none; padding: 0; margin: 0; }
+dl, dt, dd { padding: 0; margin: 0; }
+main { margin: 25px; }
+
+
+/** 관리자 공통 */
+.main_title { font-size: 18px; font-weight: bold; padding-bottom: 10px; margin-bottom: 25px; border-bottom: 1px solid #000000; padding-left: 10px; }
+.submit_btn { background-color: blue; color: #ffffff; border: 0; padding: 15px 40px; font-size: 17px; cursor: pointer; display: block; margin: 15px auto; }
+.dl_cell { display: table; width: 100%; border-top: 1px solid #212121; border-bottom: 1px solid #212121; }
+.dl_cell dt { display: table-cell; vertical-align: middle; padding: 10px; width: 150px; background-color: #f7f7f7; }
+.dl_cell dd { display: table-cell; vertical-align: middle; padding: 10px; }
+input[type='text'], 
+input[type='password'],
+input[type='number'] { border: 1px solid #d5d5d5; height: 45px; width: 100%; padding: 0 10px; }
+
+
+/** outline/header/admin.html */
+#site_top_menu { background-color: #888888; }
+#site_top_menu li { float: left; }
+#site_top_menu:after { content: ''; display: block; clear: left; }
+#site_top_menu li > a { display: block; padding: 20px 25px; font-size: 18px; font-weight: bold; }
+#site_top_menu li.on > a { background-color: orange; }

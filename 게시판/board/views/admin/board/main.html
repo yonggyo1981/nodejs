@@ -1,0 +1,18 @@
+{% extends '../../outline/layout/admin.html' %}
+{% block content %}
+<div class='main_title'>게시판 등록</div>
+<form method="post" action="/admin/board" target="ifrmHidden" autocomplete='off'>
+	<dl class='dl_cell'>
+		<dt>게시판 아이디</dt>
+		<dd>
+			<input type="text" name="boardId">
+		</dd>
+		<dt>게시판 명</dt>
+		<dd>
+			<input type="text" name="boardNm">
+		</dd>
+	</dl>
+	<input type="submit" value="등록하기" class="submit_btn">
+</form>
+
+{% endblock %}

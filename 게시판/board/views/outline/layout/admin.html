@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+		<link rel="stylesheet" type="text/css" href="/css/admin/style.css">
+		{% if addCss.length > 0 %}
+		{% for css in addCss %}
+		<link rel="stylesheet" type="text/css" href="/css/admin/{{ css }}.css">
+		{% endfor %}
+		{% endif %}
+		{% block style %}
+		{% endblock %}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="/js/admin/common.js"></script>
+		{% if addScript.length > 0 %}
+		{% for script in addScript %}
+		<script src='/js/admin/{{ script }}.js'></script>
+		{% endfor %}
+		{% endif %}
+		{% block script %}
+		{% endblock %}
+		<title>관리자페이지::{{ pageTitle }}</title>
+	</head>
+	<body>
+		{% block header %}
+		<header>
+			{% include '../header/admin.html' %}
+		</header>
+		{% endblock %}
+				
+		<main>
+		{% block content %}
+		{% endblock %}
+		</main>
+		
+		{% block footer %}
+		<footer>
+			{% include '../footer/admin.html' %}
+		</footer>
+		{% endblock %}
+		
+		<iframe name='ifrmHidden' width='100%' height='500' frameborder='0'></iframe>
+	</body>
+</html>
