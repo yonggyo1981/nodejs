@@ -33,6 +33,44 @@ const board = {
 			logger(err.stack, 'error');
 			return false;
 		}
+	},
+	/**
+	* 게시판 설정 목록
+	*
+	*/
+	async getBoards() {
+		try {
+			const sql = "SELECT * FROM boardConf ORDER BY regDt DESC";
+			const rows = await sequelize.query(sql, {
+				type : QueryTypes.SELECT,
+			});
+			
+			return rows;
+		} catch(err) {
+			logger(err.message, 'error');
+			logger(err.stack, 'error');
+			return false;
+		}
+	},
+	/**
+	* 게시판 설정 조회 
+	*
+	* @param boardId 게시판아이디
+	*/
+	async getBoard(boardId) {
+		try {
+			const sql = "SELECT * FROM boardConf WHERE boardId = ?";
+			const rows = await sequelize.query(sql, {
+				replacements : [boardId],
+				type : QueryTypes.SELECT,
+			});
+			
+			return rows[0];
+		} catch (err) {
+			logger(err.message, 'error');
+			logger(err.stack, 'error');
+			return false;
+		}
 	}
 };
 

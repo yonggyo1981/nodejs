@@ -13,7 +13,7 @@ const commonLib = {
 	alert(msg, res, step) {
 		let script = `<script>alert("${msg}");</script>`;
 		if (step) {
-			script += `<script>history.back(${step});</script>`;
+			script += `<script>history.go(${step});</script>`;
 		}
 		
 		res.send(script);
@@ -29,6 +29,18 @@ const commonLib = {
 		target = target || "self";
 		
 		const script = `<script>${target}.location.href='${url}';</script>`;
+		res.send(script);
+	},
+	/**
+	* 새로고침 
+	*
+	* @param res - response 인스턴스
+	* @param target - 기본값 self - 현재 창,  parent - 부모창 
+	*/
+	reload(res, target) {
+		target = target || 'self';
+		
+		const script = `<script>${target}.location.reload();</script>`;
 		res.send(script);
 	}
 };

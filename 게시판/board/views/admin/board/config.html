@@ -1,0 +1,16 @@
+{% extends '../../outline/layout/admin.html' %}
+{% block content %}
+<div class='main_title'>게시판 설정</div>
+<form method="post" action="/admin/board/{{ boardId }}" target="ifrmHidden" autocomplete="off">
+	<table class="table_cols">
+		<tr>
+			<th>게시판아이디</th>
+			<td>{{ boardId }}</td>
+		</tr>
+		<tr>
+			<th>게시판 이름</th>
+			<td>{{ boardNm }}</td>
+		</tr>
+	</table>
+</form>
+{% endblock %}

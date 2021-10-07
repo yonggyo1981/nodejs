@@ -17,7 +17,26 @@ main { margin: 25px; }
 input[type='text'], 
 input[type='password'],
 input[type='number'] { border: 1px solid #d5d5d5; height: 45px; width: 100%; padding: 0 10px; }
+select { border: 1px solid #d5d5d5; height: 45px; }
 
+
+.table_rows, .table_cols { padding: 0; border-spacing: 0; border: 1px solid #212121; border-left: 0; border-right: 0; width: 100%; }
+.table_rows th, .table_rows td  { padding: 10px; }
+.table_rows th { background-color: #f7f7f7; border-bottom: 1px solid #212121; }
+.table_rows td { border-bottom: 1px solid #d5d5d5; }
+.table_rows tbody > tr:last-of-type td { border-bottom: 0; }
+
+.table_cols th, .table_cols td { border-bottom: 1px solid #d5d5d5; padding: 15px 10px; }
+.table_cols tr:last-of-type th, .table_cols tr:last-of-type td { border-bottom: 0; }
+.table_cols th { width: 150px; background-color: #f7f7f7; }
+
+.table-action { padding: 10px; border-bottom: 1px solid #212121; background-color: #f7f7f7; }
+
+/** 버튼 공통 */
+.btn1, .btn2 { display: inline-block; padding: 8px 20px; background-color: #72b8f3; cursor: pointer;  border-radius: 5px; font-weight: bold; color: #000000; }
+.btn1:hover { background-color: #41729c; color: #ffffff; }
+.btn2 { background-color: #ffb956; border: 0; height: 45px; padding: 0 35px; line-height: 45px; }
+.btn2:hover { background-color: #ba8335; color: #ffffff; }
 
 /** outline/header/admin.html */
 #site_top_menu { background-color: #888888; }

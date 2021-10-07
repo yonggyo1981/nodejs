@@ -1,0 +1,55 @@
+{"level":"info","message":"[19:17:54]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:18:09][404]/favicon.ico은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[19:18:09]Error: /favicon.ico은 없는 페이지 입니다.\n    at D:\\nodejs\\board\\app.js:65:16\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"error","message":"[19:20:27]Error: /admin/member은 없는 페이지 입니다.\n    at D:\\nodejs\\board\\app.js:65:16\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"error","message":"[19:20:27][404]/admin/member은 없는 페이지 입니다.","service":"general"}
+{"level":"info","message":"[19:46:16]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:47:14]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:48:53]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:51:55]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:52:49]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:53:53]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:54:24]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:54:51]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:55:02]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:55:29]Validation error","service":"general"}
+{"level":"error","message":"[19:55:29]SequelizeUniqueConstraintError: Validation error\n    at Query.formatError (D:\\nodejs\\board\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:242:16)\n    at Query.run (D:\\nodejs\\board\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:77:18)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async D:\\nodejs\\board\\node_modules\\sequelize\\lib\\sequelize.js:619:16\n    at async Object.create (D:\\nodejs\\board\\models\\board.js:25:4)\n    at async D:\\nodejs\\board\\routes\\admin\\index.js:29:18","service":"general"}
+{"level":"info","message":"[19:57:00]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:57:05]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:59:54]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:00:15]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:02:51]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:02:57]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:03:13]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:03:20]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:04:15]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:13:41]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:14:25]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[20:14:50][404]/admin/board/notice은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[20:14:50]Error: /admin/board/notice은 없는 페이지 입니다.\n    at D:\\nodejs\\board\\app.js:65:16\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"info","message":"[20:15:23]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[20:39:55][404]/admin/board/notice은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[20:39:55]Error: /admin/board/notice은 없는 페이지 입니다.\n    at D:\\nodejs\\board\\app.js:65:16\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"info","message":"[20:40:44]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:42:45]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:43:01]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:44:23]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:45:30]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:50:04]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:50:14]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:50:16]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:50:37]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:50:56]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:51:41]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:52:54]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:53:17]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[20:53:24]seuqelize is not defined","service":"general"}
+{"level":"error","message":"[20:53:24]ReferenceError: seuqelize is not defined\n    at Object.getBoard (D:\\nodejs\\board\\models\\board.js:63:17)\n    at D:\\nodejs\\board\\routes\\admin\\index.js:50:9\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:281:22\n    at param (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:410:3)","service":"general"}
+{"level":"error","message":"[20:54:19]seuqelize is not defined","service":"general"}
+{"level":"error","message":"[20:54:19]ReferenceError: seuqelize is not defined\n    at Object.getBoard (D:\\nodejs\\board\\models\\board.js:63:17)\n    at D:\\nodejs\\board\\routes\\admin\\index.js:50:9\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:281:22\n    at param (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:410:3)","service":"general"}
+{"level":"info","message":"[20:54:21]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:55:19]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:55:59]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:57:24]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:58:29]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:59:49]데이터 베이스 연결 성공","service":"general"}
