@@ -55,8 +55,12 @@ router.route("/board/:boardId")
 		
 		return res.render("admin/board/config", data);
 	})
-	.post((req, res) => {
+	.post(async (req, res) => {
 		// 게시판 설정 저장 처리 
+		const boardId = req.params.boardId;
+		const result = await board.saveConfig(boardId, req.body);
+		
+		return res.send("");
 	});
 	
 

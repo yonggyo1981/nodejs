@@ -9,8 +9,103 @@
 		</tr>
 		<tr>
 			<th>게시판 이름</th>
-			<td>{{ boardNm }}</td>
+			<td><input type="text" name="boardNm" value="{{ boardNm }}"></td>
+		</tr>
+		<tr>
+			<th>게시글 분류</th>
+			<td>
+				<textarea name="category" rows="10">{{ category }}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<th>1페이지 게시글 개수</th>
+			<td>
+				<input type="number" name="listPerPage" value="{{ listPerPage }}">
+			</td>
+		</tr>
+		<tr>
+			<th>답글</th>
+			<td>
+				<input type="radio" name="useReply" value="0" id="useReply_0"><label for="useReply_0">미사용</label>
+				<input type="radio" name="useReply" value="1" id="useReply_1"><label for="useReply_1">사용</label>
+			</td>
+		</tr>
+		<tr>
+			<th>댓글</th>
+			<td>
+				<input type="radio" name="useComment" value="0" id="useComment_0">
+				<label for="useComment_0">미사용</label>
+				<input type="radio" name="useComment" value="1" id="useComment_1">
+				<label for="useComment_1">사용</label> / 
+				<b>작성 권한 : </b>
+				<input type="radio" name="commentLevel" value="all" id="commentLevel_all">
+				<label for="commentLevel_all">전체(비회원+회원+관리자)</label>
+				<input type="radio" name="commentLevel" value="member" id="commentLevel_member">
+				<label for="commentLevel_member">회원(회원+관리자)</label>
+				<input type="radio" name="commentLevel" value="admin" id="commentLevel_admin">
+				<label for="commentLevel_admin">관리자</label>
+			</td>
+		</tr>
+		<tr>
+			<th>게시판 권한</th>
+			<td>
+				<div>
+					게시글 목록 - 
+						<input type="radio" name="listLevel" value="all" id="listLevel_all">
+						<label for="listLevel_all">전체(비회원+회원+관리자)</label>
+						<input type="radio" name="listLevel" value="member" id="listLevel_member">
+						<label for="listLevel_member">회원(회원+관리자)</label>
+						<input type="radio" name="listLevel" value="admin" id="listLevel_admin">
+						<label for="listLevel_admin">관리자</label>
+				</div>
+				<div>
+					게시글 보기 - 
+						<input type="radio" name="viewLevel" value="all" id="viewLevel_all">
+						<label for="viewLevel_all">전체(비회원+회원+관리자)</label>
+						<input type="radio" name="viewLevel" value="member" id="viewLevel_member">
+						<label for="viewLevel_member">회원(회원+관리자)</label>
+						<input type="radio" name="viewLevel" value="admin" id="viewLevel_admin">
+						<label for="viewLevel_admin">관리자</label>
+				</div>
+				<div>
+					게시글 쓰기 - 
+						<input type="radio" name="writeLevel" value="all" id="writeLevel_all">
+						<label for="writeLevel_all">전체(비회원+회원+관리자)</label>
+						<input type="radio" name="writeLevel" value="member" id="writeLevel_member">
+						<label for="writeLevel_member">회원(회원+관리자)</label>
+						<input type="radio" name="writeLevel" value="admin" id="writeLevel_admin">
+						<label for="writeLevel_admin">관리자</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>게시판스킨</th>
+			<td>
+				<select name="skin">
+					<option value="default">default</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th>업로드</th>
+			<td>
+				<input type="checkbox" name="uploadImage" value="1" id="uploadImage">
+				<label for="uploadImage">이미지 추가</label> 
+				<input type="checkbox" name="uploadFile" value="1" id="uploadFile">
+				<label for="uploadFile">파일 첨부</label>
+			</td>
+		</tr>
+		<tr>
+			<th>기타</th>
+			<td>
+				<input type="checkbox" name="useViewList" value="1" id="useViewList">
+				<label for="useViewList">게시글 보기 하단에 목록 노출</label>
+				
+				<input type="checkbox" name="useEditor" value="1" id="useEditor">
+				<label for="useEditor">글쓰기 에디터 사용</label>
+			</td>
 		</tr>
 	</table>
+	<input type="submit" value="저장하기" class="submit_btn">
 </form>
 {% endblock %}

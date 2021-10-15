@@ -18,7 +18,7 @@ input[type='text'],
 input[type='password'],
 input[type='number'] { border: 1px solid #d5d5d5; height: 45px; width: 100%; padding: 0 10px; }
 select { border: 1px solid #d5d5d5; height: 45px; }
-
+textarea { border: 1px solid #d5d5d5; width: 100%; resize: none; }
 
 .table_rows, .table_cols { padding: 0; border-spacing: 0; border: 1px solid #212121; border-left: 0; border-right: 0; width: 100%; }
 .table_rows th, .table_rows td  { padding: 10px; }

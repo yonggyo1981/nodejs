@@ -1,7 +1,21 @@
-CREATE TABLE `board`.`boardconf` (
-  `boardId` VARCHAR(20) NOT NULL COMMENT '게시판 아이디',
-  `boardNm` VARCHAR(45) NOT NULL COMMENT '게시판 이름',
-  `regDt` DATETIME NULL DEFAULT NOW() COMMENT '등록일시',
-  `modDt` DATETIME NULL COMMENT '수정 일시',
-  PRIMARY KEY (`boardId`))
-COMMENT = '게시판 설정';
+CREATE TABLE `boardconf` (
+  `boardId` varchar(20) NOT NULL COMMENT '게시판 아이디',
+  `boardNm` varchar(45) NOT NULL COMMENT '게시판 이름',
+  `category` varchar(500) DEFAULT NULL COMMENT '게시판 분류, || 구분해서 여러개 입력',
+  `listPerPage` int DEFAULT '15' COMMENT '1페이당 게시글 개수 - 기본값은 15개',
+  `useReply` tinyint(1) DEFAULT '0' COMMENT '답글 사용 여부 - 0 - 미사용, 1 - 사용',
+  `useComment` tinyint(1) DEFAULT '0' COMMENT '댓글 사용 여부 - 0 - 미사용, 1 - 사용',
+  `commentLevel` enum('all','member','admin') DEFAULT 'all' COMMENT '댓글 작성 권한\nall - 전체(비회원 + 회원 + 관리자)\nmember - 회원(회원 + 관리자)\nadmin - 관리자',
+  `listLevel` enum('all','member','admin') DEFAULT 'all' COMMENT '게시글 목록 권한\nall - 전체(비회원 + 회원 + 관리자)\nmember - 회원(회원 + 관리자)\nadmin - 관리자',
+  `viewLevel` enum('all','member','admin') DEFAULT 'all' COMMENT '게시글 보기 권한\nall - 전체(비회원 + 회원 + 관리자)\nmember - 회원(회원 + 관리자)\nadmin - 관리자',
+  `writeLevel` enum('all','member','admin') DEFAULT 'all' COMMENT '게시글 쓰기 권한\nall - 전체(비회원 + 회원 + 관리자)\nmember - 회원(회원 + 관리자)\nadmin - 관리자',
+  `skin` varchar(45) DEFAULT NULL,
+  `uploadImage` tinyint(1) DEFAULT '0' COMMENT '이미지 업로드 - 1 - 업로드 가능',
+  `uploadFile` tinyint(1) DEFAULT '0' COMMENT '파일 업로드 - 1 - 파일 첨부 가능',
+  `useViewList` tinyint(1) DEFAULT '0' COMMENT '게시글 보기 하단에 목록 노출 - 1 - 노출',
+  `useEditor` tinyint(1) DEFAULT '0' COMMENT '에디터 사용 여부 - 1 - 사용',
+  `regDt` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '등록일시',
+  `modDt` datetime DEFAULT NULL COMMENT '수정 일시',
+  PRIMARY KEY (`boardId`),
+  KEY `ix_regDt` (`regDt`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='게시판 설정'

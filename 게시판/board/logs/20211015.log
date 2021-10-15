@@ -1,0 +1,20 @@
+{"level":"info","message":"[18:21:50]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[18:51:00][404]/favicon.ico은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[18:51:00]Error: /favicon.ico은 없는 페이지 입니다.\n    at D:\\nodejs\\board\\app.js:65:16\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"info","message":"[19:52:25]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:52:56]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:53:17]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:03:30]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:06:46]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:06:58]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:07:08]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[20:07:11]commentLevel is not defined","service":"general"}
+{"level":"error","message":"[20:07:11]ReferenceError: commentLevel is not defined\n    at Object.saveConfig (D:\\nodejs\\board\\models\\board.js:89:20)\n    at D:\\nodejs\\board\\routes\\admin\\index.js:61:30\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\route.js:131:14)\n    at Route.dispatch (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:281:22\n    at param (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:365:14)","service":"general"}
+{"level":"info","message":"[20:07:34]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:07:54]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:08:16]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:08:41]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:08:56]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:09:07]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:10:09]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:10:12]데이터 베이스 연결 성공","service":"general"}

@@ -71,6 +71,60 @@ const board = {
 			logger(err.stack, 'error');
 			return false;
 		}
+	},
+	/**
+	* 게시판 설정 저장
+	*
+	* @param boardId - 게시판 아이디
+	* @param data - 설정 데이터 
+	*/
+	async saveConfig(boardId, data) {
+		try {
+			const replacements = {
+				boardNm : data.boardNm,
+				category : data.category?data.category.replace(/\r\n/g, "||"):"",
+				listPerPage : data.listPerPage || 15,
+				useReply : data.useReply || 0,
+				useComment : data.useComment || 0,
+				commentLevel : data.commentLevel || 'all',
+				listLevel : data.listLevel || 'all',
+				viewLevel : data.viewLevel || 'all',
+				writeLevel : data.writeLevel || 'all',
+				skin : data.skin,
+				uploadImage : data.uploadImage || 0,
+				uploadFile : data.uploadFile || 0,
+				useViewList : data.useViewList || 0,
+				useEditor : data.useEditor || 0,
+				boardId,
+			}
+			
+			const sql = `UPDATE boardConf 
+									SET
+										boardNm = :boardNm,
+										category = :category,
+										listPerPage = :listPerPage,
+										useReply = :useReply,
+										useComment = :useComment,
+										commentLevel = :commentLevel,
+										listLevel = :listLevel,
+										viewLevel = :viewLevel,
+										writeLevel = :writeLevel,
+										skin = :skin,
+										uploadImage = :uploadImage,
+										uploadFile = :uploadFile,
+										useViewList = :useViewList,
+										useEditor = :useEditor
+								WHERE boardId = :boardId`;
+			await sequelize.query(sql, {
+				replacements,
+				type : QueryTypes.UPDATE,
+			});
+			return true;
+		} catch(err) {
+			logger(err.message, 'error');
+			logger(err.stack, 'error');
+			return false;
+		}
 	}
 };
 
