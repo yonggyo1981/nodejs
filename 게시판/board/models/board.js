@@ -65,7 +65,12 @@ const board = {
 				type : QueryTypes.SELECT,
 			});
 			
-			return rows[0];
+			const data = rows[0];
+			if (data) {
+				data.category = data.category?data.category.split("||"):[];
+				data.categoryOrg = data.category.join("\r\n");
+			}
+			return data;
 		} catch (err) {
 			logger(err.message, 'error');
 			logger(err.stack, 'error');

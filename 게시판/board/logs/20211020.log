@@ -1,0 +1,40 @@
+{"level":"info","message":"[15:18:03]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[15:18:07][404]/favicon.ico은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[15:18:07]Error: /favicon.ico은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:65:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"info","message":"[15:19:13]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:23:41]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:53:03]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:53:49]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:56:44]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:57:18]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:57:23]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:58:14]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:01:36][500](D:\\study\\express\\board\\views\\admin\\board\\config.html) [Line 29, Column 96]\n  unexpected token: !","service":"general"}
+{"level":"error","message":"[19:01:36]Template render error: (D:\\study\\express\\board\\views\\admin\\board\\config.html) [Line 29, Column 96]\n  unexpected token: !\n    at Object._prettifyError (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\lib.js:36:11)\n    at Template.render (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:538:21)\n    at D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:366:27\n    at createTemplate (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:315:9)\n    at handle (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:327:11)\n    at D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:339:9\n    at next (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\lib.js:328:7)\n    at Object.asyncIter (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\lib.js:334:3)\n    at Environment.getTemplate (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:321:9)\n    at Environment.render (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:360:10)","service":"general"}
+{"level":"error","message":"[19:02:10][500](D:\\study\\express\\board\\views\\admin\\board\\config.html) [Line 29, Column 112]\n  expected block end in if statement","service":"general"}
+{"level":"error","message":"[19:02:10]Template render error: (D:\\study\\express\\board\\views\\admin\\board\\config.html) [Line 29, Column 112]\n  expected block end in if statement\n    at Object._prettifyError (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\lib.js:36:11)\n    at Template.render (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:538:21)\n    at D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:366:27\n    at createTemplate (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:315:9)\n    at handle (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:327:11)\n    at D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:339:9\n    at next (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\lib.js:328:7)\n    at Object.asyncIter (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\lib.js:334:3)\n    at Environment.getTemplate (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:321:9)\n    at Environment.render (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:360:10)","service":"general"}
+{"level":"info","message":"[19:05:19]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:06:50]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:07:17]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:11:22]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:11:34]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:29:53]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:31:32]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:49:27]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:49:37]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:49:41]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:50:32]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:51:20]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:51:32]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:52:09]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:52:13]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:56:20]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:57:43]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:58:02]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:59:10]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:59:41]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:01:19]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:03:52]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:04:16]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[20:04:38][500](D:\\study\\express\\board\\views\\board\\form.html)\n  Error: template not found: skins/default/_form.html","service":"general"}
+{"level":"error","message":"[20:04:38]Template render error: (D:\\study\\express\\board\\views\\board\\form.html)\n  Error: template not found: skins/default/_form.html\n    at Object._prettifyError (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\lib.js:36:11)\n    at D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:563:19\n    at eval (eval at _compile (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:633:18), <anonymous>:20:11)\n    at createTemplate (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:295:11)\n    at next (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\lib.js:330:7)\n    at handle (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:329:11)\n    at D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:339:9\n    at next (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\lib.js:328:7)\n    at Object.asyncIter (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\lib.js:334:3)\n    at Environment.getTemplate (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:321:9)","service":"general"}

@@ -49,6 +49,7 @@ router.route("/board/:boardId")
 		const boardId = req.params.boardId;
 		
 		const data = await board.getBoard(boardId);
+		console.log(data);
 		if (!data) { // 게시판이 존재하지 않는 경우 -> 메세지 출력 -> 뒤로가기
 			return alert("게시판이 존재하지 않습니다.", res, -1);
 		}
@@ -60,7 +61,12 @@ router.route("/board/:boardId")
 		const boardId = req.params.boardId;
 		const result = await board.saveConfig(boardId, req.body);
 		
-		return res.send("");
+		if (!result) { // 저장 실패 -> 메세지 출력 
+			return alert("설정 저장에 실패하였습니다.", res);
+		}
+		
+		// 성공 -> 새로고침 
+		return reload(res, "parent");
 	});
 	
 
