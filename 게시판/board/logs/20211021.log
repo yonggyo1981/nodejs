@@ -1,0 +1,30 @@
+{"level":"info","message":"[19:13:27]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:13:32][404]/favicon.ico은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[19:13:32]Error: /favicon.ico은 없는 페이지 입니다.\n    at D:\\nodejs\\board\\app.js:67:16\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"error","message":"[19:13:36][404]/admin/member은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[19:13:36]Error: /admin/member은 없는 페이지 입니다.\n    at D:\\nodejs\\board\\app.js:67:16\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"error","message":"[19:14:18]Error: /admin/member은 없는 페이지 입니다.\n    at D:\\nodejs\\board\\app.js:67:16\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"error","message":"[19:14:18][404]/admin/member은 없는 페이지 입니다.","service":"general"}
+{"level":"info","message":"[19:54:55]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:56:33]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:57:11]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:57:51]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:05:02]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:05:13]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:05:39]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:05:44]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:05:47]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:06:53]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:09:02]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:35:07]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:36:40]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:37:03]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:38:42]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:38:59]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:39:58]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:40:05]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[21:00:29][404]/file/upload은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[21:00:29]Error: /file/upload은 없는 페이지 입니다.\n    at D:\\nodejs\\board\\app.js:67:16\n    at Layer.handle [as handle_request] (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\nodejs\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"info","message":"[21:04:02]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[21:04:08]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[21:04:37]데이터 베이스 연결 성공","service":"general"}

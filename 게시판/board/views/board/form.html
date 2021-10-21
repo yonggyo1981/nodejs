@@ -1,2 +1,14 @@
 {% extends "../outline/layout/main.html" %}
-{% include "./skins/default/_form.html" %}
+{% block content %}
+{% if boardConf.useEditor == 1 %}
+<script>
+$(function() {
+	CKEDITOR.replace("content");
+	CKEDITOR.config.height = 350;
+});
+</script>
+{% endif %}
+<form name='frmWrite'  id='frmWrite' method="post" action="/board/write/{{ boardConf.boardId }}" target="ifrmHidden" autocomplete="off">
+{% include boardConf.formSkinPath %}
+</form>
+{% endblock %}

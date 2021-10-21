@@ -1,0 +1,29 @@
+<!-- Default 글 작성/수정 양식 -->
+<div class='default_skin_form'>
+	<dl>
+		<dt>제목</dt>
+		<dd>
+			<input type="text" name="subject">
+		</dd>
+	</dl>
+	<textarea id='content' name='content'></textarea>
+	{% if boardConf.uploadImage == 1 and boardConf.useEditor == 1 %}
+	<dl>
+		<dt>이미지</dt>
+		<dd>
+			<button type="button" class="imageUpload btn2">이미지 본문추가</button>
+		</dd>
+	</dl>
+	{% endif %}
+	{% if boardConf.uploadFile == 1 %}
+	<dl>
+		<dt>파일첨부</dt>
+		<dd>
+			<button type="button" class="fileUpload btn2">첨부하기</button>
+		</dd>
+	</dl>
+	{% endif %}
+	
+	<button type="button" class="btn1 gray">취소하기</button>
+	<input type="submit" value="작성하기" class='btn1'>
+</div>

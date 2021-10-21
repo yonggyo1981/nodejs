@@ -1,5 +1,6 @@
 const { sequelize, Sequelize : { QueryTypes } } = require("./index");
 const logger = require("../lib/logger");
+const path = require('path');
 
 /**
 * 게시판 model 
@@ -70,6 +71,14 @@ const board = {
 				data.category = data.category?data.category.split("||"):[];
 				data.categoryOrg = data.category.join("\r\n");
 			}
+			
+			data.skin = data.skin || "default";
+			
+			const skinPath = path.join(__dirname, "..", "views/board/skins/", data.skin);
+			data.listSkinPath = skinPath + "/_list.html";
+			data.viewSkinPath = skinPath + "/_view.html";
+			data.formSkinPath = skinPath + "/_form.html";
+		
 			return data;
 		} catch (err) {
 			logger(err.message, 'error');

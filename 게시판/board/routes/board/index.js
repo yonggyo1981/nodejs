@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const board = require('../../models/board');
 
 /**
 * 게시판 라우터 
@@ -16,10 +17,17 @@ const router = require('express').Router();
 * 게시글 작성 
 *
 */
+/** 글쓰기 공통 라우터 */
+router.use("/write/:id", async (req, res, next) => {
+	req.boardConf = await board.getBoard(req.params.id);	
+	next();
+});
+
 router.route("/write/:id")
 		.get((req, res) => {  // 게시글 작성 양식 
 			const data = {
-				addScript : ["ckeditor/ckeditor"],
+				addScript : ["ckeditor/ckeditor", "board/form"],
+				boardConf : req.boardConf,
 			};
 			return res.render("board/form", data);
 		})
