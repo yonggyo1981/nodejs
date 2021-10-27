@@ -1,0 +1,71 @@
+{"level":"info","message":"[18:22:43]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:44:15]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:44:23]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:44:52]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[18:45:04][404]/download/12은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[18:45:04]Error: /download/12은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"info","message":"[18:45:42]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:46:08]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:47:09]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:47:14]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:50:07]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:50:13]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:50:49]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:51:06]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:51:25]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:52:07]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:52:16]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:54:23]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:54:53]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:57:25]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:58:15]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:03:34]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:04:14]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:12:18]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:13:07][500]idx is not defined","service":"general"}
+{"level":"error","message":"[19:13:07]ReferenceError: idx is not defined\n    at D:\\study\\express\\board\\routes\\file\\index.js:49:22\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:281:22\n    at param (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)","service":"general"}
+{"level":"error","message":"[19:13:07][404]/favicon.ico은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[19:13:07]Error: /favicon.ico은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"info","message":"[19:13:35]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:13:47]The \"path\" argument must be of type string. Received type number (4)","service":"general"}
+{"level":"error","message":"[19:13:47]TypeError [ERR_INVALID_ARG_TYPE]: The \"path\" argument must be of type string. Received type number (4)\n    at validateString (internal/validators.js:124:11)\n    at Object.join (path.js:375:7)\n    at Object.get (D:\\study\\express\\board\\models\\uploadFile.js:74:30)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async Object.download (D:\\study\\express\\board\\models\\uploadFile.js:47:16)","service":"general"}
+{"level":"info","message":"[19:14:36]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:14:46]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:15:37]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:15:51]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:18:10]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:18:35]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:18:40]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:18:55]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:19:03]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:19:09]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:20:10]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:20:42]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:20:47]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:20:54]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:25:18]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:25:28]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:29:29]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:29:48]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:29:50]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:30:20]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:31:04]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:31:51]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:32:19]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:33:02]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:33:31]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:42:20]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:42:27]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:43:18]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:45:15]ENOENT: no such file or directory, unlink 'D:\\study\\express\\board\\public\\uploads\\1\\1'","service":"general"}
+{"level":"error","message":"[19:45:15]Error: ENOENT: no such file or directory, unlink 'D:\\study\\express\\board\\public\\uploads\\1\\1'","service":"general"}
+{"level":"error","message":"[19:45:17]ENOENT: no such file or directory, unlink 'D:\\study\\express\\board\\public\\uploads\\2\\2'","service":"general"}
+{"level":"error","message":"[19:45:17]Error: ENOENT: no such file or directory, unlink 'D:\\study\\express\\board\\public\\uploads\\2\\2'","service":"general"}
+{"level":"error","message":"[19:45:19]ENOENT: no such file or directory, unlink 'D:\\study\\express\\board\\public\\uploads\\3\\3'","service":"general"}
+{"level":"error","message":"[19:45:19]Error: ENOENT: no such file or directory, unlink 'D:\\study\\express\\board\\public\\uploads\\3\\3'","service":"general"}
+{"level":"info","message":"[19:56:46]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:57:40]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:59:17]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:59:28]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:01:59]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:02:30]데이터 베이스 연결 성공","service":"general"}

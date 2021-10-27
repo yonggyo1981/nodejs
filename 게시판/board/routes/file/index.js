@@ -2,6 +2,7 @@ const router = require('express').Router();
 const path = require('path');
 const multer = require('multer');
 const uploadFile = require("../../models/uploadFile");
+const { uid } = require("../../lib/common");
 
 const upload = multer({
 	storage : multer.diskStorage({
@@ -30,7 +31,10 @@ const upload = multer({
 */
 router.route("/upload")
 	.get((req, res) => {
-		return res.render("file/upload");
+		const data = {
+			uid : uid(),
+		};
+		return res.render("file/upload", data);
 	})
 	.post(upload.single('file'), (req, res) => { // 이미지 업로드 처리 
 		
@@ -38,16 +42,15 @@ router.route("/upload")
 	});
 
 /** 파일 다운로드 */
-router.get("/download/:idx", (req, res) => {
-	/**
-	* 출력 헤더 
-			- Content-Type : application/octet-stream
-			- Content-Disposition: attachment; filename=다운로드될 파일명
-	*
-	*/
-	res.header("Content-Type", "application/octet-stream");
-	res.header("Content-Disposition", "attachment; filename=test.txt");
-	res.send("다운로드 테스트!");
+router.get("/download/:idx", async (req, res) => {
+	uploadFile.download(req.params.idx, res);
+});
+
+/** 파일 삭제 */
+router.get("/delete/:idx", (req, res) => {
+	uploadFile.delete(req.params.idx);
+	
+	return res.send("");
 });
 
 module.exports = router;

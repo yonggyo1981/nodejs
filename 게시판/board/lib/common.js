@@ -42,6 +42,14 @@ const commonLib = {
 		
 		const script = `<script>${target}.location.reload();</script>`;
 		res.send(script);
+	},
+	/**
+	* Unique ID  - 밀리초 단위 timestamp 
+	* new Date().getTime();
+	* Date.now();
+	*/
+	uid() {
+		return Data.now();
 	}
 };
 
