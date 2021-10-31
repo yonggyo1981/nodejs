@@ -15,11 +15,12 @@ const uploadFile = {
 	async insertInfo(file) {
 		let idx = 0;
 		try {
-			const sql = `INSERT INTO file (gid, originalName, mimeType)
-								VALUES(:gid, :originalName, :mimeType)`;
+			const sql = `INSERT INTO file (gid, uploadType, originalName, mimeType)
+								VALUES(:gid, :uploadType, :originalName, :mimeType)`;
 			
 			const replacements = {
 				gid : file.gid,
+				uploadType : file.uploadType,
 				originalName : file.originalname,
 				mimeType : file.mimetype,
 			};
@@ -114,9 +115,12 @@ const uploadFile = {
 			
 			const data = rows[0];
 			if (rows.length > 0) {
+				
 				/** 실 업로드 경로 */
-				const folder = idx % 10;
-				data.uploadedPath = path.join(__dirname, "..", "public/uploads/", folder + "/" + idx);
+				data.uploadedPath = this.getUploadedPath(idx);
+				
+				/** 업로드 파일 URL */
+				data.uploadedURL = this.getUploadedURL(idx);
 				
 				/** 이미지 파일인지 아닌지 */
 				data.isImage = (data.mimeType.indexOf("image") == -1)?false:true;
@@ -131,6 +135,64 @@ const uploadFile = {
 			logger(err.stack, "error");
 			return false;
 		}
+	},
+	/**
+	* 파일목록 - gid(그룹아이디)으로 목록 추출
+	*
+	* @param gid 그룹아이디
+	*/
+	async getList(gid) {
+		try {
+			if (!gid) {
+				throw new Error("그룹아이디(gid) 누락!");
+			}
+			
+			const sql = "SELECT * FROM file WHERE gid = ?";
+			const rows = await sequelize.query(sql, {
+				replacements : [gid],
+				type : QueryTypes.SELECT,
+			});
+			
+			if (rows.length == 0)
+				return false;
+			
+			const list = {};
+			rows.forEach(v => {
+				v.uploadedPath = this.getUploadedPath(v.idx); // 실 업로드 파일 경로 
+				v.uploadedURL = this.getUploadedURL(v.idx); // 실 업로드 파일 URL 
+				
+				list[v.uploadType] = list[v.uploadType] ?? [];
+				list[v.uploadType].push(v);
+			});
+			
+			return list;
+		} catch (err) {
+			logger(err.message, "error");
+			logger(err.stack, "error");
+			return false;
+		}
+	},
+	/**
+	* 업로드된 서버 경로
+	*
+	* @param idx 파일 등록번호 
+	*/
+	getUploadedPath(idx) {
+		const folder = idx % 10;
+		const uploadedPath = path.join(__dirname, "..", "public/uploads/", folder + "/" + idx);
+		
+		return uploadedPath;
+	},
+	/**
+	* 업로드된 파일 URL
+	*
+	* @param idx 파일 등록번호 
+	*/
+	getUploadedURL(idx) {
+		const folder = idx % 10;
+		const uploadedURL = `/uploads/${folder}/${idx}`;
+		
+		return uploadedURL;
 	}
 };
 

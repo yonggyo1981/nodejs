@@ -14,7 +14,11 @@ const upload = multer({
 			* 1. 파일 정보(file) -> DB 추가
 			* 2. DB 추가시 -> idx(추가된 증감번호)
 			* 3. idx -> 파일명
+			* 4. file 객체 -> req.body.gid, req.body.uploadType
 			*/
+			file.gid = req.body.gid;
+			file.uploadType = req.body.uploadType;
+			
 			const idx = await uploadFile.insertInfo(file);
 			const folder = idx % 10;
 			
@@ -31,8 +35,15 @@ const upload = multer({
 */
 router.route("/upload")
 	.get((req, res) => {
+		/**
+		* GET - req.query, req.params
+		* POST - req.body
+		*/
+		const uploadType = req.query.type || "";
+		const gid = req.query.gid;
 		const data = {
-			uid : uid(),
+			uploadType,
+			gid,
 		};
 		return res.render("file/upload", data);
 	})

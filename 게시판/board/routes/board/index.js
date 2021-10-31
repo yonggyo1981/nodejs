@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const board = require('../../models/board');
+const { uid } = require("../../lib/common");
+const uploadFile = require("../../models/uploadFile");
 
 /**
 * 게시판 라우터 
@@ -24,10 +26,15 @@ router.use("/write/:id", async (req, res, next) => {
 });
 
 router.route("/write/:id")
-		.get((req, res) => {  // 게시글 작성 양식 
+		.get(async (req, res) => {  // 게시글 작성 양식 
+			const fileList = await uploadFile.getList(1635420263620);
+		
 			const data = {
 				addScript : ["ckeditor/ckeditor", "board/form"],
 				boardConf : req.boardConf,
+				gid : uid(),
+				editorFiles : fileList.board_editor ?? [],
+				attachFiles : fileList.board ?? [],
 			};
 			return res.render("board/form", data);
 		})

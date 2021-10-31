@@ -9,6 +9,7 @@ $(function() {
 </script>
 {% endif %}
 <form name='frmWrite'  id='frmWrite' method="post" action="/board/write/{{ boardConf.boardId }}" target="ifrmHidden" autocomplete="off">
+<input type="hidden" name="gid" value="{{ gid }}">
 {% include boardConf.formSkinPath %}
 </form>
 {% endblock %}

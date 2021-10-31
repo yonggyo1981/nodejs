@@ -1,5 +1,11 @@
 $(function() {
 	$(".imageUpload").click(function() {
-		layer.popup("/file/upload", 320, 500);
+		const gid = frmWrite.gid.value;
+		layer.popup("/file/upload?type=board_editor&gid=" + gid, 320, 500);
+	});
+	
+	$(".fileUpload").click(function() {
+		const gid = frmWrite.gid.value;
+		layer.popup("/file/upload?type=board&gid=" + gid, 320, 500);
 	});
 });

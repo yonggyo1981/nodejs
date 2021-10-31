@@ -1,3 +1,5 @@
 <form name="frmUpload" method="post" action="/file/upload" enctype="multipart/form-data" target="ifrmHidden" autocomplete="off">
+	<input type="hidden" name="gid" value="{{ gid }}">
+	<input type="hidden" name="uploadType" value="{{ uploadType }}">
 	<input type="file" name="file" onchange="frmUpload.submit();">
 </form>

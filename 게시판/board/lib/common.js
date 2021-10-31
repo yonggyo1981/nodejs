@@ -49,7 +49,7 @@ const commonLib = {
 	* Date.now();
 	*/
 	uid() {
-		return Data.now();
+		return Date.now();
 	}
 };
 
