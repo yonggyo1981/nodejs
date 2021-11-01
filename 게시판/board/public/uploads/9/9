@@ -1,0 +1,268 @@
+스트림 
+- 자바는 장치에 따라 독립적인고 효율적인 입출력 기능을 제공
+
+스트림?
+자바에서 모든 입출력은 스트림을 통해 이루어진다
+
+자바는 입출력 장치와 무관하고 일관성 있게 프로그램을 구현할 수 있도록 일종의 가상 통로인 스트림을 제공
+
+구현방식이 서로 비슷
+
+1) 입력 스트림과 출력 스트림
+- 스트림은 단방향으로 자료가 이동하기 때문에 입력과 출력을 동시에 할 수 없습니다.
+
+
+InputStream, Reader 
+OutputStream, Writer
+
+입력스트림 - FileInputStream, FileReader, BufferedInputStream, BufferedReader
+출력스트림 - FIleOutputStream, FileWriter, BufferedOutputStream, BufferedWriter
+
+
+2) 바이트 단위 스트림과 문자 단위 스트림
+
+바이트 스트림 - FileInputStream, FileOutputStream, BufferedInputStream, BufferedOutputStream
+문자 스트림 - FileReader, FileWriter, BufferedReader, BufferedWriter
+
+
+3) 기반 스트림과 보조스트림
+기반스트림 - 읽어 들일 곳(소스)이나 써야 할 곳(대상)에서 직접 읽고 쓸 수 있으며 입출력 대상에 직접 연결되어 생성되는 스트림
+
+보조스트림 - 직접 읽고 쓰는 기능은 없습니다. 상상 다른 스트림을 포함하여 생성
+
+기반스트림 - FileInputStream, FileOutputStream, FileReader, FileWriter 
+보조스트림 - InputStreamReader, OutputStreamReader, BufferedInputStream, BufferedOutputStream
+
+
+표준 입출력 
+콘솔 화면에 입출력 된다고 해서 콘솔 입출력이라고 한다
+System 클래스는 표준입출력을 위해 존재 세개의 변수룰 가지고 있음
+	static PrintStream out - 표준 출력 스트림
+	static InputStream in 표준 입력 스트림
+	static OutputStream err - 표준 오류 출력 스트림
+	
+
+Scanner 클래스 
+	- 문자뿐 아니라 정수, 실수 등 다른 자료형도 읽을 수 있습니다. 
+	
+	메서드
+		boolean nextBoolean() 
+		byte nextByte()
+		short nextShort()
+		int nextInt()
+		long nextLong()
+		float nextFloat()
+		double nextDouble()
+		String nextLine()
+		
+	System.in은 바이트 단위 자료만 처리할 수 있어 한글 같은 경우 보조 스트림을 추가로 사용해야 하는데,
+	Scanner는 다양한 자료형을 입력할 수 있어 많이 활용합니다.
+	
+Console 클래스
+	- 이클립스와는 연동되지 않음
+	String readLine()
+	char[] readPassword()
+	Reader reader()
+	PrintWriter writer()
+	
+바이트 단위 스트림
+	InputStream 
+		- 바이트 단위로 읽는 스트림 중 최상위 스트림 
+		- 추상 메서드를 포함한 추상 클래스
+		
+		주로 사용하는 하위 클래스
+		FileInputStream - 파일에서 바이트 단위로 자료를 읽습니다.
+		ByteArrayInputStream - Byte 배열 메모리에서 바이트 단위로 자료를 읽습니다.
+		FilterInputStream - 기반 스트림에서 자료을 읽을때 추가 기능을 제공하는 보조 스트림의 상위 클래스 입니다.
+		
+		
+		int read() - 한 바이트의 자료를 읽습니다. 읽은 자료의 바이트 수를 반환 
+		int read(byte b[]) - b[] 크기의 자료를 b[]에 읽습니다. 읽은 자료의 바이트 수를 반환
+		int read(byte b[], int off, in len)
+		void close() - 입력 스트림과 연결된 대상 리소스를 닫습니다.
+		
+		
+		한 바이트만 읽는 데 반환형이 int인 이유는 더 이상 읽어 들일 자료가 없는 경우에 정수 -1이 반환되기 때문입니다.
+		파일 끝에 도달하면 -1이 반환
+		
+		1) FileInputStream 
+			-  try - with - resources
+			
+			- int read(byte[] b)
+			 - 배열을 사용하여 한꺼번에 많이 읽으면 속도가 훨씬 빠릅니다,
+			 
+			 
+	OutputStream
+		바이트 단위로 쓰는 스트림 중 최상위 스트림
+			- FileOutputStream - 바이트 단위로 파일에 자료를 씁니다.
+			- ByteArrayOutputStream  - Byte 배열에 바이트 단위로 자료를 씁니다.
+			- FilterOutputStream - 기반 스트림에서 자료를 쓸 때 추가 기능을 제공하는 보조 스트림의 상위 클래스
+			
+		OutputStream에서 제공하는 메서드
+		void write(int b)  - 한바이트를 출력 
+		void write(byte[] b) - b[] 배열에 있는 자료를 출력합니다.
+		void write(byte[] b, int off, int len)
+		void flush - 출력을 위해 잠시 자료가 머무리는 출력 버퍼를 강제로 비워 자료를 출력
+		void close() - 출력 스트림과 연결된 리소스를 닫습니다. 출력 버퍼가 비워집니다.
+		
+		- FileOutputStream
+			FileOutputStream(String name, boolean append)
+			
+			write(byte[] b) - 여러 자료를 한꺼번에 출력하면 효율적일 뿐더라 실행 시간도 줄어든다
+			
+			write(byte[] b, int off, int len)
+			
+			flush() - 버퍼를 비워 강제로 자료를 출력하는 것 
+			
+문자단위 스트림 
+	Reader 
+		문자 단위로 읽는 스트림 중 최상위 스트림
+		FileReader - 파일에서 문자 단위로 읽는 스트림 클래스 입니다.
+		InputStreamReader - 바이트 단위로 읽은 자료를 문자로 변환해주는 보조 스트림 클래스
+		BufferedReader - 문자로 읽을 때 배열을 제공하여 한꺼번에 읽을 수 있는 기능을 제공해 주는 보조 스트림
+		
+		int read()  -  파일로 부터 한 문자를 읽습니다. 읽은 값을 반환합니다.
+		int read(char[] buf) - 파일로 부터 buf 배열에 문자를 읽습니다. 
+ 		int read(char[] buf, int off, int len) 
+		void close() - 스트림과 연결된 파일 리소스를 닫습니다.
+		
+		1) FileReader
+			
+	Writer
+		문자 단위로 출력하는 스트림 중 최상위 스트림
+		FileWriter  - 파일을 문자 단위로 출력하는 스트림 클래스
+		OutputStreamWriter - 바이트 단위로 출력한 자료를 문자로 변환해 주는 보조 스트림
+		BufferedWriter - 문자로 쓸 때 배열을 제공하여 한꺼번에 쓸 수 있는 기능을 제공해 주는 보조 스트림
+		
+		void write(int c)  -  한 문자를 파일에 출력 합니다.
+		void write(char[] buf) - 문자 배열 buf의 내용을 파일에 출력합니다.
+		void write(char[] buf, int off, int len)
+		void write(String str) - 문자열 str을 파일에 출력합니다.
+		void write(String str, int off, int len) 
+		void flush() - 파일에 출력하기 전에 자료가 있는 공간(출력 버퍼)를 비워 출력 합니다.
+		void close() - 파일과 연결된 스트림을 닫습니다. 출력 버퍼도 비워집니다.
+		
+		FileWriter 
+			
+			
+
+보조 스트림
+	- 보조 스트림은 입출력 대상이 되는 파일이나 네트워크에 직접 쓰거나 읽는 기능은 없습니다.
+	- 말 그대로 보조 기능을 추가하는 스트림
+	- 다른 말로 Wrapper 스트림(다른 스트림을 감싸고 있다는 의미)
+	- 보조 스트림처럼 다양한 기능을 제공하는 클래스를 디자인 패턴에서 데코레이터라고 합니다.
+	
+	FilterInputStream, FilterOutputStream
+		- 보조 스트림의 상위 클래스
+		- 모든 보조 스트림은 FilterInputStream이나 FilterOutputStream을 상속 받습니다.
+		- 보조 스트림은 자료 입출력을 직접 할 수 없기 때문에 다른 기반 스트림을 포함합니다.
+		
+		protected FilterInputStream(InputStream in)  - 생성자의 매개변수로 InputStream을 받습니다.
+		protected FilterOutputStream(OutputStream out) - 생성자의 매개변수로 OutputStream을 받습니다.
+		
+		- 두 클래스 모두 다른 생성자는 제공하지 않습니다. 따라서 이들 클래스를 상속받은 보조 클래스도 상위 클래스에 
+		디폴트 생성자가 없으므로 다른 스트림을 매개변수로 받아 상위 클래스를 호출해야 합니다.
+		- 보조 스트림의 생성자에 항상 기반 스트림만 매개변수로 전달되는 것은 아니라는 점
+		- 때로는 또 다른 보조 스트림을 매개변수로 전달 받을 수 도 있다.
+		- 하나의 기반 스트림에 여러 보조 스트림 기능이 추가 될 수 있음
+		
+		1) InputStreamReader, OutputStreamReader
+			- 바이트 스트림을 문자로 변환해 주는 보조스트림
+		
+		2) Buffered 스트림
+			입출력이 한 바이트나 문자 단위로 이루어지면 그만큼 프로그램 수행 속도가 느려집니다.
+			Buffered 스트림은 내부적으로 8,192바이트 크기의 배열을 가지고 있으며 이미 생성된 스트림에 배열 기능을 
+			추가해 더 빠르게 입출력을 실행할 수 있는 버퍼링 기능을 제공
+			
+			BufferedInputStream  - 바이트 단위로 읽는 스트림에 버퍼링 기능 제공 
+			BufferedOutputStream - 바이트 단위로 출력하는 스트림에 버퍼링 기능을 제공 
+			BufferedReader - 문자단위로 읽는 스트림에 버퍼링 기능을 제공 
+			BufferedWriter - 문자 단위로 출력하는 스트림에 버퍼링 기능을 제공하는
+			
+			- 보조 스트림으로 다른 스트림을 포함하여 수행됩니다.
+			- 배열의 크기는 Buffered 스트림 생성자 매개변수로 지정할 수도 있다.
+			
+	
+	DataInputStream과 DataOutputStream
+		- 메모리에 저장된 0,1 상태를 그대로 읽거나 씁니다. 그래서 자료형의 크기가 그대로 보존됩니다.
+		- 자료형을 그대로 읽고 쓰는 스트림
+		- 같은 정수라도 자료형에 따라 다르게 처리
+		- 자료를 쓸 때 사용한 메서드와 같은 자료형의 메서드로 읽어야 한다.
+		
+		DataInputStream
+			byte readByte()
+			boolean readBoolean()
+			char readChar()
+			short readShort()
+			int readInt()
+			long readLong()
+			float readFloat()
+			double readDouble()
+			String readUTF()
+			
+		DataOutputStream
+			void writeByte(int v)
+			void writeBoolean(boolean v)
+			void writeChar(int v)
+			void writeShort(int v)
+			void writeInt(int v)
+			void writeLong(long v)
+			void writeFloat(float v)
+			void writeDouble(double v)
+			void writeUTF(String str)
+			
+		
+	
+직렬화
+	
+	직렬화 - 클래스의 인스턴스가 생성되면 인스턴스의 상태, 즉 인스턴스 변수 값은 마치 생명체 처럼 계속 변하게 된다.
+		      - 그런데 인스턴스의 어느 순간 상태를 그대로 저장하거나 네트워크를 통해 전송할 일이 있을 수 있다.
+			  - 인스턴스 내용을 연속 스트림으로 만드는 것
+			  - 스트림으로 만들어야 파일에도 쓸 수도 있고 네트워크로 전송할 수도 있습니다.
+			  - 직렬화 과정에서 하는 일은 인스턴스 변수 값을 스트림으로 만드는 것 
+			  
+	역직렬화 - 저장된 내용이나 전송받은 내용을 다시 복원하는 것 
+	
+	ObjectInputStream, ObjectOutputStream
+		
+		- readObject()
+		- writeObject() 
+		
+		- serializable  
+			직렬화는 인스턴스의 내용이 외부로 유출되는 것이므로 프로그래머가 직렬화를 하겠다는 의도를 표시해야 함
+			(마커 인터페이스)
+			
+		- private static final long serialVersionID
+			객체를 역직렬화할 때, 직렬화할 때의 클래스의 상태가 다르면 오류가 발생합니다.
+			
+			작은 변경에도 클래스 버전이 계속 바뀌면 네트워크로 서로 객체를 공유해서 일하는 경우 매번 클래스를 새로 배포해야 하는 번거로움이 있다.
+			
+			클래스의 버전 관리를 개발자가 할 수 있다
+			
+		- transient 예약어
+			직렬화 될 수 없는 클래스가 인스턴스 변수로 있다거나 직렬화하고 싶지 않은 변수가 있을 수 있는 경우
+			직렬화되고 복원되는 과정에서 제외
+			
+	
+	Externalizable 인터페이스
+		객체의 직렬화와 역직렬화를 프로그래머가 직접 세밀하게 제어하고자 할 때, 메서드에 그 내용을 구현합니다.
+			
+		writeExternal(ObjectOutput out) throws IOException
+			- writeUTF(...)
+		readExternal(ObjectInput in) throws IOException, ClassNotFoundException 
+			readUTF()
+	
+	
+그 외 입출력 클래스
+
+	File클래스 
+		파일이라는 개념을 추상화한 클래스
+		별도의 입출력 기능은 없지만 파일 자체의 경로나 정보를 알 수 있고 파일을 생성할 수도 있습니다.
+	
+	RandomAccessFile 클래스
+		파일 입출력을 동시에 할 수 있는 클래스
+		File을 임의의 위치로 이동하여 자료를 읽을 수 있습니다.
+		파일 포인터
+		
+		구현한 인터페이스를 살펴보면 DataInput, DataOuput 인터페이스가 있습니다.
+		DataInputStream, DataOutputStream과 같이 다양한 자료형을 다루는 메서드를 사용할 수 있다.

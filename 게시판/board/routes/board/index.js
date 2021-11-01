@@ -26,16 +26,15 @@ router.use("/write/:id", async (req, res, next) => {
 });
 
 router.route("/write/:id")
-		.get(async (req, res) => {  // 게시글 작성 양식 
-			const fileList = await uploadFile.getList(1635420263620);
-		
+		.get(async (req, res) => {  // 게시글 작성 양식 		
 			const data = {
 				addScript : ["ckeditor/ckeditor", "board/form"],
 				boardConf : req.boardConf,
 				gid : uid(),
-				editorFiles : fileList.board_editor ?? [],
-				attachFiles : fileList.board ?? [],
+				//editorFiles : fileList.board_editor ?? [],
+				//attachFiles : fileList.board ?? [],
 			};
+			console.log(data);
 			return res.render("board/form", data);
 		})
 		.post((req, res) => { // 게시글 등록 처리 

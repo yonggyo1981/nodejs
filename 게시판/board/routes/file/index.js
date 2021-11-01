@@ -21,6 +21,7 @@ const upload = multer({
 			
 			const idx = await uploadFile.insertInfo(file);
 			const folder = idx % 10;
+			file.idx = idx;
 			
 			done(null, "" + folder + "/" + idx);
 		}
@@ -47,9 +48,10 @@ router.route("/upload")
 		};
 		return res.render("file/upload", data);
 	})
-	.post(upload.single('file'), (req, res) => { // 이미지 업로드 처리 
-		
-		return res.send("submit!!");
+	.post(upload.single('file'), async (req, res) => { // 이미지 업로드 처리 
+		let fileInfo = await uploadFile.get(req.file.idx);
+		fileInfo = JSON.stringify(fileInfo);
+		return res.send(`<script>parent.callbackFileUpload(${fileInfo});</script>`);
 	});
 
 /** 파일 다운로드 */
@@ -58,9 +60,11 @@ router.get("/download/:idx", async (req, res) => {
 });
 
 /** 파일 삭제 */
-router.get("/delete/:idx", (req, res) => {
-	uploadFile.delete(req.params.idx);
-	
+router.get("/delete/:idx", async (req, res) => {
+	const result = await uploadFile.delete(req.params.idx);
+	if (result) {
+		return res.send("1");
+	}
 	return res.send("");
 });
 
