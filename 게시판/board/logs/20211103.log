@@ -1,0 +1,101 @@
+{"level":"info","message":"[18:22:05]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:44:21]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:45:11]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:45:15]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:45:51]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:49:16]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:49:42]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:49:59]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:50:58]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:52:13]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:54:13]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:55:09]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:56:06]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:56:48]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:58:37]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:58:52]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[18:59:08]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:01:03]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:01:46]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:01:59]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:02:30]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:02:54]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:04:59]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:05:56]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:06:00]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:06:17]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:06:50]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:07:36]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:08:07]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:08:54][404]/board/view/4은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[19:08:54]Error: /board/view/4은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"info","message":"[19:10:11]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:10:22]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:10:27]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:10:38]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:11:32]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:11:50]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:11:58]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:12:15]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:14:06]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:14:36]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:14:57]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:15:04]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:15:22]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:16:43]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:16:52]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:17:22]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:17:56]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:18:07]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:18:34]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:19:31]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:19:50]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:20:24]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:21:51]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:22:37][500]Cannot read property 'send' of undefined","service":"general"}
+{"level":"error","message":"[19:22:37]TypeError: Cannot read property 'send' of undefined\n    at alert (D:\\study\\express\\board\\lib\\common.js:19:7)\n    at writeValidator (D:\\study\\express\\board\\middlewares\\board.js:41:11)\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\route.js:131:14)\n    at Route.dispatch (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:281:22\n    at param (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:365:14)","service":"general"}
+{"level":"info","message":"[19:23:17]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:23:33]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:23:34][404]/board/view/4은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[19:23:34]Error: /board/view/4은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"error","message":"[19:24:11][404]/board/view/5은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[19:24:11]Error: /board/view/5은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"info","message":"[19:28:49]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:29:19]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:29:21]Error: /board/view/6은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"error","message":"[19:29:21][404]/board/view/6은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[19:29:51][404]/board/view/7은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[19:29:51]Error: /board/view/7은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"info","message":"[19:31:56]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:32:20]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:32:46]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:33:11]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:33:17][500](D:\\study\\express\\board\\views\\board\\view.html) [Line 1, Column 3]\n  Error: template names must be a string: undefined","service":"general"}
+{"level":"error","message":"[19:33:17]Template render error: (D:\\study\\express\\board\\views\\board\\view.html) [Line 1, Column 3]\n  Error: template names must be a string: undefined\n    at Object._prettifyError (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\lib.js:36:11)\n    at D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:563:19\n    at eval (eval at _compile (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:633:18), <anonymous>:83:12)\n    at b_content (eval at _compile (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:633:18), <anonymous>:59:3)\n    at eval (eval at _compile (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:633:18), <anonymous>:82:86)\n    at eval (eval at _compile (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:633:18), <anonymous>:186:1)\n    at eval (eval at _compile (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:633:18), <anonymous>:182:1)\n    at fn (D:\\study\\express\\board\\node_modules\\a-sync-waterfall\\index.js:26:24)\n    at D:\\study\\express\\board\\node_modules\\a-sync-waterfall\\index.js:66:22\n    at executeSync (D:\\study\\express\\board\\node_modules\\a-sync-waterfall\\index.js:8:15)","service":"general"}
+{"level":"error","message":"[19:34:26][500](D:\\study\\express\\board\\views\\board\\view.html) [Line 1, Column 3]\n  Error: template names must be a string: undefined","service":"general"}
+{"level":"error","message":"[19:34:26]Template render error: (D:\\study\\express\\board\\views\\board\\view.html) [Line 1, Column 3]\n  Error: template names must be a string: undefined\n    at Object._prettifyError (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\lib.js:36:11)\n    at D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:563:19\n    at eval (eval at _compile (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:633:18), <anonymous>:83:12)\n    at b_content (eval at _compile (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:633:18), <anonymous>:59:3)\n    at eval (eval at _compile (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:633:18), <anonymous>:82:86)\n    at eval (eval at _compile (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:633:18), <anonymous>:186:1)\n    at eval (eval at _compile (D:\\study\\express\\board\\node_modules\\nunjucks\\src\\environment.js:633:18), <anonymous>:182:1)\n    at fn (D:\\study\\express\\board\\node_modules\\a-sync-waterfall\\index.js:26:24)\n    at D:\\study\\express\\board\\node_modules\\a-sync-waterfall\\index.js:66:22\n    at executeSync (D:\\study\\express\\board\\node_modules\\a-sync-waterfall\\index.js:8:15)","service":"general"}
+{"level":"info","message":"[19:35:41]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:36:05]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:36:15]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:36:39]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:38:18]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:40:47]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:41:20]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:41:30]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:41:32]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:41:38]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:42:43]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:42:49]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:43:20]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:43:41]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:43:49]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[19:43:54]Table 'board.board' doesn't exist","service":"general"}
+{"level":"error","message":"[19:43:54]SequelizeDatabaseError: Table 'board.board' doesn't exist\n    at Query.formatError (D:\\study\\express\\board\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:265:16)\n    at Query.run (D:\\study\\express\\board\\node_modules\\sequelize\\lib\\dialects\\mysql\\query.js:77:18)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async D:\\study\\express\\board\\node_modules\\sequelize\\lib\\sequelize.js:619:16\n    at async Object.get (D:\\study\\express\\board\\models\\board.js:186:17)\n    at async D:\\study\\express\\board\\routes\\board\\index.js:56:15","service":"general"}
+{"level":"info","message":"[19:44:47]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:47:04]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:47:24]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:48:15]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:59:14]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[19:59:19]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:00:06]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[20:01:51]데이터 베이스 연결 성공","service":"general"}

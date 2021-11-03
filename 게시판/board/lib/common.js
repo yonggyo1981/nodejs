@@ -50,6 +50,14 @@ const commonLib = {
 	*/
 	uid() {
 		return Date.now();
+	},
+	/**
+	* 날짜 형식 변환 
+	*
+	* @param format -> %Y -> 연도, %m ->월 %d -> 일 
+	*/
+	dateFormat(date, format) {
+		
 	}
 };
 
