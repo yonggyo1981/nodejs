@@ -1,4 +1,5 @@
 const { sequelize, Sequelize : { QueryTypes } } = require("./index");
+const uploadFile = require('./uploadFIle');
 const logger = require("../lib/logger");
 const path = require('path');
 const bcrypt = require('bcrypt');
@@ -196,6 +197,12 @@ const board = {
 			const data = rows[0];
 			data.boardConf = await this.getBoard(data.boardId);
 			data.postDate = dateFormat(data.regDt, "%Y-%m-%d %H:%i:%s");
+			data.editorFiles = data.attachFiles = [];
+			const files = await uploadFile.getList(data.gid);
+			if (files) {
+				data.editorFiles = files.board_editor || [];
+				data.attachFiles = files.board || [];
+			}
 			
 			return data;
 		} catch (err) {
@@ -203,6 +210,37 @@ const board = {
 			logger(err.stack, 'error');
 			return false;
 		}
+	},
+	/**
+	* 게시글 목록 
+	*
+	* @param boardId 게시판 아이디 
+	*/
+	async getList(boardId, page, limit) {
+		
+		if (boardId) 
+			return false;
+	
+		const conf = await this.getBoard(boardId);
+		
+		page = page || 1;
+		limit = limit || conf.listPerPage; // 설정 - 1페이당 게시글 수
+		const offset = (page - 1) * limit;
+		
+		const sql = `SELECT * FROM boardData a 
+										LEFT JOIN member b ON a.memNo = b.memNo 
+									WHERE a.boardId = :boardId ORDER BY a.regDt DESC LIMIT :offset, :limit`;
+		
+		const replacements = {
+				boardId,
+				offset,
+				limit,
+		};
+		const rows = await sequelize.query(sql, {
+			replacements,
+			type : QueryTypes.SELECT,
+		});
+		console.log(rows);
 	}
 };
 

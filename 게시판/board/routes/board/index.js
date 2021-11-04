@@ -16,6 +16,26 @@ const { writeValidator } = require("../../middlewares/board");
 *
 */
 
+/** 게시판 공통 라우터 */
+router.use((req, res, next) => {
+	res.locals.addCss = ["board/style"];
+	next();
+});
+
+/** 
+* 게시글 목록 
+*
+*/
+router.get("/list/:id", async (req, res) => {
+	const boardConf = await board.getBoard(req.params.id);
+	const result = await board.getList(req.params.id);
+	
+	const data = {
+		boardConf,
+	}
+	return res.render("board/list", data);
+});
+
 /**
 * 게시글 작성 
 *
@@ -32,8 +52,6 @@ router.route("/write/:id")
 				addScript : ["ckeditor/ckeditor", "board/form"],
 				boardConf : req.boardConf,
 				gid : uid(),
-				//editorFiles : fileList.board_editor ?? [],
-				//attachFiles : fileList.board ?? [],
 			};
 			return res.render("board/form", data);
 		})

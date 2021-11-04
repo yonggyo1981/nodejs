@@ -54,9 +54,37 @@ const commonLib = {
 	/**
 	* 날짜 형식 변환 
 	*
-	* @param format -> %Y -> 연도, %m ->월 %d -> 일 
+	* @param format 
+			-> %Y -> 연도, %m ->월 %d -> 일 
+			-> %H -> 시, %i -> 분, %s -> 초 
 	*/
-	dateFormat(date, format) {
+	dateFormat(dateStr, format) {
+		if (!format) {
+			return dateStr;
+		}
+		
+		const date = new Date(dateStr);
+		const year = date.getFullYear();
+		let month = date.getMonth() + 1; 
+		month = (month < 10)?"0"+month:month;
+		let day = date.getDate();
+		day = (day < 10)?"0"+day:day;
+		
+		let hour = date.getHours();
+		hour = (hour < 10)?"0"+hour:hour;
+		let min = date.getMinutes();
+		min = (min < 10)?"0"+min:min;
+		let sec = date.getSeconds();
+		sec = (sec < 10)?"0"+sec:min;
+		
+		format = format.replace(/%Y/g, year)
+							 .replace(/%m/g, month)
+							 .replace(/%d/g, day)
+							 .replace(/%H/g, hour)
+							 .replace(/%i/g, min)
+							 .replace(/%s/g, sec);
+		
+		return format;
 		
 	}
 };

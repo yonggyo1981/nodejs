@@ -1,0 +1,13 @@
+/** 공통 */
+
+/** Default 스킨 */
+/** _view.html */
+.default_skin_view .subject,
+.default_skin_view .post_info { border: 1px solid #d5d5d5; padding: 10px; margin-bottom: 10px; }
+
+.default_skin_view .post_info .left { float: left; }
+.default_skin_view .post_info .right { float: right; }
+.default_skin_view .post_info:after { clear: both; content: ''; display: block; }
+.default_skin_view .content { border: 1px solid #d5d5d5; padding: 10px; margin-bottom: 10px; }
+
+.default_skin_view .file_list li a { display: block; padding: 10px; border: 1px solid #d5d5d5; background-color: #f8f8f8; margin: 2px 0;  }
