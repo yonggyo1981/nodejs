@@ -12,4 +12,11 @@
 <!--// btns -->
 </div>
 <!--// board_view -->
+
+{% if boardConf.useComment == "1" %}
+<!-- 댓글 영역 S -->
+{% include boardConf.commentSkinPath %}
+<!-- 댓글 영역 E -->
+{% endif %}
+
 {% endblock %}

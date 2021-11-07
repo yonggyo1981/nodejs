@@ -7,6 +7,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 dl, dt, dd { padding: 0; margin: 0; }
 main { margin: 25px; }
 
+.dn { display: none !important; }
 
 /** 버튼 공통 */
 .btns { margin: 10px 0; }
@@ -14,3 +15,6 @@ main { margin: 25px; }
 .btn1:hover, .btns a:hover { background-color: #41729c; color: #ffffff; }
 .btn2 { background-color: #ffb956; border: 0; height: 45px; padding: 0 35px; line-height: 45px; }
 .btn2:hover { background-color: #ba8335; color: #ffffff; }
+
+/** 팝업 공통 */
+.popup_tit { font-size: 15px; font-weight: bold; padding-bottom: 10px; margin-bottom: 20px; border-bottom: 1px solid #000000; }

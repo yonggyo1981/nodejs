@@ -1,4 +1,19 @@
 /** 공통 */
+/** 페이지네이션 */
+.board .paginator { padding: 10px 0; text-align: center; } 
+.board .paginator a { display: inline-block; padding: 10px 13px; border: 1px solid #d5d5d5; border-radius: 3px; margin: 0 2px; }
+.board .paginator a.paginator-current { background-color: #212121; color: #ffffff; border: 1px solid #212121; }
+
+/** 리스트 공통 */
+.board .category { text-align: center; margin-bottom: 10px; }
+.board .category a { display: inline-block; padding: 15px 25px; border: 1px solid #d5d5d5; border-radius: 20px; font-weight: bold; font-size: 15px; margin: 0 5px; }
+.board .category a.on { border: 1px solid #212121; background-color: #212121; color: #ffffff; }
+
+.board .top_box { margin-bottom: 10px; }
+.board .top_box .left { float: left; padding-top: 10px; }
+.board .top_box .right { float: right; }
+.board .top_box:after { clear: both; content: ''; display: block; }
+
 
 /** Default 스킨 */
 /** _view.html */
@@ -11,3 +26,32 @@
 .default_skin_view .content { border: 1px solid #d5d5d5; padding: 10px; margin-bottom: 10px; }
 
 .default_skin_view .file_list li a { display: block; padding: 10px; border: 1px solid #d5d5d5; background-color: #f8f8f8; margin: 2px 0;  }
+
+/** _list.html */
+.default_skin_list .post_list li { border-bottom: 1px solid #d5d5d5; }
+.default_skin_list .post_list li:nth-child(2n+1) { background: #f8f8f8; }
+.default_skin_list .post_list li:first-of-type { border-top: 1px solid #d5d5d5; }
+.default_skin_list .post_list li .left { float: left; }
+.default_skin_list .post_list li .right { float: right; text-align: right; }
+.default_skin_list .post_list li:after { clear: both; content: ''; display: block; }
+
+.default_skin_list .post_list .subject { display: block; padding: 15px 10px; }
+.default_skin_list .post_list .right span { padding: 15px 10px; display: inline-block; }
+.default_skin_list .no_data { padding: 150px 0; text-align: center; font-size: 15px; font-weight: bold; background-color: none; }
+
+
+/** _comment.html */
+.default_skin_comment .comment_form { margin-bottom: 10px; }
+.default_skin_comment .comment_form .form textarea { float: left; display: block; width:calc(100% - 130px); height: 120px; resize: none; border: 1px solid #d5d5d5; padding: 10px; }
+.default_skin_comment .comment_form .form input[type='submit'] { float: right; display: block; width: 120px; height: 120px; background-color: #72b8f3; border: 0; cursor: pointer; font-size: 15px; font-weight: bold; }
+.default_skin_comment .comment_form .form input[type='submit']:hover { background-color: #41729c; color: #ffffff; }
+.default_skin_comment .comment_form .form:after { content: ''; clear: both; display: block; }
+
+.default_skin_comment .comment_list li { border: 1px solid #d5d5d5; padding: 10px; border-radius: 5px; margin-bottom: 10px; }
+
+.default_skin_comment .comment_list .top { padding: 10px; background: #f8f8f8; margin-bottom: 10px; }
+.default_skin_comment .comment_list .top .left { float: left; }
+.default_skin_comment .comment_list .top .right { float: right; }
+.default_skin_comment .comment_list .top:after { clear: both; content: ''; display: block; }
+.default_skin_comment .comment_list .comment { margin-bottom: 10px; }
+.default_skin_comment .update_content { width: 100%; height: 150px; resize: none; border: 1px solid #d5d5d5; padding: 10px; }

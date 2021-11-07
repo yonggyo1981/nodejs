@@ -1,4 +1,27 @@
 {% extends "../outline/layout/main.html" %}
 {% block content %}
+<div class='board board_list'>
+{% if boardConf.category.length > 0 %}
+<div class='category'>
+	<a{% if not search.category %} class='on'{% endif %} href='../list/{{ boardConf.boardId }}'>전체</a>
+	{% for category in boardConf.category %}
+	<a{% if search.category == category %} class='on'{% endif %} href='../list/{{ boardConf.boardId }}?category={{ category }}'>
+	{{ category }}
+	</a>
+	{% endfor %}
+</div>
+{% endif %}
+
+<div class='top_box'>
+	<div class='left'>
+		Page : {{ page.toLocaleString() }} / {{ totalPage.toLocaleString() }}
+	</div>
+	<div class='right'>
+		<a href='../write/{{ boardConf.boardId }}' class='btn1'>글 쓰기</a>
+	</div>
+</div>
 {% include boardConf.listSkinPath %}
+
+{{ pagination | safe }}
+</div>
 {% endblock %}
