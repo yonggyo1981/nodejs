@@ -130,3 +130,10 @@
 {"level":"info","message":"[15:55:51]데이터 베이스 연결 성공","service":"general"}
 {"level":"info","message":"[15:56:15]데이터 베이스 연결 성공","service":"general"}
 {"level":"info","message":"[16:00:37]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[16:01:09]게시글 없음..","service":"general"}
+{"level":"error","message":"[16:01:09]Error: 게시글 없음..\n    at Object.get (D:\\study\\express\\board\\models\\board.js:233:11)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async D:\\study\\express\\board\\routes\\board\\index.js:80:15","service":"general"}
+{"level":"info","message":"[16:05:55]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[16:07:31]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[16:07:38]게시글 없음..","service":"general"}
+{"level":"error","message":"[16:07:38]Error: 게시글 없음..\n    at Object.get (D:\\study\\express\\board\\models\\board.js:233:11)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async D:\\study\\express\\board\\routes\\board\\index.js:80:15","service":"general"}
+{"level":"info","message":"[16:08:11]데이터 베이스 연결 성공","service":"general"}

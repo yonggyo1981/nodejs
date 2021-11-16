@@ -81,7 +81,8 @@ router.get("/view/:idx", async (req, res) => {
 	if (!data) {
 		return alert("게시글이 없습니다.", res, -1);
 	}
-	
+	// 게시판 설정 
+	data.boardConf = await board.getBoard(data.boardId);
 	data.addScript = ["board/comment", "board/board"];
 	
 	return res.render("board/view", data);
