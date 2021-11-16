@@ -111,16 +111,18 @@ const board = {
 			* 검증이 되어 있으면 -> 수정 양식 출력, 삭제 처리 
 			* 세션에 검증 값을 넣어 주고 있으면 검증 성공
 			*/
-			if (!data.memNo) {
-				const key = "guest_comment_" + idx;  // session 값이 true이면 검증 성공
-				if (req.session[key]) { // 검증 성공 
-					isSuccess = true;
-					next();
+			if (!data.memNo) {				
+				if (req.session["guestcomment" + idx]) {
+					return next();
 				}
+				
+				//if (req.session[key]) { // 검증 성공 
+				//	isSuccess = true;
+				//	next();
+				//}
 			} else {
 				if (req.isLogin && data.memNo == req.member.memNo) {
-					isSuccess = true;
-					next();
+					return next();
 				} else {
 					message = "본인이 작성한 게시글만 " + ((method == 'DELETE')?"삭제":"수정") + "할 수 있습니다.";
 				}
@@ -131,6 +133,7 @@ const board = {
 			/**
 			*  memberType - guest 이고 isSuccess - false -> 비밀번호 확인 인증 페이지
 			*/
+			
 			const result = {
 				success : isSuccess,
 				memberType,

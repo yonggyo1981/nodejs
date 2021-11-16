@@ -41,3 +41,66 @@
 {"level":"info","message":"[14:39:33]데이터 베이스 연결 성공","service":"general"}
 {"level":"info","message":"[14:39:39]데이터 베이스 연결 성공","service":"general"}
 {"level":"info","message":"[14:40:02]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:40:49]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:41:10]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:41:19]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:41:35]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:42:24]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:42:34]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:43:02]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:43:14]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:43:19]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:43:54]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:44:59]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:45:50]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:45:56]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:46:21]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:46:50]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:47:24]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:47:29]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:49:24]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:49:27]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:53:02]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:53:20]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:54:18]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[14:54:47][404]/board/comment/4은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[14:54:47]Error: /board/comment/4은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at commentAuthorityCheck (D:\\study\\express\\board\\middlewares\\board.js:135:12)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)","service":"general"}
+{"level":"error","message":"[14:55:03][404]/board/comment/4은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[14:55:03]Error: /board/comment/4은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at commentAuthorityCheck (D:\\study\\express\\board\\middlewares\\board.js:145:3)\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)","service":"general"}
+{"level":"info","message":"[14:55:31]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[14:55:38][404]/board/comment/4은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[14:55:38]Error: /board/comment/4은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at commentAuthorityCheck (D:\\study\\express\\board\\middlewares\\board.js:135:12)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)","service":"general"}
+{"level":"error","message":"[14:57:29][404]/board/comment/4은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[14:57:29]Error: /board/comment/4은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at commentAuthorityCheck (D:\\study\\express\\board\\middlewares\\board.js:145:3)\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)","service":"general"}
+{"level":"error","message":"[14:57:29][404]/board/comment/4은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[14:57:29]Error: /board/comment/4은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at commentAuthorityCheck (D:\\study\\express\\board\\middlewares\\board.js:145:3)\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)","service":"general"}
+{"level":"info","message":"[14:57:35]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:57:38]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[14:58:13][404]/board/comment/4은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[14:58:13]Error: /board/comment/4은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at commentAuthorityCheck (D:\\study\\express\\board\\middlewares\\board.js:135:12)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)","service":"general"}
+{"level":"info","message":"[14:59:09]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:59:30]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:59:56]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:59:59]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:00:15]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:00:18]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:00:20]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:00:30]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:00:32]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:00:35]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:00:40]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:01:54]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:02:09]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:03:18]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:03:29]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:04:31]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:06:15]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:06:34]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:07:16]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:08:03]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:08:48]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[15:10:36][404]/board/comment/5은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[15:10:36]Error: /board/comment/5은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at commentAuthorityCheck (D:\\study\\express\\board\\middlewares\\board.js:138:12)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)","service":"general"}
+{"level":"info","message":"[15:11:17]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:11:22]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[15:11:35]데이터 베이스 연결 성공","service":"general"}

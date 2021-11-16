@@ -15,9 +15,16 @@ $(function() {
 			method : "DELETE",
 			dataType : "json",
 			success : function (res) {
-				alert(res.message);
-				if (res.success) { // 페이지 새로고침
-					location.reload();
+				// 비회원 댓글인 경우, 미인증 되었을때는 비밀번호 확인 팝업
+				if (!res.isSuccess && res.memberType == 'guest') {  
+					const url = "/board/check_password?mode=delete_comment&idx="+idx;
+					layer.popup(url, 320, 320);
+				} else {
+					alert(res.message);
+					if (res.success) { // 페이지 새로고침
+						layer.close();
+						location.reload();
+					}
 				}
 			},
 			error : function (err) {
@@ -76,6 +83,7 @@ $(function() {
 					}
 					
 					if (res.success) {
+						layer.close();
 						if ($("#update_content_" + idx).length == 0) {
 							$target.find(".inner").addClass("dn");
 							const html = `<textarea class='update_content' id='update_content_${idx}'>${res.data.content}</textarea>`;
@@ -115,7 +123,7 @@ function callbackGuestPassword(mode, idx) {
 			$comment.find(".update_comment").click();
 			break;
 		case "delete_comment" : 
-		
+			$comment.find(".delete_comment").click();
 			break;
 	}
 }

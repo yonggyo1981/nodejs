@@ -221,9 +221,9 @@ router.route("/check_password")
 		if (result) {
 			let key = "";
 			if (type == 'comment') { // 댓글 
-				key = "guest_comment_" + idx;
+				key = "guestcomment" + idx;
 			} else { // 게시판 
-				key = "guest_board_" + idx;
+				key = "guestboard" + idx;
 			}
 			
 			if (key) { // 비회원 비밀번호 인증 성공시 세션에 true
