@@ -161,7 +161,6 @@ router.route("/update/:idx")
 			})
 			/** 댓글 수정 처리 */
 			.patch(async (req, res) => {
-				console.log(req.body);
 				const idx = req.params.idx;
 				const mode = req.body.mode;
 				if (mode == 'get_form') { // 수정 양식을 위한 데이터
@@ -218,8 +217,20 @@ router.route("/check_password")
 		} 
 		
 		const result = await board.checkPassword(idx, type, req);
-		// 검증 실패 
-		if (!result) {
+		
+		if (result) {
+			let key = "";
+			if (type == 'comment') { // 댓글 
+				key = "guest_comment_" + idx;
+			} else { // 게시판 
+				key = "guest_board_" + idx;
+			}
+			
+			if (key) { // 비회원 비밀번호 인증 성공시 세션에 true
+				req.session[key] = true;
+			}
+			
+		} else { // 검증 실패 
 			return alert("비밀번호 확인에 실패하였습니다.", res);
 		}
 		// 검증 성공 

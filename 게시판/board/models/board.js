@@ -556,17 +556,13 @@ const board = {
 			let key;
 			if (type == 'comment') { // 댓글 
 				data = await this.getComment(idx);
-				key = "guest_comment_" + idx;
 			} else { // 게시판
 				data = await this.get(idx);
-				key = "guest_board_" + idx;
 			}
 			let hash = data?data.password:"";
 			if (hash) {
 				const match = await bcrypt.compare(req.body.password, hash)
 				if (match) { // 비회원 비밀번호가 일치하는 경우 -> 세션 처리 
-					req.session[key] = true;
-					
 					return true;
 				}
 			}
