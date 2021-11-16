@@ -6,6 +6,10 @@
 $(function() {
 	/** 댓글 삭제 처리 */
 	$(".delete_comment").click(function() {
+		if (!confirm('정말 삭제하시겠습니까?')) {
+			return;
+		}
+		
 		const idx = $(this).closest("li").data("idx");
 		if (!idx)
 			return;
@@ -117,6 +121,13 @@ $(function() {
 
 // 비회원 비밀번호 검증 성공 콜백 */
 function callbackGuestPassword(mode, idx) {
+	if (mode.indexOf("board") != -1) {
+		if (typeof callbackGuestBoardPassword == 'function') {
+			callbackGuestBoardPassword(mode, idx);
+		}
+		return;
+	}
+	
 	$comment = $("#comment_" + idx);
 	switch(mode) {
 		case "update_comment" : 

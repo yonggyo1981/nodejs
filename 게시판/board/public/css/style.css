@@ -11,8 +11,8 @@ main { margin: 25px; }
 
 /** 버튼 공통 */
 .btns { margin: 10px 0; }
-.btn1, .btn2, .btns a { display: inline-block; padding: 8px 20px; background-color: #72b8f3; cursor: pointer;  border-radius: 5px; font-weight: bold; color: #000000; }
-.btn1:hover, .btns a:hover { background-color: #41729c; color: #ffffff; }
+.btn1, .btn2, .btns a, .btns span { display: inline-block; padding: 8px 20px; background-color: #72b8f3; cursor: pointer;  border-radius: 5px; font-weight: bold; color: #000000; }
+.btn1:hover, .btns a:hover, .btns span:hover { background-color: #41729c; color: #ffffff; }
 .btn2 { background-color: #ffb956; border: 0; height: 45px; padding: 0 35px; line-height: 45px; }
 .btn2:hover { background-color: #ba8335; color: #ffffff; }
 
