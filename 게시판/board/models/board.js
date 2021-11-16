@@ -362,10 +362,22 @@ const board = {
 	* 게시글 삭제 
 	*
 	*/
-	async delete(idx) {
+	async delete(idx, req) {
 		const data = await this.get(idx);
 		if (!data) {
 			throw new Error('게시글이 없습니다.');
+		}
+		
+		if (req) {
+			// 비회원 게시글인 경우는 비밀번호 확인 검증이 되었는지 체크 */
+			if (!data.memNo && !req.session[`guestboard${idx}`]) {
+				throw new Error('삭제 권한이 없습니다.');
+			}
+			
+			// 회원 게시글인 경우는 본인이 작성한 게시글인지 체크 
+			if (data.memNo && (!req.isLogin || req.member.memNo != data.memNo)) {
+				throw new Error('삭제 권한이 없습니다.');
+			}
 		}
 		
 		/**

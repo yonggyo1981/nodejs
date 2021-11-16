@@ -10,6 +10,6 @@ $(function() {
 
 function callbackGuestBoardPassword(mode, idx) {
 	const processType = (mode.indexOf("delete") != -1)?"delete":"update";
-	const url = `../${processType}/${idx}`;
+	const url = `/board/${processType}/${idx}`;
 	location.href=url;
 }

@@ -92,7 +92,7 @@ router.get("/view/:idx", async (req, res) => {
 router.get("/delete/:idx", async (req, res) => {
 	try {
 		const idx = req.params.idx;
-		const boardConf = await board.delete(idx);
+		const boardConf = await board.delete(idx, req);
 		if (!boardConf) {
 			throw new Error("삭제 실패하였습니다.");
 		}
@@ -111,9 +111,21 @@ router.route("/update/:idx")
 		try {
 			const idx = req.params.idx;
 			const data = await board.get(idx);
+			
 			if (!data) {
 				throw new Error('게시글이 없습니다.');
 			}
+			
+			// 비회원 게시글인 경우는 비밀번호 확인 검증이 되었는지 체크 */
+			if (!data.memNo && !req.session[`guestboard${idx}`]) {
+				throw new Error('수정 권한이 없습니다.');
+			}
+			
+			// 회원 게시글인 경우는 본인이 작성한 게시글인지 체크 
+			if (data.memNo && (!req.isLogin || req.member.memNo != data.memNo)) {
+				throw new Error('수정 권한이 없습니다.');
+			}
+			
 			
 			data.addScript = ["ckeditor/ckeditor", "board/form"];
 			data.mode = "update";
