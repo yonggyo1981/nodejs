@@ -7,7 +7,7 @@ const board = require("../../models/board"); // 게시판 모델
 * 관리자 페이지 라우터 
 *
 */
-//router.use(adminOnly);
+router.use(adminOnly);
 
 /** 관리자페이지 메인 */
 router.get("/", (req, res) => {
