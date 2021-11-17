@@ -122,7 +122,11 @@
 			<th>게시판스킨</th>
 			<td>
 				<select name="skin">
-					<option value="default">default</option>
+					{% if skins.length > 0 %}
+					{% for skin in skins %}
+						<option value="{{ skin }}">{{ skin }}</option>
+					{% endfor %}
+					{% endif %}
 				</select>
 			</td>
 		</tr>

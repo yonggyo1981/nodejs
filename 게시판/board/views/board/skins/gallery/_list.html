@@ -1,0 +1,25 @@
+<!-- Default 스킨 목록 -->
+<div class="default_skin_list">
+	<ul class='post_list'>
+	{% if list.length > 0 %}
+		{% for item in list %}
+			<li>
+				<div class='left'>
+					<a href='/board/view/{{ item.idx }}' class='subject'>
+					{% if item.category %}[{{ item.category }}]{% endif %}{{ item.subject }}
+					</a>
+				</div>
+				<div class="right">
+					<span class='poster'>
+						{{ item.poster }}{% if item.memNo > 0 %}({{ item.memId }}){% endif %}
+					</span>
+					<span class='date'>{{ item.postDate }}</span>
+				</div>
+			</li>
+		{% endfor %}
+	{% else %} 
+		<li class='no_data'>작성된 게시글이 없습니다.</li>
+	{% endif %}
+	</ul>
+</div>
+<!--// default_skin_list -->

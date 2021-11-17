@@ -5,6 +5,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const { dateFormat } = require("../lib/common");
 const pagination = require('pagination');
+const fs = require('fs').promises;
 
 /**
 * 게시판 model 
@@ -83,6 +84,10 @@ const board = {
 			data.viewSkinPath = skinPath + "/_view.html";
 			data.formSkinPath = skinPath + "/_form.html";
 			data.commentSkinPath = skinPath + "/_comment.html";
+			
+			/** 스킨 목록 조회 */
+			const skinDir = path.join(__dirname, "..", "views/board/skins/");
+			data.skins = await fs.readdir(skinDir);
 			
 			return data;
 		} catch (err) {

@@ -49,7 +49,7 @@ router.route("/board/:boardId")
 		const boardId = req.params.boardId;
 		
 		const data = await board.getBoard(boardId);
-		console.log(data);
+
 		if (!data) { // 게시판이 존재하지 않는 경우 -> 메세지 출력 -> 뒤로가기
 			return alert("게시판이 존재하지 않습니다.", res, -1);
 		}

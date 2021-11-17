@@ -1,0 +1,70 @@
+<!-- Default 글 작성/수정 양식 -->
+<div class='default_skin_form'>
+	{% if boardConf.category.length > 0 %}
+	<dl>
+		<dt>분류</dt>
+		<dd>
+			<select name='category'>
+				<option value=''>- 선택 하세요 -</option>
+			{% for item in boardConf.category %}
+				<option value='{{ item }}'{{ ' selected' if category == item }}>{{ item }}</option>
+			{% endfor %}
+			</select>
+		</dd>
+	</dl>
+	{% endif %}
+	<dl>
+		<dt>작성자명</dt>
+		<dd>
+			{% if mode == 'write' %}
+				<input type="text" name="poster" value="{{ member.memNm if isLogin }}">
+			{% else %} 
+				<input type="text" name="poster" value="{{ poster }}">
+			{% endif %}
+			
+			{% if not isLogin %}
+			/ 글 수정 비밀번호 : <input type="password" name="password">
+			{% endif %}
+		</dd>
+	</dl>
+	<dl>
+		<dt>제목</dt>
+		<dd>
+			<input type="text" name="subject" value="{{ subject }}">
+		</dd>
+	</dl>
+	<textarea id='content' name='content'>{{ content }}</textarea>
+	{% if boardConf.uploadImage == 1 and boardConf.useEditor == 1 %}
+	<dl>
+		<dt>이미지</dt>
+		<dd>
+			<button type="button" class="imageUpload btn2">이미지 본문추가</button>
+			<ul class="uploaded_files board_editor">
+			{% for item in editorFiles %}
+				<li data-idx='{{ item.idx }}' data-url='{{ item.uploadedURL }}'>
+					<a href="/file/download/{{ item.idx }}">{{ item.originalName }}</a>
+					<i class="xi-file-upload insert_editor"></i>
+					<i class='xi-close-min delete'></i>
+				</li>
+			{% endfor %}
+			</ul>
+		</dd>
+	</dl>
+	{% endif %}
+	{% if boardConf.uploadFile == 1 %}
+	<dl>
+		<dt>파일첨부</dt>
+		<dd>
+			<button type="button" class="fileUpload btn2">첨부하기</button>
+			<ul class="uploaded_files board">
+			{% for item in attachFiles %}
+				<li data-idx='{{ item.idx }}'>
+					<a href="/file/download/{{ item.idx }}">{{ item.originalName }}</a>
+					<i class='xi-close-min delete'></i>
+				</li>
+			{% endfor %}
+			</ul>
+		</dd>
+	</dl>
+	{% endif %}
+</div>

@@ -1,0 +1,52 @@
+<!--- Default 댓글 스킨 -->
+<div class="default_skin_comment">
+	<div class="comment_form">
+		{% if not isLogin and boardConf.commentLevel == 'member' %}
+			<div class='notice'>@로그인 후 댓글 작성이 가능합니다.</div>
+		{% else %}
+			{% if boardConf.commentLevel != 'admin' or (boardConf.commentLevel == 'admin' and isLogin and member.isAdmin == 1) %}
+			<form method="post" action="../comment/{{ idx }}" target="ifrmHidden" autocomplete="off">
+				<div class="top">
+					<input type="text" name="poster" value="{{ member.memNm if isLogin }}"> 
+					{% if not isLogin %} 
+					/ 비밀번호 : <input type="password" name="password">
+					{% endif %}
+				</div>
+				<div class="form">
+					<textarea name="content" class="content" placeholder="댓글을 입력하세요."></textarea>
+					<input type="submit" value="댓글작성">
+				</div>
+			</form>
+			{% endif %}
+		{% endif %}
+	</div>
+	<!--// comment_form -->
+	{% if comments.length > 0 %}
+	<ul class="comment_list">
+	{% for item in comments %}
+		<li id="comment_{{ item.idx }}" data-idx="{{ item.idx }}">
+			<div class='top'>
+				<div class='left'>
+					{{ item.poster }}{% if item.memNo > 0 %}({{ item.memId }}){% endif %}
+				</div>
+				<div class='right'>
+					{{ item.commentDate }}
+				</div>
+			</div>
+			<!--// top -->
+			<div class='comment'>
+				<div class='inner'>{{ item.contentHtml | safe }}</div>
+				
+			</div>
+			{% if item.memNo == 0 or (isLogin and item.memNo == member.memNo) %}
+			<div class='controls'>
+				<span class='btn1 update_comment'>수정</span>
+				<span class='btn1 delete_comment'>삭제</span>
+			</div>
+			{% endif %}
+		</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+</div>
+<!--// default_skin_comment -->

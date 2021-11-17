@@ -1,0 +1,28 @@
+<!-- Default 글 보기 -->
+<div class="default_skin_view">
+	<div class="subject">
+		{% if category %}[{{ category }}]{% endif %}
+		{{ subject }}
+	</div>
+	<div class="post_info">
+		<div class="left">
+			{{ poster }}({{ memId if memNo > 0 else '비회원' }})
+		</div>
+		<div class="right">
+			{{ postDate }}
+		</div>
+	</div>
+	<div class='content'>
+		{{ content | safe }}
+	</div>
+	{% if attachFiles.length > 0 %}
+	<div class='stitle'>첨부파일</div>
+	<ul class='file_list'>
+		{% for item in attachFiles %}
+		<li>
+			<a href='/file/download/{{ item.idx }}'>{{ loop.index }}. {{ item.originalName }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+</div>
