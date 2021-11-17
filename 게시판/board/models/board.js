@@ -585,6 +585,15 @@ const board = {
 			logger(err.stack, 'error');
 			return false;
 		}
+	},
+	/**
+	* 게시판 접근 권한 체크
+	*
+	* @param mode   목록 - list, 쓰기 - write, 보기 - view 
+	* @param 게시판 아이디 
+	*/
+	checkAccessAuth(mode, boardId) {
+		
 	}
 };
 

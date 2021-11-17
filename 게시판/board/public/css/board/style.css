@@ -55,3 +55,5 @@
 .default_skin_comment .comment_list .top:after { clear: both; content: ''; display: block; }
 .default_skin_comment .comment_list .comment { margin-bottom: 10px; }
 .default_skin_comment .update_content { width: 100%; height: 150px; resize: none; border: 1px solid #d5d5d5; padding: 10px; }
+
+.default_skin_comment .notice { text-align: center; font-weight: bold; border: 1px solid #d5d5d5; border-radius: 5px; padding: 50px; color: red; font-size: 15px; }

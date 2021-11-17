@@ -36,6 +36,11 @@ router.get("/list/:id", async (req, res) => {
 		return alert("잘못된 접근입니다.", res, -1);
 	}
 	
+	/** 접근 권한 체크 */
+	if (! await board.checkAccessAuth("list", req.params.id)) { // 목록 보기 권한이 없으면 
+		return alert("접근 권한이 없습니다.", res -1);
+	}
+	
 	data.search = req.query;
 	
 	return res.render("board/list", data);
@@ -48,6 +53,12 @@ router.get("/list/:id", async (req, res) => {
 /** 글쓰기 공통 라우터 */
 router.use("/write/:id", async (req, res, next) => {
 	req.boardConf = await board.getBoard(req.params.id);	
+	
+	/** 접근 권한 체크 */
+	if (! await board.checkAccessAuth("write", req.params.id)) { // 쓰기 권한이 없으면 
+		return alert("접근 권한이 없습니다.", res -1);
+	}
+	
 	next();
 });
 
@@ -81,6 +92,12 @@ router.get("/view/:idx", async (req, res) => {
 	if (!data) {
 		return alert("게시글이 없습니다.", res, -1);
 	}
+	
+	/** 접근 권한 체크 */
+	if (! await board.checkAccessAuth("view", data.boardId)) { // 게시글 보기 권한이 없으면 
+		return alert("접근 권한이 없습니다.", res -1);
+	}
+	
 	// 게시판 설정 
 	data.boardConf = await board.getBoard(data.boardId);
 	data.addScript = ["board/comment", "board/board"];

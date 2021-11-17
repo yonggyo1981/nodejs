@@ -1,8 +1,8 @@
 <!--- Default 댓글 스킨 -->
 <div class="default_skin_comment">
 	<div class="comment_form">
-		{% if boardConf.commentLevel == 'member' %}
-			@로그인 후 댓글 작성이 가능합니다.
+		{% if not isLogin and boardConf.commentLevel == 'member' %}
+			<div class='notice'>@로그인 후 댓글 작성이 가능합니다.</div>
 		{% else %}
 			{% if boardConf.commentLevel != 'admin' or (boardConf.commentLevel == 'admin' and isLogin and member.isAdmin == 1) %}
 			<form method="post" action="../comment/{{ idx }}" target="ifrmHidden" autocomplete="off">

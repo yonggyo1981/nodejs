@@ -1,0 +1,11 @@
+{"level":"info","message":"[13:56:44]데이터 베이스 연결 성공","service":"general"}
+{"level":"error","message":"[13:58:05][404]/favicon.ico은 없는 페이지 입니다.","service":"general"}
+{"level":"error","message":"[13:58:05]Error: /favicon.ico은 없는 페이지 입니다.\n    at D:\\study\\express\\board\\app.js:69:16\n    at Layer.handle [as handle_request] (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\study\\express\\board\\node_modules\\express\\lib\\router\\index.js:47:12)","service":"general"}
+{"level":"info","message":"[14:37:38]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:37:45]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:38:30]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:40:27]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:40:49]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:41:27]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:41:32]데이터 베이스 연결 성공","service":"general"}
+{"level":"info","message":"[14:41:51]데이터 베이스 연결 성공","service":"general"}
