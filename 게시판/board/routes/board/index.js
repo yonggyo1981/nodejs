@@ -37,8 +37,8 @@ router.get("/list/:id", async (req, res) => {
 	}
 	
 	/** 접근 권한 체크 */
-	if (! await board.checkAccessAuth("list", req.params.id)) { // 목록 보기 권한이 없으면 
-		return alert("접근 권한이 없습니다.", res -1);
+	if (! await board.checkAccessAuth("list", req.params.id, req)) { // 목록 보기 권한이 없으면 
+		return alert("접근 권한이 없습니다.", res, -1);
 	}
 	
 	data.search = req.query;
@@ -55,8 +55,8 @@ router.use("/write/:id", async (req, res, next) => {
 	req.boardConf = await board.getBoard(req.params.id);	
 	
 	/** 접근 권한 체크 */
-	if (! await board.checkAccessAuth("write", req.params.id)) { // 쓰기 권한이 없으면 
-		return alert("접근 권한이 없습니다.", res -1);
+	if (! await board.checkAccessAuth("write", req.params.id, req)) { // 쓰기 권한이 없으면 
+		return alert("접근 권한이 없습니다.", res, -1);
 	}
 	
 	next();
@@ -94,8 +94,8 @@ router.get("/view/:idx", async (req, res) => {
 	}
 	
 	/** 접근 권한 체크 */
-	if (! await board.checkAccessAuth("view", data.boardId)) { // 게시글 보기 권한이 없으면 
-		return alert("접근 권한이 없습니다.", res -1);
+	if (! await board.checkAccessAuth("view", data.boardId, req)) { // 게시글 보기 권한이 없으면 
+		return alert("접근 권한이 없습니다.", res, -1);
 	}
 	
 	// 게시판 설정 

@@ -592,8 +592,24 @@ const board = {
 	* @param mode   목록 - list, 쓰기 - write, 보기 - view 
 	* @param 게시판 아이디 
 	*/
-	checkAccessAuth(mode, boardId) {
+	async checkAccessAuth(mode, boardId, req) {
+		const conf = await this.getBoard(boardId);
+		if (!conf || !mode || !boardId || !req) {
+			return false;
+		}
 		
+		if (['list', 'write', 'view'].indexOf(mode) == -1) { // 권한을 체크하는 형태 list, view, write 
+			return false;
+		}
+		
+		const levelCheck = conf[mode + "Level"]; // all, member, admin 
+		if (levelCheck == 'all' || (req.isLogin && levelCheck == 'member')) {
+			return true;
+		} else if (req.isLogin && levelCheck == 'admin' && req.member.isAdmin) {
+			return true;
+		}
+			
+		return false;
 	}
 };
 
