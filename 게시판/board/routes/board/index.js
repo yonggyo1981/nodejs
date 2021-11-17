@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const board = require('../../models/board');
-const { uid, alert, go } = require("../../lib/common");
+const { uid, alert, go, getBrowserId } = require("../../lib/common");
 const uploadFile = require("../../models/uploadFile");
 const { writeValidator, updateValidator, commentWriteValidator, commentAuthorityCheck } = require("../../middlewares/board");
 
@@ -87,11 +87,15 @@ router.route("/write/:id")
 
 /** 게시글 보기 */
 router.get("/view/:idx", async (req, res) => {
+	
 	const idx = req.params.idx;
 	const data = await board.get(idx); 
 	if (!data) {
 		return alert("게시글이 없습니다.", res, -1);
 	}
+	
+	/** 게시글 조회수 증가 처리 */
+	await board.updateViewCount(idx, req);
 	
 	/** 접근 권한 체크 */
 	if (! await board.checkAccessAuth("view", data.boardId, req)) { // 게시글 보기 권한이 없으면 

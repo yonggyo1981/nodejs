@@ -9,7 +9,7 @@
 			{{ poster }}({{ memId if memNo > 0 else '비회원' }})
 		</div>
 		<div class="right">
-			{{ postDate }}
+			{{ postDate }} {% if viewCount > 0 %} / 조회수 : {{ viewCount.toLocaleString() }}{% endif %}
 		</div>
 	</div>
 	<div class='content'>

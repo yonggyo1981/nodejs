@@ -3,7 +3,7 @@ const uploadFile = require('./uploadFIle');
 const logger = require("../lib/logger");
 const path = require('path');
 const bcrypt = require('bcrypt');
-const { dateFormat } = require("../lib/common");
+const { dateFormat, getBrowserId } = require("../lib/common");
 const pagination = require('pagination');
 const fs = require('fs').promises;
 
@@ -615,6 +615,43 @@ const board = {
 		}
 			
 		return false;
+	},
+	/**
+	* 게시글 보기 조회수 반영 
+	*
+	* @param idx 게시글 번호 
+	* @param req 
+	*/
+	async updateViewCount(idx, req) {
+		if (!idx || !req)
+			return;
+		
+		try {
+			const browserId = getBrowserId(req);
+			const sql = "INSERT INTO boardViewCount VALUES (?, ?)";
+			await sequelize.query(sql, {
+				replacements : [browserId, idx],
+				type : QueryTypes.INSERT,
+			});
+		
+		} catch (err) { // 이미 본 게시글인 경우 browserId + idx 추가시 오류 발생 
+			
+		}
+		
+		/** 현재 게시글 조회수 총합 -> 게시글에 업데이트 */
+		try {
+			const sql = `UPDATE boarddata a 
+								SET 
+									viewCount = (SELECT COUNT(*) FROM boardViewCount b WHERE a.idx = b.idx)
+							WHERE a.idx = ?`;
+			await sequelize.query(sql, {
+					replacements : [idx],
+					type : QueryTypes.UPDATE,
+			});
+		} catch (err) {
+			logger(err.message, 'error');
+			logger(err.stack, 'error');
+		}
 	}
 };
 

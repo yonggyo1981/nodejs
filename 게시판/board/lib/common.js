@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+
 /**
 * 공통 라이브러리 
 *
@@ -86,6 +88,25 @@ const commonLib = {
 		
 		return format;
 		
+	},
+	/**
+	* 브라우저 ID 
+	*   1. 비회원 -> IP + User-Agent 
+	*   2. 회원 -> 회원번호
+	*/
+	getBrowserId(req) {
+		let data = "";
+		if (req.isLogin) { // 회원인 경우 
+			data = req.member.memNo;
+		} else { // 비회원 
+			const ip = req.ip; // 클라이언트 IP 
+			const ua = req.headers['user-agent']; // 브라우저 정보
+			data = ip + ua;
+		}
+		
+		const browserId = crypto.createHash("md5").update(data).digest("hex");
+		
+		return browserId;
 	}
 };
 
