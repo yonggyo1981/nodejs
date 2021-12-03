@@ -1,0 +1,91 @@
+3. 구조분해 할당 
+const [a,b,c] = [0,1,2]; // a = 0, b = 1, c = 2;
+const [a,b,c] = [0,,2];  // b = undefined
+const [a,,c] = [0,1,2] // a = 0, c = 2;
+const [a,b = "기본값",c] = ["apple", ,"melon"]; // b = "기본값";
+const [a,b,c] = "ABC"; // a = "A", b = "B", c = "C"
+
+
+// JSON 형태에서 구조분해 -> 동일 속성명으로 명시하면 분해 가능 
+
+const a = {
+    num1 : 10,
+    num2 : 20,
+    numplus : function(num1, num2) {
+        return num1 + num2;
+    }
+};
+
+const { num2 : anum2, num1 : anum1, numplus : anumplus } = a;
+
+const { num2, num1, numplus } = a;
+
+
+const a = {
+    num1 : 10,
+    num2 : 20,
+    numplus : function(num1, num2) {
+        return num1 + num2;
+    },
+    calculator : {
+        plus : function(num1, num2) { return num1 + num2; },
+        minus : function(num1, num2) { return num1 - num2; }
+    },
+};
+
+const { calculator : { plus, minus }} = a;
+const { num1, num2, num3 = 30 } = a; // num3 = 30
+
+4. 
+require -> 외부 모듈 호출 
+	const fs = require('fs'); // fs/index.js 
+	const ... = require('data.js'); 
+					현재 파일 기준  -> 디렉토리 위치 명시 X  -> 내장 모듈 + node_modules에서 가져오고 
+					디렉토리나 절대, 상대 경로 명시 -> 사용자 정의 모듈 
+					예) require("./routes/member");
+	
+	ES6+ 
+	import .... from 경로
+	
+module -> 외부 사용 가능 모듈로 만들때 
+module.exports 
+
+ES6+
+export default ....
+
+ES6+  모듈 -> 확장자, .mjs
+import ...   from ... 
+export default ..
+
+
+5. global
+	노드에서 최상의 객체 
+	참고) 브라우저 객체 모델 -> window
+	
+	global 
+		전역에 값을 공유
+		.setTimeout -> 지연실행 
+		.setInterval -> 반복 실행 
+		.setImmediate -> 비동기 즉시 실행 
+		
+	참고)
+		window
+			.setTimeout 
+			.setInterval
+			
+		setTimeout(function() {
+			// 처리될 영역 
+		}, 지연시간);
+		
+		setTimeout -> 스택에서 호출 -> 처리될 영역 함수 -> 백그라운드 대기 
+		-> 지연시간이 완료 -> 이벤트 발생 -> 처리될 영역 함수가 호출
+		-> 반환값 -> 백그라운드에서 대기하는 대기 아이디 반환
+		
+		
+		취소 기능 
+			setTimeout -> clearTimeout(백그라운드 대기 아이디); // 지연 취소
+			setInterval -> clearInterval(백그라운드 대기 아이디); // 반복실행 취소
+			setImmediate -> clearImmediate(백그라운드 대기 아이디); // 즉시 실행 취소
+6. 
+		
+
