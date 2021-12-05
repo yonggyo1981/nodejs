@@ -1,0 +1,125 @@
+timer 
+	global
+		.setTimeout(function() {
+		
+		}, 지연시간);
+					clearTimeout(백그라운드 대기 아이디);
+		
+		.setInterval(function() {
+		
+		}, 지연반복시간);
+				clearInterval(백그라운드 대기 아이디);
+		
+		.setImmediate(function() { // 비동기 즉시 실행 
+			
+		}); 
+			clearImmediate(백그라운드 대기 아이디);
+		
+		setImmediate < setTimeout(function() {}, 0);
+	
+	참고)브라우저 객체모델
+		window
+				.setTimeout(function() {
+					//  백그라운드 대기 -> 지연시간에 도달하면 이벤트 발생 -> 호출 스택에서 실행
+					// 비동기, Event Driven 
+					-> setTimeout을 호출 -> 반환값은 백그라운드 대기 아이디
+				}, 지연시간);
+				.setInterval(function() {
+						// 백그라운드 대기 -> 반복 지연 시간에 도달하명 이벤트 발생 -> 호출 스택에서 실행 
+						-> setInterval을 호출 -> 반환값이 백그라운드 대기 아이디
+				}, 반복지연시간);
+				
+				setTimeout(무거운 작업, 0); 
+				
+				clearTimeout(백그라운드 대기 아이디); // 지연실행 취소
+				clearInterval(백그라운드 대기 아이디); // 지연 반복실행 취소
+				
+__filename  ->현재 실행중인 스트립트 파일의 절대 경로인 디렉토리 + 파일명
+__dirname -> 현재 실행중인 스크립트 파일의 절대경로인 디렉토리 
+
+
+global --> this
+	this -> 전역 (module.exports), 함수 안에서 (global)
+	
+	참고) 브라우저 객체모델
+			this -> 전역 (window), 함수 안에서 (window)
+			
+path
+	내장모듈 -> require('모듈명'); // 모듈명 -> 디렉토리명/index.js   
+	const path = require('path');  path/index.js
+	
+	.sep -> 파일, 디렉토리 구분자 - 윈도 \, 리눅스, 맥(유닉스) -> POSIX  -> /
+	.delimiter -> 환경변수 구분자 -> 윈도 ;, 리눅스,맥(유닉스) -> : 
+	
+	.dirname() -> 파일이 위치한 폴더 경로
+	.extname() -> 파일의 확장자
+	.basename() -> 파일명(확장자 포함)
+	.basename(파일경로, 확장자명); -> 파일명(확장자를 제외)
+	
+	.parse() -> 파일 경로 -> 분해(root, dir, base, ext, name ... ) // pathinfo
+	.format() -> 분해된 파일 경로(parse) -> 원래 문자열 형태의 경로
+	
+		
+	.normalize(); -> 형식에 맞지 않는 경로를 형식에 맞게 정상화
+	.join() -> 기준 경로에 추가된 상대 경로를 자동으로 절대 경로 변경
+	
+	
+url - > url 정보, url 조작하는 기능이 담겨 있는 모듈
+	url -> node에서 전통적으로 사용하던 기능 
+		url.URL -> URL 생성자 -> WHATWG 기준으로 추가된 기능 
+				.searchParams
+				
+	.parse() -> url을 구성요소로 분해
+		new url.URL("URL 주소") -> URL 주소를 구성 요소로 분해
+		
+	.format() -> 분해된 URL을 문자열로 조합
+참고)
+	window
+		.location
+		
+		
+.parse -> 분해
+
+.format -> 결합 
+.stringify -> 결합
+
+
+querystring 모듈 
+	.parse() -> 쿼리스트링값(키=값&키=값) -> 객체로 변환
+	.stringify() -> 객체 -> 쿼리스트링 형태의 문자열로 변환 
+	
+child_process
+	
+events 
+	이벤트 등록 
+	.on
+	.addListener
+	
+	이벤트 발생 
+	.emit("이벤트명")
+	.once("이벤트명") - 이벤트 1개만 발생 
+	
+	
+	이벤트 제거 
+	removeListener("이벤트명", "이벤트 핸들러");
+	removeAllListeners("이벤트명");
+	.off("이벤트명", "이벤트 핸들러")
+	
+	등록된 이벤드 개수 
+	.listenerCount("이벤트");
+	
+
+참고)
+브라우저 객체모델 
+	document 
+		-> event 
+					.isTrusted -> true -> 사용자가 클릭해서 발생한 이벤트 
+								 -> false -> 프로그램상 임의로 발생한 이벤트
+	
+	
+fs - FileSystem 
+		- readFile 파일 읽기
+		- writeFile - 파일쓰기 
+		
+fs 
+	.promises -> 기존 콜백 방식의 메서드 -> Promise 화 한 기능 
