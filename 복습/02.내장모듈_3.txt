@@ -63,3 +63,28 @@ Request(웹브라우저)  <---> Response(서버)
 		- PATCH
 		
 http 모듈
+	createServer
+			.listen
+			
+		res
+			.writeHead(응답코드, 헤더 정보); // 응답 헤더 작성
+			.write("문자열"); // 출력 
+			.end("문자열"); // 출력하고 응답 종료
+			
+		req 
+			.headers -> 요청 헤더
+			.ip 
+			.url
+			.method ....
+			.cookies
+			
+	-> express 
+			.sendFile
+			
+npm
+
+	사용자 정의 명령어 
+	package.json 
+		- scripts 
+	
+	npm run 명령어이름

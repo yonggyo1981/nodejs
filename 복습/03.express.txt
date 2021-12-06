@@ -1,0 +1,21 @@
+Express 
+	1. 라우터
+		-> 각 메서드별, URL 
+		-> app
+				.get - GET 방식의 라우터
+						(인수가 미들웨어(함수) -> 라우터, 문자열 -> 다른 기능)
+				.post - POST 방식 라우터
+				.put - PUT 
+				.patch - PATCH
+				.delete - DELETE 
+				.use - 모든 요청 method
+				
+				메서드명함수("라우팅 URL", function(req, res, next) {
+				
+				});
+				
+	2. 미들웨어
+		- 라우터의 요청과 응답 사이에서 존재
+		- req - 요청관련 객체
+		- res - 응답관련 객체 
+		- next -> 함수 -> 다음 미들웨어로 이동하는 함수
