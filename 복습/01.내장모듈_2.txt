@@ -123,3 +123,7 @@ fs - FileSystem
 		
 fs 
 	.promises -> 기존 콜백 방식의 메서드 -> Promise 화 한 기능 
+	
+Buffer 
+
+		
