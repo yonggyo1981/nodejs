@@ -35,3 +35,62 @@
 8. 사용할 템플릿엔진 설치 
 	nunjucks(외부 모듈 - mozila)
 	npm i nunjucks
+	
+	1) 템플릿 기본 경로 폴더
+	2) 셋팅 
+		app.set("view engine", "템플릿 확장자");
+				예) app.set("view engine", "html");
+		
+		nunjucks.configure("템플릿 파일 폴더 경로", {
+				express : 익스프레스 객체, 
+				watch : true|false,  -> true -> 템플릿 HTML 내용이 변경되면 자동으로 다시 렌더링 한다
+		});
+		
+		기본문법 
+		{% ~ 변수설정, 조건문, 반복문 %}
+		변수 설정 {% set 변수명 = '값' %}
+		{% for 요소 in 배열 객체 %}
+		
+		{% endfor %}
+		
+		for문 안에 loop.index -> 반복 순서 번호 (1부터 시작)
+		
+		출력 
+		{{ 변수 }} -> 문자열만 출력(HTML도 문자로 인식)
+		
+		HTML형태로 출력 하는 경우 
+		{{ 변수 | safe }}
+								
+		{% if 조건 %}      || -> or     (조건1 or 조건2 ...)
+							  && -> and (조건1 and 조건2 ...)
+								!  -> not  ( not islogin)
+		{% elif 조건 %}
+		
+		{% else %}
+		
+		{% endif %}
+		
+		{{ '참일때 출력' if 조건 }}
+		
+		{{ '참일때 출력' if 조건 else '거짓일때 출력' }}
+		
+		
+		파일 추가 
+		{% include '파일 경로' %}
+		
+		템플릿 
+		
+		템플릿 -> 공통으로 사용될 레이아웃 
+		사용할 html에서는 
+
+		{% extends '템플릿 파일 경로' %}
+		
+
+		템플릿 html파일에 
+		{% block 이름 %}
+		// 템플릿 사용 영역에서 치환할 부분 
+		{% endblock %}
+		
+		
+		템플릿 전역변수 설정 
+		res.locals.속성명 -> 템플릿 전역 변수 

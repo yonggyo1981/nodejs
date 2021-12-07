@@ -1,0 +1,32 @@
+<h1>내부 변수</h1>
+{% set node = "node.js" %}
+{{ node }}
+<br>
+{% set fruits = ['사과','오렌지', '바나나', '복숭아', '배'] %}
+{% for fruit in fruits %}
+	{{ loop.index }}. {{ fruit }}<br>
+{% endfor %}
+
+<h1>외부 변수</h1>
+{{ memNm }}<br>
+{% for num in nums %}
+{{ num }}<br>
+{% endfor %}
+
+<br><br>
+{{ htmlData | safe }}
+
+<h1>조건문</h1>
+{% if fruit == 'apple' or fruit == 'banana' %} 
+사과이거나 바나나<br>
+{% elif fruit == 'orange' %}
+오렌지<br>
+{% else %}
+사과도 오렌지도 아닙니다.<br>
+{% endif %}
+
+<br><br>
+{{ '사과' if fruit == 'apple' else '사과가 아니다' }}
+
+<h1>include</h1>
+{% include './_inc.html' %}
