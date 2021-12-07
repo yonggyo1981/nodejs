@@ -1,0 +1,29 @@
+Express - 웹 프레임워크
+		- npm i express  - package.json - dependencies
+		- npm i -D nodemon  - package.json - devDependencies
+		
+		- 라우터
+			익스프레스 객체 - 요청 메서드 명과 동일한 라우터 메서드 
+						.get("주소", 콜백) - 라우터, .get("문자열")는 다른 기능 
+						.post(....)
+						.put
+						.patch
+						.delete
+						
+						.use -> 모든 요청 방식(get, post, put, patch, delete ....)
+							   -> 특정 URL 부분 요청 메서드 상관 없이 처리 하거나 
+							   -> 요청 URL, 요청 메서드 상관없이 처리 
+		- 미들웨어 
+				- 요청과 응답 사이에 존재하는 콜백 함수
+				라우터("주소", 미들웨어 콜백함수)
+					미들웨어 콜백 함수 매개변수 3가지
+							- req - 요청과 관련된 객체
+										
+							- res - 응답과 관련된 객체
+									- send
+							
+							- next -> 호출 시 다음 미들웨어로 이동 
+				
+				
+		
+		
