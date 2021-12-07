@@ -1,5 +1,6 @@
 1. 필수 모듈 추가 + 필수 모듈 미들웨어 등록 
-	express, dotenv, morgan
+	express, dotenv, morgan, nunjucks - dependencies  - npm i ...
+	nodemon - devDependencies  - npm i -D ...
 	
 2. express 
 		1. 인스턴스 생성 - const app = express();
@@ -12,8 +13,25 @@
 	(모든요청, 모든 메서드, - 미들웨어의 매개변수 총 4개 - err, req, res, next)
 	
 5. 정적 경로
-	express.static("경로")
+	express.static("경로") <-- 절대 경로(path.join)
 	
 6. body-parser 미들웨어
 	express.json()
 	express.urlencoded({ extended : false })
+	
+7. 라우터 구성 
+	const router = express.Router();  
+	
+	module.exports = router;
+	
+	-> 라우터 구성 모듈
+		-> 각 페이지별 라우터 구성 
+		
+	router.route("공통 URL")
+				.get(...)
+				.post(...)
+				.patch(...)
+				
+8. 사용할 템플릿엔진 설치 
+	nunjucks(외부 모듈 - mozila)
+	npm i nunjucks
