@@ -24,3 +24,12 @@
 	-> 서버에 저장하더라도 개인화된 형태를 유지
 		-> 쿠키 형태로 각 브라우저 마다 세션에 접근할 수 있는 키값을 보유 
 		
+
+
+node.js + express 
+		-cookie-parser  - 미들웨어
+					- 매개변수 1개 -> 쿠키 암호화키 
+				- req.headers.cookie의 문자열 데이터를 객체 형태로 변환 
+				- req.cookies
+				- res.cookie("키", "값")
+				- res.clearCookie("키", "값");

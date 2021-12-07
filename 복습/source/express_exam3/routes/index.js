@@ -3,6 +3,12 @@ const memberRouter = require("./member");
 const orderRouter = require("./order");
 const router = express.Router();
 
+
+router.use((req, res, next) => {
+	//console.log(req.headers);
+	next();
+});
+
 /** 
 * 회원 관련 
 * /member/join, /member/login

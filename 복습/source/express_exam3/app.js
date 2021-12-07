@@ -3,11 +3,13 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const path = require('path');
 const nunjucks = require('nunjucks');
+const cookieParser = require('cookie-parser');
 const router = require('./routes');
 const app = express();
 
 dotenv.config(); // .env -> process.env 하위 속성으로 추가 
 app.use(morgan('dev'));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
 app.set('PORT', process.env.PORT || 3000);
 
