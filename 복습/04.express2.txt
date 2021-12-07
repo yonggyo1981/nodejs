@@ -102,3 +102,30 @@ Express - 웹 프레임워크
 				1. dotenv 미들웨어 -> .env 
 				2. cross-env 모듈 -> package.json에서 사용자 정의 명령에서 등록 
 				
+	morgan -> 미들웨어 -> 디버깅(요청 URL, 응답속도 ....)
+	
+	
+	정적 경로 설정 
+		-> 기본 라우팅에 영향을 받지 않는 정적 자원에 접근하기 위한 설정 
+		express.static("경로") -> 미들웨어
+		
+		path
+			.join
+			
+	body-parser 
+		-> POST(PUT, PATCH ...) 형태의 양식데이터가 
+			body부분에 URL이 인코딩 된 형태의 쿼리스트링으로 전송
+			-> 문자열 이므로 바로 사용하기 어렵다(가공이 필요하다)
+			-> 편하게 사용가능한 객체로 변환해주는 미들웨어
+			
+			req.body 속성에 객체 형태로 변환 
+			
+			-> body-parser가 express 기본 모듈로 추가되어 있어서 설정만 하면 된다
+			express.json()
+			express.urlencoded({extended : false});
+			extended : false 
+							기본 내장 모듈인 querystring 모듈을 이용해서 처리 
+							true
+							외부 모듈인 qs 모듈로 처리
+					
+					

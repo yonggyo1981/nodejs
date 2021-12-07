@@ -1,0 +1,19 @@
+1. 필수 모듈 추가 + 필수 모듈 미들웨어 등록 
+	express, dotenv, morgan
+	
+2. express 
+		1. 인스턴스 생성 - const app = express();
+		2. 	listen(포트번호, 이벤트 핸들러(listening));
+		
+3. 없는 페이지 처리 공통 라우터
+		(모든 요청, 모든 메서드 - use)
+		
+4. 오류 처리 공통 라우터
+	(모든요청, 모든 메서드, - 미들웨어의 매개변수 총 4개 - err, req, res, next)
+	
+5. 정적 경로
+	express.static("경로")
+	
+6. body-parser 미들웨어
+	express.json()
+	express.urlencoded({ extended : false })
