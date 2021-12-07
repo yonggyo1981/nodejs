@@ -4,12 +4,22 @@ const morgan = require('morgan');
 const path = require('path');
 const nunjucks = require('nunjucks');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const router = require('./routes');
 const app = express();
 
 dotenv.config(); // .env -> process.env 하위 속성으로 추가 
 app.use(morgan('dev'));
 app.use(cookieParser(process.env.COOKIE_SECRET));
+app.use(session({
+		resave :  false, // 같은 값을 다시 저장할지 여부,
+		saveUninitialized :   true, // true -> 세션값을 지정하지 않아도 session id를 생성할지 여부
+		cookie : {
+			httpOnly : true,
+			secure : false,
+		},
+		name : "sessid",
+}));
 
 app.set('PORT', process.env.PORT || 3000);
 

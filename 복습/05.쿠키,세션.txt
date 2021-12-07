@@ -33,3 +33,27 @@ node.js + express
 				- req.cookies
 				- res.cookie("키", "값")
 				- res.clearCookie("키", "값");
+				
+				
+세션 
+	express-session 
+		npm i express-session
+		
+		req.session - 객체 
+				없는 속성 추가 -> 세션 값 추가 
+				예) req.session.memNo = 10;
+				
+				있는 값에서 대입 -> 변경 
+				세션 값 삭제 
+				delete req.session.memNo;
+				
+				세션을 전부 비우기
+				req.session.destroy();
+				
+				참고)
+				Servlet 
+				HttpSession 
+							.invalidate();
+							
+				PHP 
+					session_destory();
