@@ -1,0 +1,14 @@
+1. sequelize 
+		sequelize, sequelize-cli, mysql2
+		
+		npm i sequelize sequelize-cli mysql2
+		
+		
+		npx - 로컬(각 패키지의 node_modules)에서 cli 명령어 실행 
+		
+		1) 초기 필수 디렉토리와 설정파일 생성
+			npx sequelize init 
+		
+		
+	
+	

@@ -6,6 +6,7 @@ const nunjucks = require('nunjucks');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const router = require('./routes');
+const { sequelize } = require("./models");
 const app = express();
 
 dotenv.config(); // .env -> process.env 하위 속성으로 추가 
@@ -20,6 +21,14 @@ app.use(session({
 		},
 		name : "sessid",
 }));
+
+sequelize.sync({ force : false })
+		.then(() => {
+			console.log("데이터베이스 연결 성공!");
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 
 app.set('PORT', process.env.PORT || 3000);
 
