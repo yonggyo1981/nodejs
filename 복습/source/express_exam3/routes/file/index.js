@@ -13,7 +13,6 @@ const upload = multer({
 			}
 	}),// 파일 저장 경로
 	limits :  { fileSize :  1024 * 1024 * 10 },// 파일 용량 제한 
-	
 });
 
 router.route("/")

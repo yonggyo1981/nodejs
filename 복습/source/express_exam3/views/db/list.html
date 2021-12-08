@@ -1,0 +1,7 @@
+{% if rows.length > 0 %}
+<ul>
+{% for row in rows %}
+	<li>{{ row.status }} / {{ row.subject }}</li>
+{% endfor %}
+</ul>
+{% endif %}

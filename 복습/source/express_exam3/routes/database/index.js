@@ -27,8 +27,29 @@ router.get("/", async (req, res, next) => {
 		console.error(err);
 	});
 	*/
-	
-	
+});
+
+router.get("/insert", async (req, res) => {
+	try {
+		const sql = `INSERT INTO worklist (gid, status, subject, content) 
+							VALUES (:gid, :status, :subject, :content)`;
+		const replacements = {
+			gid : Date.now(),
+			status : "progress",
+			subject : "작업 제목...",
+			content : "작업 내용....",
+		};
+		
+		const result = await sequelize.query(sql, {
+			replacements,
+			type : QueryTypes.INSERT,
+		});
+		
+		console.log("result : ", result);
+		
+	} catch (err) {
+		console.error(err);
+	}
 });
 
 module.exports = router;
