@@ -1,0 +1,13 @@
+multer - 외부 모듈
+	npm i multer 
+		multer 
+				.single('file 태그의 name') -> 파일 1개 업로드 
+						-> 미들웨어로 등록 -> 다음미들웨의 req 속성 값으로 file이 추가 
+							-> req.file ->업로드된 파일 정보
+							
+				.array('file 태그의 name'); // file 태그의 속성값이 multiple 
+							-> req.files -> 업로드된 파일 정보들...
+							
+				.fields([{ name : "..."}, {name : "..." }]); // 파일 name별 여러 파일 업로드시 
+					-> req.files -> 업로드된 파일 정보들...
+						
